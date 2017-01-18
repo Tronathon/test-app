@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+
+		{% block head %}
+			<meta charset="utf-8">
+			<meta http-equiv="x-ua-compatible" content="ie=edge">
+			<title>ExpressionEngine</title>
+			<meta name="description" content="">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% endblock %}
+
+		{% if not craft.config.devMode and not craft.request.isLivePreview %}
+			{# Insert analytics / tracking scripts #}
+		{% endif %}
+
+	</head>
+
+	<body>
+			{% block content %}{% endblock %}
+	</body>
+
+</html>
