@@ -1,24 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ craft.locale|replace('_','-') }}">
 
 	<head>
 
 		{% block head %}
 			<meta charset="utf-8">
 			<meta http-equiv="x-ua-compatible" content="ie=edge">
-			<title>ExpressionEngine</title>
+			<title>Craft</title>
 			<meta name="description" content="">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 		{% endblock %}
 
 		{% if not craft.config.devMode and not craft.request.isLivePreview %}
-			{# Insert analytics / tracking scripts #}
+			{# Insert analytics and tracking scripts #}
 		{% endif %}
 
 	</head>
 
 	<body>
-			{% block content %}{% endblock %}
+
+		{% block layout %}
+			<p><code>{% verbatim %}{% block layout %}…{% endblock %}{% endverbatim %}</code> not set.</p>
+		{% endblock %}
+
 	</body>
 
 </html>
