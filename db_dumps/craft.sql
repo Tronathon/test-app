@@ -11,7 +11,7 @@
  Target Server Version : 50635
  File Encoding         : utf-8
 
- Date: 04/10/2017 17:15:38 PM
+ Date: 07/25/2017 09:33:58 AM
 */
 
 SET NAMES utf8mb4;
@@ -229,13 +229,13 @@ CREATE TABLE `craft_content` (
   KEY `craft_content_locale_fk` (`locale`),
   CONSTRAINT `craft_content_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_content_locale_fk` FOREIGN KEY (`locale`) REFERENCES `craft_locales` (`locale`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_content`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_content` VALUES ('1', '1', 'en_gb', null, '2016-12-01 12:57:37', '2016-12-01 12:57:37', 'f6c5f1f7-7db3-40e4-bf9b-39bf5cbd0672');
+INSERT INTO `craft_content` VALUES ('1', '1', 'en_gb', null, '2016-12-01 12:57:37', '2016-12-01 12:57:37', 'f6c5f1f7-7db3-40e4-bf9b-39bf5cbd0672'), ('8', '8', 'en_gb', '404', '2017-07-25 08:25:02', '2017-07-25 08:25:02', '557f7245-61ee-4f9e-a368-4a1fa21b8f4b');
 COMMIT;
 
 -- ----------------------------
@@ -300,13 +300,13 @@ CREATE TABLE `craft_elements` (
   KEY `craft_elements_type_idx` (`type`),
   KEY `craft_elements_enabled_idx` (`enabled`),
   KEY `craft_elements_archived_dateCreated_idx` (`archived`,`dateCreated`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_elements`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_elements` VALUES ('1', 'User', '1', '0', '2016-12-01 12:57:37', '2016-12-01 12:57:37', 'a4d390e7-a85a-4347-9501-6e3b562381b4');
+INSERT INTO `craft_elements` VALUES ('1', 'User', '1', '0', '2016-12-01 12:57:37', '2016-12-01 12:57:37', 'a4d390e7-a85a-4347-9501-6e3b562381b4'), ('8', 'Entry', '1', '0', '2017-07-25 08:25:02', '2017-07-25 08:25:02', '5b6e2eef-fd54-4aad-9dc1-7f99f4571751');
 COMMIT;
 
 -- ----------------------------
@@ -331,13 +331,13 @@ CREATE TABLE `craft_elements_i18n` (
   KEY `craft_elements_i18n_locale_fk` (`locale`),
   CONSTRAINT `craft_elements_i18n_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_elements_i18n_locale_fk` FOREIGN KEY (`locale`) REFERENCES `craft_locales` (`locale`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_elements_i18n`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_elements_i18n` VALUES ('1', '1', 'en_gb', '', null, '1', '2016-12-01 12:57:37', '2016-12-01 12:57:37', '8dfb760f-9a84-4024-a174-95611ce6f225');
+INSERT INTO `craft_elements_i18n` VALUES ('1', '1', 'en_gb', '', null, '1', '2016-12-01 12:57:37', '2016-12-01 12:57:37', '8dfb760f-9a84-4024-a174-95611ce6f225'), ('8', '8', 'en_gb', '404', '404', '1', '2017-07-25 08:25:02', '2017-07-25 08:25:02', '3b3fb5ac-0e49-4f40-9fe4-692cce9e107b');
 COMMIT;
 
 -- ----------------------------
@@ -384,6 +384,13 @@ CREATE TABLE `craft_entries` (
   CONSTRAINT `craft_entries_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `craft_sections` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_entries_typeId_fk` FOREIGN KEY (`typeId`) REFERENCES `craft_entrytypes` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+--  Records of `craft_entries`
+-- ----------------------------
+BEGIN;
+INSERT INTO `craft_entries` VALUES ('8', '3', null, null, '2017-07-25 08:25:01', null, '2017-07-25 08:25:02', '2017-07-25 08:25:02', '8e47186a-45f9-472a-9fc8-150d5ba47887');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `craft_entrydrafts`
@@ -436,7 +443,14 @@ CREATE TABLE `craft_entrytypes` (
   KEY `craft_entrytypes_fieldLayoutId_fk` (`fieldLayoutId`),
   CONSTRAINT `craft_entrytypes_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE SET NULL,
   CONSTRAINT `craft_entrytypes_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `craft_sections` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+--  Records of `craft_entrytypes`
+-- ----------------------------
+BEGIN;
+INSERT INTO `craft_entrytypes` VALUES ('4', '3', '7', '404', 'notFound', '0', null, '{section.name|raw}', '1', '2017-07-25 08:25:01', '2017-07-25 08:25:01', '3eac8d2e-ea04-4bdd-b43c-3878ee7158bb');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `craft_entryversions`
@@ -515,7 +529,14 @@ CREATE TABLE `craft_fieldlayouts` (
   `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `craft_fieldlayouts_type_idx` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+--  Records of `craft_fieldlayouts`
+-- ----------------------------
+BEGIN;
+INSERT INTO `craft_fieldlayouts` VALUES ('7', 'Entry', '2017-07-25 08:25:01', '2017-07-25 08:25:01', 'e1edeb38-b928-4345-adbd-079803117369');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `craft_fieldlayouttabs`
@@ -603,7 +624,7 @@ CREATE TABLE `craft_info` (
 --  Records of `craft_info`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_info` VALUES ('1', '2.6.2971', '2.6.9', '0', 'Craft', 'http://www.craft.dev', 'UTC', '1', '0', '2016-12-01 12:57:35', '2017-04-10 16:15:09', 'f2b63725-a45a-4b78-98f6-f2d68f71170c');
+INSERT INTO `craft_info` VALUES ('1', '2.6.2987', '2.6.10', '0', 'Craft', 'http://www.craft.dev', 'UTC', '1', '0', '2016-12-01 12:57:35', '2017-07-25 08:21:51', 'f2b63725-a45a-4b78-98f6-f2d68f71170c');
 COMMIT;
 
 -- ----------------------------
@@ -678,6 +699,29 @@ CREATE TABLE `craft_matrixblocktypes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
+--  Table structure for `craft_matrixcontent_body`
+-- ----------------------------
+DROP TABLE IF EXISTS `craft_matrixcontent_body`;
+CREATE TABLE `craft_matrixcontent_body` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `elementId` int(11) NOT NULL,
+  `locale` char(12) COLLATE utf8_unicode_ci NOT NULL,
+  `field_blockquote_quote` text COLLATE utf8_unicode_ci,
+  `field_blockquote_Citation` text COLLATE utf8_unicode_ci,
+  `field_heading_lvl` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `field_heading_text` text COLLATE utf8_unicode_ci,
+  `field_text_text` text COLLATE utf8_unicode_ci,
+  `dateCreated` datetime NOT NULL,
+  `dateUpdated` datetime NOT NULL,
+  `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `craft_matrixcontent_body_elementId_locale_unq_idx` (`elementId`,`locale`),
+  KEY `craft_matrixcontent_body_locale_fk` (`locale`),
+  CONSTRAINT `craft_matrixcontent_body_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `craft_matrixcontent_body_locale_fk` FOREIGN KEY (`locale`) REFERENCES `craft_locales` (`locale`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
 --  Table structure for `craft_migrations`
 -- ----------------------------
 DROP TABLE IF EXISTS `craft_migrations`;
@@ -693,13 +737,13 @@ CREATE TABLE `craft_migrations` (
   UNIQUE KEY `craft_migrations_version_unq_idx` (`version`),
   KEY `craft_migrations_pluginId_fk` (`pluginId`),
   CONSTRAINT `craft_migrations_pluginId_fk` FOREIGN KEY (`pluginId`) REFERENCES `craft_plugins` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_migrations`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_migrations` VALUES ('1', null, 'm000000_000000_base', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '7ab33e58-e732-450e-8243-c3bf06575c66'), ('2', null, 'm140730_000001_add_filename_and_format_to_transformindex', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '264ff2ec-e250-4e93-9a14-bf949c77933d'), ('3', null, 'm140815_000001_add_format_to_transforms', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'a18eda2b-1ce2-40b2-8047-db9732b185d8'), ('4', null, 'm140822_000001_allow_more_than_128_items_per_field', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '3188bfb8-bc2a-459a-bf63-cf3d47d2fcef'), ('5', null, 'm140829_000001_single_title_formats', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'fca0487a-7a7a-4d6a-955c-01af9c0aa14e'), ('6', null, 'm140831_000001_extended_cache_keys', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'dbf4e099-0262-47ff-842b-c1c5f7f3a3e6'), ('7', null, 'm140922_000001_delete_orphaned_matrix_blocks', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '5ff2820a-af35-4005-87b4-e2994b47b42c'), ('8', null, 'm141008_000001_elements_index_tune', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '0b2ffe2f-6109-4e86-ae0b-b0413c2b2166'), ('9', null, 'm141009_000001_assets_source_handle', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'cca65ab8-2fe8-4eed-b5a7-a3731235fc91'), ('10', null, 'm141024_000001_field_layout_tabs', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '91f338ac-1383-4bc9-86ab-8dca8ff7712d'), ('11', null, 'm141030_000000_plugin_schema_versions', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'e6210518-2bda-4ee2-aaee-cdc761ef78d4'), ('12', null, 'm141030_000001_drop_structure_move_permission', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'da02624b-89ff-428e-9c1b-765fcfb4f873'), ('13', null, 'm141103_000001_tag_titles', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '63b3d32a-3fe6-4c0b-b414-7bd3d71bfef3'), ('14', null, 'm141109_000001_user_status_shuffle', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '692641f7-e964-499d-a5b2-f561769ed60a'), ('15', null, 'm141126_000001_user_week_start_day', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'dce83125-c289-47a2-b65a-8822c5aa279f'), ('16', null, 'm150210_000001_adjust_user_photo_size', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '6e37b42d-0eee-45e6-a707-a5914296d46d'), ('17', null, 'm150724_000001_adjust_quality_settings', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '6d488c7f-093c-40ae-b9b6-9833f9a2ec42'), ('18', null, 'm150827_000000_element_index_settings', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '892bda63-1dbb-4289-9e42-e79c4bdc14b8'), ('19', null, 'm150918_000001_add_colspan_to_widgets', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'd950db4c-e4e3-49b1-aa64-c6bf8cb7079c'), ('20', null, 'm151007_000000_clear_asset_caches', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'a820f87c-ff5e-4749-a572-67001b83f971'), ('21', null, 'm151109_000000_text_url_formats', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '32a0e07e-ac6e-4439-8a01-805d21255a12'), ('22', null, 'm151110_000000_move_logo', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'f2908f00-1219-4511-aef4-7b1f87bed543'), ('23', null, 'm151117_000000_adjust_image_widthheight', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '86c9ad40-2a8f-4133-bafa-e5fd74ff259f'), ('24', null, 'm151127_000000_clear_license_key_status', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'ab835666-e2ad-4f60-af6a-af426797dcf5'), ('25', null, 'm151127_000000_plugin_license_keys', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'c68cfefb-50a8-42fb-bcce-7d5668694d71'), ('26', null, 'm151130_000000_update_pt_widget_feeds', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'f8eaab8f-7ce7-47d8-87ea-3473479a9ce1'), ('27', null, 'm160114_000000_asset_sources_public_url_default_true', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'cc9ab6b5-ebf4-4fe1-8ea0-eaec62640323'), ('28', null, 'm160223_000000_sortorder_to_smallint', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'ae370848-ef7b-455d-8b0e-781b661eb718'), ('29', null, 'm160229_000000_set_default_entry_statuses', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '4919ca47-7b27-45aa-93e2-7712ed37ba96'), ('30', null, 'm160304_000000_client_permissions', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'a9650dc3-a110-4208-ae05-e32561b4966a'), ('31', null, 'm160322_000000_asset_filesize', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '4284324b-63f4-44d3-a0e0-ae65b31aa167'), ('32', null, 'm160503_000000_orphaned_fieldlayouts', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '44775ed5-a60b-4431-9802-51d315f33c6a'), ('33', null, 'm160510_000000_tasksettings', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '47f0cc7c-c4a8-45de-a2e5-e22b0957c229'), ('34', null, 'm160829_000000_pending_user_content_cleanup', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'df4cca57-1615-4516-ba50-4d7075a46576'), ('35', null, 'm160830_000000_asset_index_uri_increase', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'a24170d1-3b75-4462-80ce-ffb54832a3ba'), ('36', null, 'm160919_000000_usergroup_handle_title_unique', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '3afc516c-129a-4bbb-8646-482813a0da07'), ('37', null, 'm161108_000000_new_version_format', '2016-12-01 13:13:21', '2016-12-01 13:13:21', '2016-12-01 13:13:21', 'c6f0905f-3a86-41ae-89d3-2deda02ecc7f'), ('38', null, 'm161109_000000_index_shuffle', '2016-12-01 13:13:21', '2016-12-01 13:13:21', '2016-12-01 13:13:21', '5b7e1ae0-876f-4b1e-92a9-2b2827cdad63');
+INSERT INTO `craft_migrations` VALUES ('1', null, 'm000000_000000_base', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '7ab33e58-e732-450e-8243-c3bf06575c66'), ('2', null, 'm140730_000001_add_filename_and_format_to_transformindex', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '264ff2ec-e250-4e93-9a14-bf949c77933d'), ('3', null, 'm140815_000001_add_format_to_transforms', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'a18eda2b-1ce2-40b2-8047-db9732b185d8'), ('4', null, 'm140822_000001_allow_more_than_128_items_per_field', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '3188bfb8-bc2a-459a-bf63-cf3d47d2fcef'), ('5', null, 'm140829_000001_single_title_formats', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'fca0487a-7a7a-4d6a-955c-01af9c0aa14e'), ('6', null, 'm140831_000001_extended_cache_keys', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'dbf4e099-0262-47ff-842b-c1c5f7f3a3e6'), ('7', null, 'm140922_000001_delete_orphaned_matrix_blocks', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '5ff2820a-af35-4005-87b4-e2994b47b42c'), ('8', null, 'm141008_000001_elements_index_tune', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '0b2ffe2f-6109-4e86-ae0b-b0413c2b2166'), ('9', null, 'm141009_000001_assets_source_handle', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'cca65ab8-2fe8-4eed-b5a7-a3731235fc91'), ('10', null, 'm141024_000001_field_layout_tabs', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '91f338ac-1383-4bc9-86ab-8dca8ff7712d'), ('11', null, 'm141030_000000_plugin_schema_versions', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'e6210518-2bda-4ee2-aaee-cdc761ef78d4'), ('12', null, 'm141030_000001_drop_structure_move_permission', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'da02624b-89ff-428e-9c1b-765fcfb4f873'), ('13', null, 'm141103_000001_tag_titles', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '63b3d32a-3fe6-4c0b-b414-7bd3d71bfef3'), ('14', null, 'm141109_000001_user_status_shuffle', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '692641f7-e964-499d-a5b2-f561769ed60a'), ('15', null, 'm141126_000001_user_week_start_day', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'dce83125-c289-47a2-b65a-8822c5aa279f'), ('16', null, 'm150210_000001_adjust_user_photo_size', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '6e37b42d-0eee-45e6-a707-a5914296d46d'), ('17', null, 'm150724_000001_adjust_quality_settings', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '6d488c7f-093c-40ae-b9b6-9833f9a2ec42'), ('18', null, 'm150827_000000_element_index_settings', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '892bda63-1dbb-4289-9e42-e79c4bdc14b8'), ('19', null, 'm150918_000001_add_colspan_to_widgets', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'd950db4c-e4e3-49b1-aa64-c6bf8cb7079c'), ('20', null, 'm151007_000000_clear_asset_caches', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'a820f87c-ff5e-4749-a572-67001b83f971'), ('21', null, 'm151109_000000_text_url_formats', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '32a0e07e-ac6e-4439-8a01-805d21255a12'), ('22', null, 'm151110_000000_move_logo', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'f2908f00-1219-4511-aef4-7b1f87bed543'), ('23', null, 'm151117_000000_adjust_image_widthheight', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '86c9ad40-2a8f-4133-bafa-e5fd74ff259f'), ('24', null, 'm151127_000000_clear_license_key_status', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'ab835666-e2ad-4f60-af6a-af426797dcf5'), ('25', null, 'm151127_000000_plugin_license_keys', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'c68cfefb-50a8-42fb-bcce-7d5668694d71'), ('26', null, 'm151130_000000_update_pt_widget_feeds', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'f8eaab8f-7ce7-47d8-87ea-3473479a9ce1'), ('27', null, 'm160114_000000_asset_sources_public_url_default_true', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'cc9ab6b5-ebf4-4fe1-8ea0-eaec62640323'), ('28', null, 'm160223_000000_sortorder_to_smallint', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'ae370848-ef7b-455d-8b0e-781b661eb718'), ('29', null, 'm160229_000000_set_default_entry_statuses', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '4919ca47-7b27-45aa-93e2-7712ed37ba96'), ('30', null, 'm160304_000000_client_permissions', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'a9650dc3-a110-4208-ae05-e32561b4966a'), ('31', null, 'm160322_000000_asset_filesize', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '4284324b-63f4-44d3-a0e0-ae65b31aa167'), ('32', null, 'm160503_000000_orphaned_fieldlayouts', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '44775ed5-a60b-4431-9802-51d315f33c6a'), ('33', null, 'm160510_000000_tasksettings', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '47f0cc7c-c4a8-45de-a2e5-e22b0957c229'), ('34', null, 'm160829_000000_pending_user_content_cleanup', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'df4cca57-1615-4516-ba50-4d7075a46576'), ('35', null, 'm160830_000000_asset_index_uri_increase', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', 'a24170d1-3b75-4462-80ce-ffb54832a3ba'), ('36', null, 'm160919_000000_usergroup_handle_title_unique', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '2016-12-01 12:57:35', '3afc516c-129a-4bbb-8646-482813a0da07'), ('37', null, 'm161108_000000_new_version_format', '2016-12-01 13:13:21', '2016-12-01 13:13:21', '2016-12-01 13:13:21', 'c6f0905f-3a86-41ae-89d3-2deda02ecc7f'), ('38', null, 'm161109_000000_index_shuffle', '2016-12-01 13:13:21', '2016-12-01 13:13:21', '2016-12-01 13:13:21', '5b7e1ae0-876f-4b1e-92a9-2b2827cdad63'), ('39', null, 'm170612_000000_route_index_shuffle', '2017-07-25 08:21:51', '2017-07-25 08:21:51', '2017-07-25 08:21:51', '08ef90f4-ee16-41cb-b792-0ed24a0a3144');
 COMMIT;
 
 -- ----------------------------
@@ -779,8 +823,8 @@ CREATE TABLE `craft_routes` (
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `craft_routes_urlPattern_unq_idx` (`urlPattern`),
   KEY `craft_routes_locale_idx` (`locale`),
+  KEY `craft_routes_urlPattern_idx` (`urlPattern`),
   CONSTRAINT `craft_routes_locale_fk` FOREIGN KEY (`locale`) REFERENCES `craft_locales` (`locale`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -802,7 +846,7 @@ CREATE TABLE `craft_searchindex` (
 --  Records of `craft_searchindex`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_searchindex` VALUES ('1', 'username', '0', 'en_gb', ' admin '), ('1', 'firstname', '0', 'en_gb', ''), ('1', 'lastname', '0', 'en_gb', ''), ('1', 'fullname', '0', 'en_gb', ''), ('1', 'email', '0', 'en_gb', ' webdev nixondesign com '), ('1', 'slug', '0', 'en_gb', '');
+INSERT INTO `craft_searchindex` VALUES ('1', 'username', '0', 'en_gb', ' admin '), ('1', 'firstname', '0', 'en_gb', ''), ('1', 'lastname', '0', 'en_gb', ''), ('1', 'fullname', '0', 'en_gb', ''), ('1', 'email', '0', 'en_gb', ' webdev nixondesign com '), ('1', 'slug', '0', 'en_gb', ''), ('8', 'slug', '0', 'en_gb', ' 404 '), ('8', 'title', '0', 'en_gb', ' 404 ');
 COMMIT;
 
 -- ----------------------------
@@ -826,7 +870,14 @@ CREATE TABLE `craft_sections` (
   UNIQUE KEY `craft_sections_handle_unq_idx` (`handle`),
   KEY `craft_sections_structureId_fk` (`structureId`),
   CONSTRAINT `craft_sections_structureId_fk` FOREIGN KEY (`structureId`) REFERENCES `craft_structures` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+--  Records of `craft_sections`
+-- ----------------------------
+BEGIN;
+INSERT INTO `craft_sections` VALUES ('3', null, '404', 'notFound', 'single', '1', '404', '0', '2017-07-25 08:25:01', '2017-07-25 08:25:01', 'dff6ec72-dbda-4569-acbf-4b5daca41c9e');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `craft_sections_i18n`
@@ -847,7 +898,14 @@ CREATE TABLE `craft_sections_i18n` (
   KEY `craft_sections_i18n_locale_fk` (`locale`),
   CONSTRAINT `craft_sections_i18n_locale_fk` FOREIGN KEY (`locale`) REFERENCES `craft_locales` (`locale`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `craft_sections_i18n_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `craft_sections` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+--  Records of `craft_sections_i18n`
+-- ----------------------------
+BEGIN;
+INSERT INTO `craft_sections_i18n` VALUES ('3', '3', 'en_gb', '1', '404', null, '2017-07-25 08:25:01', '2017-07-25 08:25:01', 'ff417104-4d16-4f6a-8793-751f54c0f1f6');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `craft_sessions`
@@ -866,13 +924,13 @@ CREATE TABLE `craft_sessions` (
   KEY `craft_sessions_dateUpdated_idx` (`dateUpdated`),
   KEY `craft_sessions_userId_fk` (`userId`),
   CONSTRAINT `craft_sessions_userId_fk` FOREIGN KEY (`userId`) REFERENCES `craft_users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_sessions`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_sessions` VALUES ('2', '1', 'c173b485051ba11e1cf5a022ff893da1a7f66896czozMjoiTWd1aDV0UFNMWFFrRUVYb2ZvZWx6NVpfUl9peEtwfmsiOw==', '2016-12-01 12:58:10', '2016-12-01 12:58:10', 'e76b08c6-a872-4381-8bf7-83d7f74853c1'), ('3', '1', '61f3315f42bdac33d5c49eeadc665a9ed0d1e2eeczozMjoiQVI1SGdZRzZiX0xydTU0OX5STUdoYzVXV1lzcXBQVHoiOw==', '2016-12-02 12:01:04', '2016-12-02 12:01:04', '2ac1494f-ca3c-4612-9ed4-e66e25d700cd'), ('4', '1', '9d2897f977b49330de9afff7418f860b8c99932fczozMjoiZ2dxT0J5Z1pmNEE3TGluRkNCRzZWVHlRQ2NWQVN3SGYiOw==', '2017-01-18 11:48:18', '2017-01-18 11:48:18', '6b459c15-c705-4fb8-b464-2791edcddf58'), ('5', '1', '1db5ac813082c05d24d8825f00ceafaccb4091f2czozMjoiTXE3YXZaVGdyU3Z3NFF3aTF1ZF80Nk9Qd3lpcmhKTVUiOw==', '2017-03-15 12:57:09', '2017-03-15 12:57:09', '34cb0b45-efa9-4796-a889-fc8bdbadeaa1'), ('6', '1', 'e3c4f7a82f9d936a1444a930446c3ac91ac60870czozMjoidlRGfklmTmo1X19CflRCcjc1aVR4TlVQU2M1cXpraWMiOw==', '2017-03-15 15:28:36', '2017-03-15 15:28:36', '8825821a-664e-4fb8-9856-854588dfde83'), ('7', '1', '4fd470a30744271c9fd2e5d8dc10abb8e5fa77ddczozMjoiV0tQd0gzNHV3SHlWMWlzd284eH5tdDZ0dUxuWm8zdVEiOw==', '2017-04-07 09:47:33', '2017-04-07 09:47:33', 'e898cba5-3f48-4e15-9cf3-95535c442917'), ('8', '1', '876d73de49fdb43171cf38198fd3bf2b14cda56eczozMjoicWhxd3dta3RYWjN2dndaZ2t1aExkZXp5RlpZWHZwOEciOw==', '2017-04-07 12:38:51', '2017-04-07 12:38:51', '2c921920-d105-4fb5-a4f5-f970bcaae1e4'), ('9', '1', 'f903e028946bab1adaf776c7871d2d4dc4f2e888czozMjoiUWtSQzZxcXRuUno0Zmw2VlFJODhJNklEaGxJSUlURHYiOw==', '2017-04-07 14:06:56', '2017-04-07 14:06:56', '3aaf9d91-0707-43c7-9cab-c00fc7432fc6'), ('10', '1', 'c265fcbedd10eaba36f95a6e057edcf6609200e6czozMjoieX44UTJlNDBZS0lBenVoYU1fVENNcWlOMkVNV0FwSjMiOw==', '2017-04-10 16:13:26', '2017-04-10 16:13:26', '6cf56cba-0945-47d3-9370-aa4c37b22db1');
+INSERT INTO `craft_sessions` VALUES ('2', '1', 'c173b485051ba11e1cf5a022ff893da1a7f66896czozMjoiTWd1aDV0UFNMWFFrRUVYb2ZvZWx6NVpfUl9peEtwfmsiOw==', '2016-12-01 12:58:10', '2016-12-01 12:58:10', 'e76b08c6-a872-4381-8bf7-83d7f74853c1'), ('3', '1', '61f3315f42bdac33d5c49eeadc665a9ed0d1e2eeczozMjoiQVI1SGdZRzZiX0xydTU0OX5STUdoYzVXV1lzcXBQVHoiOw==', '2016-12-02 12:01:04', '2016-12-02 12:01:04', '2ac1494f-ca3c-4612-9ed4-e66e25d700cd'), ('4', '1', '9d2897f977b49330de9afff7418f860b8c99932fczozMjoiZ2dxT0J5Z1pmNEE3TGluRkNCRzZWVHlRQ2NWQVN3SGYiOw==', '2017-01-18 11:48:18', '2017-01-18 11:48:18', '6b459c15-c705-4fb8-b464-2791edcddf58'), ('5', '1', '1db5ac813082c05d24d8825f00ceafaccb4091f2czozMjoiTXE3YXZaVGdyU3Z3NFF3aTF1ZF80Nk9Qd3lpcmhKTVUiOw==', '2017-03-15 12:57:09', '2017-03-15 12:57:09', '34cb0b45-efa9-4796-a889-fc8bdbadeaa1'), ('6', '1', 'e3c4f7a82f9d936a1444a930446c3ac91ac60870czozMjoidlRGfklmTmo1X19CflRCcjc1aVR4TlVQU2M1cXpraWMiOw==', '2017-03-15 15:28:36', '2017-03-15 15:28:36', '8825821a-664e-4fb8-9856-854588dfde83'), ('7', '1', '4fd470a30744271c9fd2e5d8dc10abb8e5fa77ddczozMjoiV0tQd0gzNHV3SHlWMWlzd284eH5tdDZ0dUxuWm8zdVEiOw==', '2017-04-07 09:47:33', '2017-04-07 09:47:33', 'e898cba5-3f48-4e15-9cf3-95535c442917'), ('8', '1', '876d73de49fdb43171cf38198fd3bf2b14cda56eczozMjoicWhxd3dta3RYWjN2dndaZ2t1aExkZXp5RlpZWHZwOEciOw==', '2017-04-07 12:38:51', '2017-04-07 12:38:51', '2c921920-d105-4fb5-a4f5-f970bcaae1e4'), ('9', '1', 'f903e028946bab1adaf776c7871d2d4dc4f2e888czozMjoiUWtSQzZxcXRuUno0Zmw2VlFJODhJNklEaGxJSUlURHYiOw==', '2017-04-07 14:06:56', '2017-04-07 14:06:56', '3aaf9d91-0707-43c7-9cab-c00fc7432fc6'), ('10', '1', 'c265fcbedd10eaba36f95a6e057edcf6609200e6czozMjoieX44UTJlNDBZS0lBenVoYU1fVENNcWlOMkVNV0FwSjMiOw==', '2017-04-10 16:13:26', '2017-04-10 16:13:26', '6cf56cba-0945-47d3-9370-aa4c37b22db1'), ('11', '1', 'a9168308f59853a6f6ebd4474a07ba7853429182czozMjoiaHVCSkNibXBMWjhFNGlqbnBTblc4bnhoTHp+OHJEVWYiOw==', '2017-07-25 08:21:22', '2017-07-25 08:21:22', 'd6273c53-ccab-41ab-866e-494cac748138');
 COMMIT;
 
 -- ----------------------------
@@ -1012,7 +1070,7 @@ CREATE TABLE `craft_tasks` (
   KEY `craft_tasks_lft_idx` (`lft`),
   KEY `craft_tasks_rgt_idx` (`rgt`),
   KEY `craft_tasks_level_idx` (`level`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Table structure for `craft_templatecachecriteria`
@@ -1216,7 +1274,7 @@ CREATE TABLE `craft_users` (
 --  Records of `craft_users`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_users` VALUES ('1', 'admin', null, null, null, 'webdev@nixondesign.com', '$2y$13$ssIBJkItmD6uPnDyyOwraO3k5aI571/kj5lg3oHvAJwQFKuSkZKUi', null, '0', '1', '0', '0', '0', '0', '0', '2017-04-10 16:13:26', '::1', null, null, null, null, null, null, null, '0', '2016-12-01 12:57:37', '2016-12-01 12:57:37', '2017-04-10 16:13:26', 'f1b766f2-b36c-470f-9420-b03b7c03a50f');
+INSERT INTO `craft_users` VALUES ('1', 'admin', null, null, null, 'webdev@nixondesign.com', '$2y$13$ssIBJkItmD6uPnDyyOwraO3k5aI571/kj5lg3oHvAJwQFKuSkZKUi', null, '0', '1', '0', '0', '0', '0', '0', '2017-07-25 08:21:22', '::1', null, null, null, null, null, null, null, '0', '2016-12-01 12:57:37', '2016-12-01 12:57:37', '2017-07-25 08:21:22', 'f1b766f2-b36c-470f-9420-b03b7c03a50f');
 COMMIT;
 
 -- ----------------------------
