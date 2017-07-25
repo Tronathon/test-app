@@ -20,6 +20,10 @@ return array(
 			'basePath' => BASEPATH,
 			'siteUrl' => SITE_URL
 		),
+	),
+
+	'.dev' => array(
+		'devMode' => true
 	)
 
 );
