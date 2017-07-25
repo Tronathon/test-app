@@ -5,6 +5,10 @@
 
 {% extends "_layouts/base" %}
 
+{% if entry is not defined %}
+	{% set entry = craft.entries.uri('404').first() %}
+{% endif %}
+
 {% block content %}
 	<h1>Page not found</h1>
 {% endblock %}
