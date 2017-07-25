@@ -4,11 +4,18 @@
 	<head>
 
 		{% block head %}
+
+			{% set metaTitle = entry.metaTitle is defined and entry.metaTitle ? entry.metaTitle : metaTitle ?? entry.title ?? siteName ?? null %}
+			{% set metaDescription = entry.metaDescription is defined and entry.metaDescription ? entry.metaDescription : metaDescription ?? null %}
+
+			<title>{% if craft.config.devMode %}Dev - {% endif %}{{ metaTitle }}</title>
 			<meta charset="utf-8">
 			<meta http-equiv="x-ua-compatible" content="ie=edge">
-			<title>Craft</title>
-			<meta name="description" content="">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
+			{% if metaDescription is defined and metaDescription %}
+				<meta name="description" content="{{ metaDescription }}">
+			{% endif %}
+
 		{% endblock %}
 
 		{% if not craft.config.devMode and not craft.request.isLivePreview %}
@@ -20,7 +27,7 @@
 	<body>
 
 		{% block layout %}
-			<p><code>{% verbatim %}{% block layout %}…{% endblock %}{% endverbatim %}</code> not set.</p>
+			<p><code>{% verbatim %}{% block layout %}{% endblock %}{% endverbatim %}</code> not set.</p>
 		{% endblock %}
 
 	</body>
