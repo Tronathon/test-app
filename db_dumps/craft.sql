@@ -11,7 +11,7 @@
  Target Server Version : 50635
  File Encoding         : utf-8
 
- Date: 07/25/2017 17:24:49 PM
+ Date: 08/07/2017 10:54:19 AM
 */
 
 SET NAMES utf8mb4;
@@ -237,7 +237,7 @@ CREATE TABLE `craft_content` (
 --  Records of `craft_content`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_content` VALUES ('1', '1', 'en_gb', null, null, null, '2016-12-01 12:57:37', '2016-12-01 12:57:37', 'f6c5f1f7-7db3-40e4-bf9b-39bf5cbd0672'), ('8', '8', 'en_gb', '404', '', '', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '557f7245-61ee-4f9e-a368-4a1fa21b8f4b');
+INSERT INTO `craft_content` VALUES ('1', '1', 'en_gb', null, null, null, '2016-12-01 12:57:37', '2017-08-07 09:51:57', 'f6c5f1f7-7db3-40e4-bf9b-39bf5cbd0672'), ('8', '8', 'en_gb', '404', '', '', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '557f7245-61ee-4f9e-a368-4a1fa21b8f4b');
 COMMIT;
 
 -- ----------------------------
@@ -308,7 +308,7 @@ CREATE TABLE `craft_elements` (
 --  Records of `craft_elements`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_elements` VALUES ('1', 'User', '1', '0', '2016-12-01 12:57:37', '2016-12-01 12:57:37', 'a4d390e7-a85a-4347-9501-6e3b562381b4'), ('8', 'Entry', '1', '0', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '5b6e2eef-fd54-4aad-9dc1-7f99f4571751');
+INSERT INTO `craft_elements` VALUES ('1', 'User', '1', '0', '2016-12-01 12:57:37', '2017-08-07 09:51:57', 'a4d390e7-a85a-4347-9501-6e3b562381b4'), ('8', 'Entry', '1', '0', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '5b6e2eef-fd54-4aad-9dc1-7f99f4571751');
 COMMIT;
 
 -- ----------------------------
@@ -339,7 +339,7 @@ CREATE TABLE `craft_elements_i18n` (
 --  Records of `craft_elements_i18n`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_elements_i18n` VALUES ('1', '1', 'en_gb', '', null, '1', '2016-12-01 12:57:37', '2016-12-01 12:57:37', '8dfb760f-9a84-4024-a174-95611ce6f225'), ('8', '8', 'en_gb', '404', '404', '1', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '3b3fb5ac-0e49-4f40-9fe4-692cce9e107b');
+INSERT INTO `craft_elements_i18n` VALUES ('1', '1', 'en_gb', '', null, '1', '2016-12-01 12:57:37', '2017-08-07 09:51:57', '8dfb760f-9a84-4024-a174-95611ce6f225'), ('8', '8', 'en_gb', '404', '404', '1', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '3b3fb5ac-0e49-4f40-9fe4-692cce9e107b');
 COMMIT;
 
 -- ----------------------------
@@ -654,7 +654,7 @@ CREATE TABLE `craft_info` (
 --  Records of `craft_info`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_info` VALUES ('1', '2.6.2987', '2.6.10', '0', 'Craft', '{{ siteUrl }}', 'UTC', '1', '0', '2016-12-01 12:57:35', '2017-07-25 16:19:40', 'f2b63725-a45a-4b78-98f6-f2d68f71170c');
+INSERT INTO `craft_info` VALUES ('1', '2.6.2988', '2.6.10', '0', 'Craft', '{{ siteUrl }}', 'UTC', '1', '0', '2016-12-01 12:57:35', '2017-08-07 09:52:09', 'f2b63725-a45a-4b78-98f6-f2d68f71170c');
 COMMIT;
 
 -- ----------------------------
@@ -876,7 +876,7 @@ CREATE TABLE `craft_searchindex` (
 --  Records of `craft_searchindex`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_searchindex` VALUES ('1', 'username', '0', 'en_gb', ' admin '), ('1', 'firstname', '0', 'en_gb', ''), ('1', 'lastname', '0', 'en_gb', ''), ('1', 'fullname', '0', 'en_gb', ''), ('1', 'email', '0', 'en_gb', ' webdev nixondesign com '), ('1', 'slug', '0', 'en_gb', ''), ('8', 'slug', '0', 'en_gb', ' 404 '), ('8', 'title', '0', 'en_gb', ' 404 '), ('8', 'field', '1', 'en_gb', ''), ('8', 'field', '2', 'en_gb', '');
+INSERT INTO `craft_searchindex` VALUES ('1', 'username', '0', 'en_gb', ' webdev nixondesign com '), ('1', 'firstname', '0', 'en_gb', ' nixon '), ('1', 'lastname', '0', 'en_gb', ' design '), ('1', 'fullname', '0', 'en_gb', ' nixon design '), ('1', 'email', '0', 'en_gb', ' webdev nixondesign com '), ('1', 'slug', '0', 'en_gb', ''), ('8', 'slug', '0', 'en_gb', ' 404 '), ('8', 'title', '0', 'en_gb', ' 404 '), ('8', 'field', '1', 'en_gb', ''), ('8', 'field', '2', 'en_gb', '');
 COMMIT;
 
 -- ----------------------------
@@ -954,13 +954,13 @@ CREATE TABLE `craft_sessions` (
   KEY `craft_sessions_dateUpdated_idx` (`dateUpdated`),
   KEY `craft_sessions_userId_fk` (`userId`),
   CONSTRAINT `craft_sessions_userId_fk` FOREIGN KEY (`userId`) REFERENCES `craft_users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_sessions`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_sessions` VALUES ('2', '1', 'c173b485051ba11e1cf5a022ff893da1a7f66896czozMjoiTWd1aDV0UFNMWFFrRUVYb2ZvZWx6NVpfUl9peEtwfmsiOw==', '2016-12-01 12:58:10', '2016-12-01 12:58:10', 'e76b08c6-a872-4381-8bf7-83d7f74853c1'), ('3', '1', '61f3315f42bdac33d5c49eeadc665a9ed0d1e2eeczozMjoiQVI1SGdZRzZiX0xydTU0OX5STUdoYzVXV1lzcXBQVHoiOw==', '2016-12-02 12:01:04', '2016-12-02 12:01:04', '2ac1494f-ca3c-4612-9ed4-e66e25d700cd'), ('4', '1', '9d2897f977b49330de9afff7418f860b8c99932fczozMjoiZ2dxT0J5Z1pmNEE3TGluRkNCRzZWVHlRQ2NWQVN3SGYiOw==', '2017-01-18 11:48:18', '2017-01-18 11:48:18', '6b459c15-c705-4fb8-b464-2791edcddf58'), ('5', '1', '1db5ac813082c05d24d8825f00ceafaccb4091f2czozMjoiTXE3YXZaVGdyU3Z3NFF3aTF1ZF80Nk9Qd3lpcmhKTVUiOw==', '2017-03-15 12:57:09', '2017-03-15 12:57:09', '34cb0b45-efa9-4796-a889-fc8bdbadeaa1'), ('6', '1', 'e3c4f7a82f9d936a1444a930446c3ac91ac60870czozMjoidlRGfklmTmo1X19CflRCcjc1aVR4TlVQU2M1cXpraWMiOw==', '2017-03-15 15:28:36', '2017-03-15 15:28:36', '8825821a-664e-4fb8-9856-854588dfde83'), ('7', '1', '4fd470a30744271c9fd2e5d8dc10abb8e5fa77ddczozMjoiV0tQd0gzNHV3SHlWMWlzd284eH5tdDZ0dUxuWm8zdVEiOw==', '2017-04-07 09:47:33', '2017-04-07 09:47:33', 'e898cba5-3f48-4e15-9cf3-95535c442917'), ('8', '1', '876d73de49fdb43171cf38198fd3bf2b14cda56eczozMjoicWhxd3dta3RYWjN2dndaZ2t1aExkZXp5RlpZWHZwOEciOw==', '2017-04-07 12:38:51', '2017-04-07 12:38:51', '2c921920-d105-4fb5-a4f5-f970bcaae1e4'), ('9', '1', 'f903e028946bab1adaf776c7871d2d4dc4f2e888czozMjoiUWtSQzZxcXRuUno0Zmw2VlFJODhJNklEaGxJSUlURHYiOw==', '2017-04-07 14:06:56', '2017-04-07 14:06:56', '3aaf9d91-0707-43c7-9cab-c00fc7432fc6'), ('10', '1', 'c265fcbedd10eaba36f95a6e057edcf6609200e6czozMjoieX44UTJlNDBZS0lBenVoYU1fVENNcWlOMkVNV0FwSjMiOw==', '2017-04-10 16:13:26', '2017-04-10 16:13:26', '6cf56cba-0945-47d3-9370-aa4c37b22db1'), ('11', '1', 'a9168308f59853a6f6ebd4474a07ba7853429182czozMjoiaHVCSkNibXBMWjhFNGlqbnBTblc4bnhoTHp+OHJEVWYiOw==', '2017-07-25 08:21:22', '2017-07-25 08:21:22', 'd6273c53-ccab-41ab-866e-494cac748138'), ('12', '1', '502406b63fa47d3594ce7d1621346ba254046c80czozMjoiVEVYcjh4X0wwV2xfTHp6VFMxNDBzNF95YlhmRFFBUjAiOw==', '2017-07-25 15:47:26', '2017-07-25 15:47:26', '39fcec64-1c53-4812-aff6-ed9088316300');
+INSERT INTO `craft_sessions` VALUES ('2', '1', 'c173b485051ba11e1cf5a022ff893da1a7f66896czozMjoiTWd1aDV0UFNMWFFrRUVYb2ZvZWx6NVpfUl9peEtwfmsiOw==', '2016-12-01 12:58:10', '2016-12-01 12:58:10', 'e76b08c6-a872-4381-8bf7-83d7f74853c1'), ('3', '1', '61f3315f42bdac33d5c49eeadc665a9ed0d1e2eeczozMjoiQVI1SGdZRzZiX0xydTU0OX5STUdoYzVXV1lzcXBQVHoiOw==', '2016-12-02 12:01:04', '2016-12-02 12:01:04', '2ac1494f-ca3c-4612-9ed4-e66e25d700cd'), ('4', '1', '9d2897f977b49330de9afff7418f860b8c99932fczozMjoiZ2dxT0J5Z1pmNEE3TGluRkNCRzZWVHlRQ2NWQVN3SGYiOw==', '2017-01-18 11:48:18', '2017-01-18 11:48:18', '6b459c15-c705-4fb8-b464-2791edcddf58'), ('5', '1', '1db5ac813082c05d24d8825f00ceafaccb4091f2czozMjoiTXE3YXZaVGdyU3Z3NFF3aTF1ZF80Nk9Qd3lpcmhKTVUiOw==', '2017-03-15 12:57:09', '2017-03-15 12:57:09', '34cb0b45-efa9-4796-a889-fc8bdbadeaa1'), ('6', '1', 'e3c4f7a82f9d936a1444a930446c3ac91ac60870czozMjoidlRGfklmTmo1X19CflRCcjc1aVR4TlVQU2M1cXpraWMiOw==', '2017-03-15 15:28:36', '2017-03-15 15:28:36', '8825821a-664e-4fb8-9856-854588dfde83'), ('7', '1', '4fd470a30744271c9fd2e5d8dc10abb8e5fa77ddczozMjoiV0tQd0gzNHV3SHlWMWlzd284eH5tdDZ0dUxuWm8zdVEiOw==', '2017-04-07 09:47:33', '2017-04-07 09:47:33', 'e898cba5-3f48-4e15-9cf3-95535c442917'), ('8', '1', '876d73de49fdb43171cf38198fd3bf2b14cda56eczozMjoicWhxd3dta3RYWjN2dndaZ2t1aExkZXp5RlpZWHZwOEciOw==', '2017-04-07 12:38:51', '2017-04-07 12:38:51', '2c921920-d105-4fb5-a4f5-f970bcaae1e4'), ('9', '1', 'f903e028946bab1adaf776c7871d2d4dc4f2e888czozMjoiUWtSQzZxcXRuUno0Zmw2VlFJODhJNklEaGxJSUlURHYiOw==', '2017-04-07 14:06:56', '2017-04-07 14:06:56', '3aaf9d91-0707-43c7-9cab-c00fc7432fc6'), ('10', '1', 'c265fcbedd10eaba36f95a6e057edcf6609200e6czozMjoieX44UTJlNDBZS0lBenVoYU1fVENNcWlOMkVNV0FwSjMiOw==', '2017-04-10 16:13:26', '2017-04-10 16:13:26', '6cf56cba-0945-47d3-9370-aa4c37b22db1'), ('11', '1', 'a9168308f59853a6f6ebd4474a07ba7853429182czozMjoiaHVCSkNibXBMWjhFNGlqbnBTblc4bnhoTHp+OHJEVWYiOw==', '2017-07-25 08:21:22', '2017-07-25 08:21:22', 'd6273c53-ccab-41ab-866e-494cac748138'), ('12', '1', '502406b63fa47d3594ce7d1621346ba254046c80czozMjoiVEVYcjh4X0wwV2xfTHp6VFMxNDBzNF95YlhmRFFBUjAiOw==', '2017-07-25 15:47:26', '2017-07-25 15:47:26', '39fcec64-1c53-4812-aff6-ed9088316300'), ('13', '1', 'a6e0a3b85a688ee570142e253e2969b4a508d3eeczozMjoiY3JKdlg0YlZxejVyZXVxYnJCWGRlbDF6d1FrS2lhSUgiOw==', '2017-08-07 09:51:46', '2017-08-07 09:51:46', '2979d784-011e-416c-aa88-ccd16eb4a3ef');
 COMMIT;
 
 -- ----------------------------
@@ -1100,7 +1100,7 @@ CREATE TABLE `craft_tasks` (
   KEY `craft_tasks_lft_idx` (`lft`),
   KEY `craft_tasks_rgt_idx` (`rgt`),
   KEY `craft_tasks_level_idx` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Table structure for `craft_templatecachecriteria`
@@ -1304,7 +1304,7 @@ CREATE TABLE `craft_users` (
 --  Records of `craft_users`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_users` VALUES ('1', 'admin', null, null, null, 'webdev@nixondesign.com', '$2y$13$ssIBJkItmD6uPnDyyOwraO3k5aI571/kj5lg3oHvAJwQFKuSkZKUi', null, '0', '1', '0', '0', '0', '0', '0', '2017-07-25 15:47:26', '::1', null, null, null, null, null, null, null, '0', '2016-12-01 12:57:37', '2016-12-01 12:57:37', '2017-07-25 15:47:26', 'f1b766f2-b36c-470f-9420-b03b7c03a50f');
+INSERT INTO `craft_users` VALUES ('1', 'webdev@nixondesign.com', null, 'Nixon', 'Design', 'webdev@nixondesign.com', '$2y$13$ssIBJkItmD6uPnDyyOwraO3k5aI571/kj5lg3oHvAJwQFKuSkZKUi', null, '0', '1', '0', '0', '0', '0', '0', '2017-08-07 09:51:46', '::1', null, null, null, null, null, null, null, '1', '2016-12-01 12:57:37', '2016-12-01 12:57:37', '2017-08-07 09:51:57', 'f1b766f2-b36c-470f-9420-b03b7c03a50f');
 COMMIT;
 
 -- ----------------------------
