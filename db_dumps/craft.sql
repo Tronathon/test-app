@@ -11,7 +11,7 @@
  Target Server Version : 50635
  File Encoding         : utf-8
 
- Date: 08/07/2017 10:54:19 AM
+ Date: 09/12/2017 15:52:28 PM
 */
 
 SET NAMES utf8mb4;
@@ -222,6 +222,8 @@ CREATE TABLE `craft_content` (
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `field_metaTitle` text COLLATE utf8_unicode_ci,
   `field_metaDescription` text COLLATE utf8_unicode_ci,
+  `field_gaid` text COLLATE utf8_unicode_ci,
+  `field_hjid` text COLLATE utf8_unicode_ci,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
@@ -231,13 +233,13 @@ CREATE TABLE `craft_content` (
   KEY `craft_content_locale_fk` (`locale`),
   CONSTRAINT `craft_content_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_content_locale_fk` FOREIGN KEY (`locale`) REFERENCES `craft_locales` (`locale`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_content`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_content` VALUES ('1', '1', 'en_gb', null, null, null, '2016-12-01 12:57:37', '2017-08-07 09:51:57', 'f6c5f1f7-7db3-40e4-bf9b-39bf5cbd0672'), ('8', '8', 'en_gb', '404', '', '', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '557f7245-61ee-4f9e-a368-4a1fa21b8f4b');
+INSERT INTO `craft_content` VALUES ('1', '1', 'en_gb', null, null, null, null, null, '2016-12-01 12:57:37', '2017-09-12 13:57:24', 'f6c5f1f7-7db3-40e4-bf9b-39bf5cbd0672'), ('8', '8', 'en_gb', '404', '', '', null, null, '2017-07-25 08:25:02', '2017-07-25 16:09:31', '557f7245-61ee-4f9e-a368-4a1fa21b8f4b'), ('9', '9', 'en_gb', null, null, null, null, null, '2017-09-12 13:58:32', '2017-09-12 14:00:57', '9c7dd37c-771c-4cd9-9ee8-15256df796f2');
 COMMIT;
 
 -- ----------------------------
@@ -302,13 +304,13 @@ CREATE TABLE `craft_elements` (
   KEY `craft_elements_type_idx` (`type`),
   KEY `craft_elements_enabled_idx` (`enabled`),
   KEY `craft_elements_archived_dateCreated_idx` (`archived`,`dateCreated`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_elements`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_elements` VALUES ('1', 'User', '1', '0', '2016-12-01 12:57:37', '2017-08-07 09:51:57', 'a4d390e7-a85a-4347-9501-6e3b562381b4'), ('8', 'Entry', '1', '0', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '5b6e2eef-fd54-4aad-9dc1-7f99f4571751');
+INSERT INTO `craft_elements` VALUES ('1', 'User', '1', '0', '2016-12-01 12:57:37', '2017-09-12 13:57:24', 'a4d390e7-a85a-4347-9501-6e3b562381b4'), ('8', 'Entry', '1', '0', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '5b6e2eef-fd54-4aad-9dc1-7f99f4571751'), ('9', 'GlobalSet', '1', '0', '2017-09-12 13:58:32', '2017-09-12 14:00:57', 'a6f86fae-3576-4038-b794-7b5ba9a68466');
 COMMIT;
 
 -- ----------------------------
@@ -333,13 +335,13 @@ CREATE TABLE `craft_elements_i18n` (
   KEY `craft_elements_i18n_locale_fk` (`locale`),
   CONSTRAINT `craft_elements_i18n_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_elements_i18n_locale_fk` FOREIGN KEY (`locale`) REFERENCES `craft_locales` (`locale`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_elements_i18n`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_elements_i18n` VALUES ('1', '1', 'en_gb', '', null, '1', '2016-12-01 12:57:37', '2017-08-07 09:51:57', '8dfb760f-9a84-4024-a174-95611ce6f225'), ('8', '8', 'en_gb', '404', '404', '1', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '3b3fb5ac-0e49-4f40-9fe4-692cce9e107b');
+INSERT INTO `craft_elements_i18n` VALUES ('1', '1', 'en_gb', '', null, '1', '2016-12-01 12:57:37', '2017-09-12 13:57:24', '8dfb760f-9a84-4024-a174-95611ce6f225'), ('8', '8', 'en_gb', '404', '404', '1', '2017-07-25 08:25:02', '2017-07-25 16:09:31', '3b3fb5ac-0e49-4f40-9fe4-692cce9e107b'), ('9', '9', 'en_gb', '', null, '1', '2017-09-12 13:58:32', '2017-09-12 14:00:57', 'dcb69aad-fb64-4183-a583-4337d7cfd1f5');
 COMMIT;
 
 -- ----------------------------
@@ -445,7 +447,7 @@ CREATE TABLE `craft_entrytypes` (
   KEY `craft_entrytypes_fieldLayoutId_fk` (`fieldLayoutId`),
   CONSTRAINT `craft_entrytypes_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE SET NULL,
   CONSTRAINT `craft_entrytypes_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `craft_sections` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_entrytypes`
@@ -479,7 +481,7 @@ CREATE TABLE `craft_entryversions` (
   CONSTRAINT `craft_entryversions_entryId_fk` FOREIGN KEY (`entryId`) REFERENCES `craft_entries` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_entryversions_locale_fk` FOREIGN KEY (`locale`) REFERENCES `craft_locales` (`locale`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `craft_entryversions_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `craft_sections` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Table structure for `craft_fieldgroups`
@@ -493,13 +495,13 @@ CREATE TABLE `craft_fieldgroups` (
   `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `craft_fieldgroups_name_unq_idx` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_fieldgroups`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_fieldgroups` VALUES ('1', 'SEO', '2017-07-25 15:47:45', '2017-07-25 15:47:45', 'b97bb74f-d975-4008-a83a-78ccdeab89c1'), ('2', 'Social Media', '2017-07-25 16:11:40', '2017-07-25 16:11:40', '4e1e7ecf-5210-46db-8ea3-353afb1f5d61');
+INSERT INTO `craft_fieldgroups` VALUES ('1', 'SEO', '2017-07-25 15:47:45', '2017-07-25 15:47:45', 'b97bb74f-d975-4008-a83a-78ccdeab89c1'), ('2', 'Social Media', '2017-07-25 16:11:40', '2017-07-25 16:11:40', '4e1e7ecf-5210-46db-8ea3-353afb1f5d61'), ('3', 'Config', '2017-09-12 13:57:39', '2017-09-12 13:57:39', '21c06093-1d87-4e71-a745-9acb70e248d1');
 COMMIT;
 
 -- ----------------------------
@@ -524,13 +526,13 @@ CREATE TABLE `craft_fieldlayoutfields` (
   CONSTRAINT `craft_fieldlayoutfields_fieldId_fk` FOREIGN KEY (`fieldId`) REFERENCES `craft_fields` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_fieldlayoutfields_layoutId_fk` FOREIGN KEY (`layoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_fieldlayoutfields_tabId_fk` FOREIGN KEY (`tabId`) REFERENCES `craft_fieldlayouttabs` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_fieldlayoutfields`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_fieldlayoutfields` VALUES ('1', '8', '1', '1', '0', '1', '2017-07-25 15:51:29', '2017-07-25 15:51:29', 'a0648587-5aab-499c-8d0a-6bf9c7233fc2'), ('2', '8', '1', '2', '0', '2', '2017-07-25 15:51:29', '2017-07-25 15:51:29', '9bd1ebac-c10d-418d-b562-637ca6b231d2');
+INSERT INTO `craft_fieldlayoutfields` VALUES ('1', '8', '1', '1', '0', '1', '2017-07-25 15:51:29', '2017-07-25 15:51:29', 'a0648587-5aab-499c-8d0a-6bf9c7233fc2'), ('2', '8', '1', '2', '0', '2', '2017-07-25 15:51:29', '2017-07-25 15:51:29', '9bd1ebac-c10d-418d-b562-637ca6b231d2'), ('5', '10', '3', '3', '0', '1', '2017-09-12 14:00:57', '2017-09-12 14:00:57', '2d7f0b8f-b90f-414a-b4f5-f26deb4fd1b3'), ('6', '10', '3', '4', '0', '2', '2017-09-12 14:00:57', '2017-09-12 14:00:57', '38936a28-c1e5-4764-8493-bd77bc38ef96');
 COMMIT;
 
 -- ----------------------------
@@ -545,13 +547,13 @@ CREATE TABLE `craft_fieldlayouts` (
   `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `craft_fieldlayouts_type_idx` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_fieldlayouts`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_fieldlayouts` VALUES ('8', 'Entry', '2017-07-25 15:51:29', '2017-07-25 15:51:29', 'c23ac196-909b-4360-bba9-633f4d7f685b');
+INSERT INTO `craft_fieldlayouts` VALUES ('8', 'Entry', '2017-07-25 15:51:29', '2017-07-25 15:51:29', 'c23ac196-909b-4360-bba9-633f4d7f685b'), ('10', 'GlobalSet', '2017-09-12 14:00:57', '2017-09-12 14:00:57', 'abd6c125-74e6-459f-81ba-4cdcc68ee508');
 COMMIT;
 
 -- ----------------------------
@@ -570,13 +572,13 @@ CREATE TABLE `craft_fieldlayouttabs` (
   KEY `craft_fieldlayouttabs_sortOrder_idx` (`sortOrder`),
   KEY `craft_fieldlayouttabs_layoutId_fk` (`layoutId`),
   CONSTRAINT `craft_fieldlayouttabs_layoutId_fk` FOREIGN KEY (`layoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_fieldlayouttabs`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_fieldlayouttabs` VALUES ('1', '8', 'SEO', '1', '2017-07-25 15:51:29', '2017-07-25 15:51:29', 'fbd55eef-54b3-4d72-a83a-2407dfb29a82');
+INSERT INTO `craft_fieldlayouttabs` VALUES ('1', '8', 'SEO', '1', '2017-07-25 15:51:29', '2017-07-25 15:51:29', 'fbd55eef-54b3-4d72-a83a-2407dfb29a82'), ('3', '10', 'Content', '1', '2017-09-12 14:00:57', '2017-09-12 14:00:57', '7a88613b-ec85-47c9-969d-6934a083b32d');
 COMMIT;
 
 -- ----------------------------
@@ -601,13 +603,13 @@ CREATE TABLE `craft_fields` (
   KEY `craft_fields_context_idx` (`context`),
   KEY `craft_fields_groupId_fk` (`groupId`),
   CONSTRAINT `craft_fields_groupId_fk` FOREIGN KEY (`groupId`) REFERENCES `craft_fieldgroups` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_fields`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_fields` VALUES ('1', '1', 'Title', 'metaTitle', 'global', '', '0', 'PlainText', '{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}', '2017-07-25 15:48:13', '2017-07-25 15:48:13', '7fd4ee58-751c-4601-abe1-5cef0853e61d'), ('2', '1', 'Description', 'metaDescription', 'global', 'Shown in search engine results and when sharing on social media. Should be around 135 to 160 characters long.', '0', 'PlainText', '{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}', '2017-07-25 15:48:26', '2017-07-25 15:52:25', '9b805b20-7dea-4827-a43c-d021ef384524');
+INSERT INTO `craft_fields` VALUES ('1', '1', 'Title', 'metaTitle', 'global', '', '0', 'PlainText', '{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}', '2017-07-25 15:48:13', '2017-07-25 15:48:13', '7fd4ee58-751c-4601-abe1-5cef0853e61d'), ('2', '1', 'Description', 'metaDescription', 'global', 'Shown in search engine results and when sharing on social media. Should be around 135 to 160 characters long.', '0', 'PlainText', '{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}', '2017-07-25 15:48:26', '2017-07-25 15:52:25', '9b805b20-7dea-4827-a43c-d021ef384524'), ('3', '3', 'Google Analytics ID', 'gaid', 'global', '', '0', 'PlainText', '{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}', '2017-09-12 13:57:55', '2017-09-12 13:57:55', '70743040-5e25-48f9-a441-f516b2b1a4c4'), ('4', '3', 'Hotjar ID', 'hjid', 'global', '', '0', 'PlainText', '{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}', '2017-09-12 13:58:10', '2017-09-12 13:58:10', 'db267148-a0d1-412c-8764-dc006d7ce352');
 COMMIT;
 
 -- ----------------------------
@@ -629,6 +631,13 @@ CREATE TABLE `craft_globalsets` (
   CONSTRAINT `craft_globalsets_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE SET NULL,
   CONSTRAINT `craft_globalsets_id_fk` FOREIGN KEY (`id`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+--  Records of `craft_globalsets`
+-- ----------------------------
+BEGIN;
+INSERT INTO `craft_globalsets` VALUES ('9', 'Admin', 'admin', '10', '2017-09-12 13:58:32', '2017-09-12 14:00:57', 'c53fda13-dc8f-4ad7-84ae-53c6dbf0da32');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `craft_info`
@@ -654,7 +663,7 @@ CREATE TABLE `craft_info` (
 --  Records of `craft_info`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_info` VALUES ('1', '2.6.2988', '2.6.10', '0', 'Craft', '{{ siteUrl }}', 'UTC', '1', '0', '2016-12-01 12:57:35', '2017-08-07 09:52:09', 'f2b63725-a45a-4b78-98f6-f2d68f71170c');
+INSERT INTO `craft_info` VALUES ('1', '2.6.2988', '2.6.10', '0', 'Craft', '{siteUrl}', 'Europe/London', '1', '0', '2016-12-01 12:57:35', '2017-09-12 14:00:25', 'f2b63725-a45a-4b78-98f6-f2d68f71170c');
 COMMIT;
 
 -- ----------------------------
@@ -794,7 +803,7 @@ CREATE TABLE `craft_plugins` (
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Table structure for `craft_rackspaceaccess`
@@ -876,7 +885,7 @@ CREATE TABLE `craft_searchindex` (
 --  Records of `craft_searchindex`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_searchindex` VALUES ('1', 'username', '0', 'en_gb', ' webdev nixondesign com '), ('1', 'firstname', '0', 'en_gb', ' nixon '), ('1', 'lastname', '0', 'en_gb', ' design '), ('1', 'fullname', '0', 'en_gb', ' nixon design '), ('1', 'email', '0', 'en_gb', ' webdev nixondesign com '), ('1', 'slug', '0', 'en_gb', ''), ('8', 'slug', '0', 'en_gb', ' 404 '), ('8', 'title', '0', 'en_gb', ' 404 '), ('8', 'field', '1', 'en_gb', ''), ('8', 'field', '2', 'en_gb', '');
+INSERT INTO `craft_searchindex` VALUES ('1', 'username', '0', 'en_gb', ' webdev nixondesign com '), ('1', 'firstname', '0', 'en_gb', ' nixon '), ('1', 'lastname', '0', 'en_gb', ' design '), ('1', 'fullname', '0', 'en_gb', ' nixon design '), ('1', 'email', '0', 'en_gb', ' webdev nixondesign com '), ('1', 'slug', '0', 'en_gb', ''), ('8', 'slug', '0', 'en_gb', ' 404 '), ('8', 'title', '0', 'en_gb', ' 404 '), ('8', 'field', '1', 'en_gb', ''), ('8', 'field', '2', 'en_gb', ''), ('9', 'field', '3', 'en_gb', ''), ('9', 'field', '4', 'en_gb', ''), ('9', 'slug', '0', 'en_gb', '');
 COMMIT;
 
 -- ----------------------------
@@ -900,7 +909,7 @@ CREATE TABLE `craft_sections` (
   UNIQUE KEY `craft_sections_handle_unq_idx` (`handle`),
   KEY `craft_sections_structureId_fk` (`structureId`),
   CONSTRAINT `craft_sections_structureId_fk` FOREIGN KEY (`structureId`) REFERENCES `craft_structures` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_sections`
@@ -928,7 +937,7 @@ CREATE TABLE `craft_sections_i18n` (
   KEY `craft_sections_i18n_locale_fk` (`locale`),
   CONSTRAINT `craft_sections_i18n_locale_fk` FOREIGN KEY (`locale`) REFERENCES `craft_locales` (`locale`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `craft_sections_i18n_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `craft_sections` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_sections_i18n`
@@ -954,13 +963,13 @@ CREATE TABLE `craft_sessions` (
   KEY `craft_sessions_dateUpdated_idx` (`dateUpdated`),
   KEY `craft_sessions_userId_fk` (`userId`),
   CONSTRAINT `craft_sessions_userId_fk` FOREIGN KEY (`userId`) REFERENCES `craft_users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Records of `craft_sessions`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_sessions` VALUES ('2', '1', 'c173b485051ba11e1cf5a022ff893da1a7f66896czozMjoiTWd1aDV0UFNMWFFrRUVYb2ZvZWx6NVpfUl9peEtwfmsiOw==', '2016-12-01 12:58:10', '2016-12-01 12:58:10', 'e76b08c6-a872-4381-8bf7-83d7f74853c1'), ('3', '1', '61f3315f42bdac33d5c49eeadc665a9ed0d1e2eeczozMjoiQVI1SGdZRzZiX0xydTU0OX5STUdoYzVXV1lzcXBQVHoiOw==', '2016-12-02 12:01:04', '2016-12-02 12:01:04', '2ac1494f-ca3c-4612-9ed4-e66e25d700cd'), ('4', '1', '9d2897f977b49330de9afff7418f860b8c99932fczozMjoiZ2dxT0J5Z1pmNEE3TGluRkNCRzZWVHlRQ2NWQVN3SGYiOw==', '2017-01-18 11:48:18', '2017-01-18 11:48:18', '6b459c15-c705-4fb8-b464-2791edcddf58'), ('5', '1', '1db5ac813082c05d24d8825f00ceafaccb4091f2czozMjoiTXE3YXZaVGdyU3Z3NFF3aTF1ZF80Nk9Qd3lpcmhKTVUiOw==', '2017-03-15 12:57:09', '2017-03-15 12:57:09', '34cb0b45-efa9-4796-a889-fc8bdbadeaa1'), ('6', '1', 'e3c4f7a82f9d936a1444a930446c3ac91ac60870czozMjoidlRGfklmTmo1X19CflRCcjc1aVR4TlVQU2M1cXpraWMiOw==', '2017-03-15 15:28:36', '2017-03-15 15:28:36', '8825821a-664e-4fb8-9856-854588dfde83'), ('7', '1', '4fd470a30744271c9fd2e5d8dc10abb8e5fa77ddczozMjoiV0tQd0gzNHV3SHlWMWlzd284eH5tdDZ0dUxuWm8zdVEiOw==', '2017-04-07 09:47:33', '2017-04-07 09:47:33', 'e898cba5-3f48-4e15-9cf3-95535c442917'), ('8', '1', '876d73de49fdb43171cf38198fd3bf2b14cda56eczozMjoicWhxd3dta3RYWjN2dndaZ2t1aExkZXp5RlpZWHZwOEciOw==', '2017-04-07 12:38:51', '2017-04-07 12:38:51', '2c921920-d105-4fb5-a4f5-f970bcaae1e4'), ('9', '1', 'f903e028946bab1adaf776c7871d2d4dc4f2e888czozMjoiUWtSQzZxcXRuUno0Zmw2VlFJODhJNklEaGxJSUlURHYiOw==', '2017-04-07 14:06:56', '2017-04-07 14:06:56', '3aaf9d91-0707-43c7-9cab-c00fc7432fc6'), ('10', '1', 'c265fcbedd10eaba36f95a6e057edcf6609200e6czozMjoieX44UTJlNDBZS0lBenVoYU1fVENNcWlOMkVNV0FwSjMiOw==', '2017-04-10 16:13:26', '2017-04-10 16:13:26', '6cf56cba-0945-47d3-9370-aa4c37b22db1'), ('11', '1', 'a9168308f59853a6f6ebd4474a07ba7853429182czozMjoiaHVCSkNibXBMWjhFNGlqbnBTblc4bnhoTHp+OHJEVWYiOw==', '2017-07-25 08:21:22', '2017-07-25 08:21:22', 'd6273c53-ccab-41ab-866e-494cac748138'), ('12', '1', '502406b63fa47d3594ce7d1621346ba254046c80czozMjoiVEVYcjh4X0wwV2xfTHp6VFMxNDBzNF95YlhmRFFBUjAiOw==', '2017-07-25 15:47:26', '2017-07-25 15:47:26', '39fcec64-1c53-4812-aff6-ed9088316300'), ('13', '1', 'a6e0a3b85a688ee570142e253e2969b4a508d3eeczozMjoiY3JKdlg0YlZxejVyZXVxYnJCWGRlbDF6d1FrS2lhSUgiOw==', '2017-08-07 09:51:46', '2017-08-07 09:51:46', '2979d784-011e-416c-aa88-ccd16eb4a3ef');
+INSERT INTO `craft_sessions` VALUES ('2', '1', 'c173b485051ba11e1cf5a022ff893da1a7f66896czozMjoiTWd1aDV0UFNMWFFrRUVYb2ZvZWx6NVpfUl9peEtwfmsiOw==', '2016-12-01 12:58:10', '2016-12-01 12:58:10', 'e76b08c6-a872-4381-8bf7-83d7f74853c1'), ('3', '1', '61f3315f42bdac33d5c49eeadc665a9ed0d1e2eeczozMjoiQVI1SGdZRzZiX0xydTU0OX5STUdoYzVXV1lzcXBQVHoiOw==', '2016-12-02 12:01:04', '2016-12-02 12:01:04', '2ac1494f-ca3c-4612-9ed4-e66e25d700cd'), ('4', '1', '9d2897f977b49330de9afff7418f860b8c99932fczozMjoiZ2dxT0J5Z1pmNEE3TGluRkNCRzZWVHlRQ2NWQVN3SGYiOw==', '2017-01-18 11:48:18', '2017-01-18 11:48:18', '6b459c15-c705-4fb8-b464-2791edcddf58'), ('5', '1', '1db5ac813082c05d24d8825f00ceafaccb4091f2czozMjoiTXE3YXZaVGdyU3Z3NFF3aTF1ZF80Nk9Qd3lpcmhKTVUiOw==', '2017-03-15 12:57:09', '2017-03-15 12:57:09', '34cb0b45-efa9-4796-a889-fc8bdbadeaa1'), ('6', '1', 'e3c4f7a82f9d936a1444a930446c3ac91ac60870czozMjoidlRGfklmTmo1X19CflRCcjc1aVR4TlVQU2M1cXpraWMiOw==', '2017-03-15 15:28:36', '2017-03-15 15:28:36', '8825821a-664e-4fb8-9856-854588dfde83'), ('7', '1', '4fd470a30744271c9fd2e5d8dc10abb8e5fa77ddczozMjoiV0tQd0gzNHV3SHlWMWlzd284eH5tdDZ0dUxuWm8zdVEiOw==', '2017-04-07 09:47:33', '2017-04-07 09:47:33', 'e898cba5-3f48-4e15-9cf3-95535c442917'), ('8', '1', '876d73de49fdb43171cf38198fd3bf2b14cda56eczozMjoicWhxd3dta3RYWjN2dndaZ2t1aExkZXp5RlpZWHZwOEciOw==', '2017-04-07 12:38:51', '2017-04-07 12:38:51', '2c921920-d105-4fb5-a4f5-f970bcaae1e4'), ('9', '1', 'f903e028946bab1adaf776c7871d2d4dc4f2e888czozMjoiUWtSQzZxcXRuUno0Zmw2VlFJODhJNklEaGxJSUlURHYiOw==', '2017-04-07 14:06:56', '2017-04-07 14:06:56', '3aaf9d91-0707-43c7-9cab-c00fc7432fc6'), ('10', '1', 'c265fcbedd10eaba36f95a6e057edcf6609200e6czozMjoieX44UTJlNDBZS0lBenVoYU1fVENNcWlOMkVNV0FwSjMiOw==', '2017-04-10 16:13:26', '2017-04-10 16:13:26', '6cf56cba-0945-47d3-9370-aa4c37b22db1'), ('11', '1', 'a9168308f59853a6f6ebd4474a07ba7853429182czozMjoiaHVCSkNibXBMWjhFNGlqbnBTblc4bnhoTHp+OHJEVWYiOw==', '2017-07-25 08:21:22', '2017-07-25 08:21:22', 'd6273c53-ccab-41ab-866e-494cac748138'), ('12', '1', '502406b63fa47d3594ce7d1621346ba254046c80czozMjoiVEVYcjh4X0wwV2xfTHp6VFMxNDBzNF95YlhmRFFBUjAiOw==', '2017-07-25 15:47:26', '2017-07-25 15:47:26', '39fcec64-1c53-4812-aff6-ed9088316300'), ('13', '1', 'a6e0a3b85a688ee570142e253e2969b4a508d3eeczozMjoiY3JKdlg0YlZxejVyZXVxYnJCWGRlbDF6d1FrS2lhSUgiOw==', '2017-08-07 09:51:46', '2017-08-07 09:51:46', '2979d784-011e-416c-aa88-ccd16eb4a3ef'), ('14', '1', '3824d192b8ed47e0d2f5588fbcc69770efe64340czozMjoieWh1SWhtMHJ6V2lsd0k3aVY4MFRMV09pdFd6Y2M5TmIiOw==', '2017-09-12 13:57:09', '2017-09-12 13:57:09', 'd8d74109-110d-4390-9afc-682d73c8e0d0');
 COMMIT;
 
 -- ----------------------------
@@ -1004,7 +1013,7 @@ CREATE TABLE `craft_structureelements` (
   KEY `craft_structureelements_elementId_fk` (`elementId`),
   CONSTRAINT `craft_structureelements_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_structureelements_structureId_fk` FOREIGN KEY (`structureId`) REFERENCES `craft_structures` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Table structure for `craft_structures`
@@ -1017,7 +1026,7 @@ CREATE TABLE `craft_structures` (
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Table structure for `craft_systemsettings`
@@ -1100,7 +1109,7 @@ CREATE TABLE `craft_tasks` (
   KEY `craft_tasks_lft_idx` (`lft`),
   KEY `craft_tasks_rgt_idx` (`rgt`),
   KEY `craft_tasks_level_idx` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 --  Table structure for `craft_templatecachecriteria`
@@ -1304,7 +1313,7 @@ CREATE TABLE `craft_users` (
 --  Records of `craft_users`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_users` VALUES ('1', 'webdev@nixondesign.com', null, 'Nixon', 'Design', 'webdev@nixondesign.com', '$2y$13$ssIBJkItmD6uPnDyyOwraO3k5aI571/kj5lg3oHvAJwQFKuSkZKUi', null, '0', '1', '0', '0', '0', '0', '0', '2017-08-07 09:51:46', '::1', null, null, null, null, null, null, null, '1', '2016-12-01 12:57:37', '2016-12-01 12:57:37', '2017-08-07 09:51:57', 'f1b766f2-b36c-470f-9420-b03b7c03a50f');
+INSERT INTO `craft_users` VALUES ('1', 'webdev@nixondesign.com', null, 'Nixon', 'Design', 'webdev@nixondesign.com', '$2y$13$hX7/kjTa6AuHLA4rwgZ2Re8jjzGq45QRNxWgYm3smoiAoE/e0qC.S', null, '0', '1', '0', '0', '0', '0', '0', '2017-09-12 13:57:09', '::1', null, null, '2017-09-12 13:53:51', null, null, null, null, '0', '2017-09-12 13:56:32', '2016-12-01 12:57:37', '2017-09-12 13:57:24', 'f1b766f2-b36c-470f-9420-b03b7c03a50f');
 COMMIT;
 
 -- ----------------------------
