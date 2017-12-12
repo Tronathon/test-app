@@ -1,3 +1,4 @@
 .DS_Store
 /craft/storage/*
 !/craft/storage/logo/*
+/node_modules
