@@ -1,0 +1,11 @@
+/**
+ * Converts an unitless pixel value into it's rem equivalent.
+ * @param {Number} pixels  - Value to convert
+ * @param {Number} context - Root font size
+ */
+
+$base-font-size: 16 !default;
+
+@function rem($pixels, $context: $base-font-size) {
+	@return ($pixels / $context) * 1rem;
+}

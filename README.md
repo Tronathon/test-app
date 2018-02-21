@@ -1,9 +1,26 @@
-## Setup
+# Starter Files
 
-1. Clone repository `git@codebasehq.com:nixondesign/template/craft.git`.
-2. Create new localhost.
-3. Create new database and import `db_dumps/craft.sql`.
-4. Update database config.
-5. Login using "Craft Starter" login in 1Password.
-6. Update password and add to 1Password.
-7. Remove steps 5-7 from README.
+## Prerequisites
+
+* [Node.js](https://nodejs.org/en/)
+* [gulp](https://github.com/gulpjs/gulp)
+
+## Getting Started
+
+```
+$ npm install
+```
+
+## Build
+
+All src files should live in `src`, no files should **ever** be manually added to `dest` as this directory and it's contents are removed on every build.
+
+### Tasks
+
+Gulp is used as the underlying build tool and exports the following tasks.
+
+| Task  | Description                                                  |
+|-------|--------------------------------------------------------------|
+| build | Cleans the output directory and builds all src files         |
+| watch | Watch files and rebuild on change                            |
+| serve | Starts a new BrowserSync server and rebuilds files on change |

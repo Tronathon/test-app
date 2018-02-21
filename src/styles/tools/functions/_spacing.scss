@@ -1,0 +1,11 @@
+/**
+ * Spacing
+ * @param {String} - key
+ * @returns {Sting} - value e.g. 1.5rem
+ */
+
+$spacing-map: () !default;
+
+@function spacing($spacer) {
+	@return rem(#{map-get($spacing-map, $spacer)});
+}

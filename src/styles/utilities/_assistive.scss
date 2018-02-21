@@ -1,0 +1,11 @@
+/**
+ * Utilities - Accessibility
+ */
+
+.u-assistive {
+	@include assistive();
+}
+
+.u-assistive--focusable {
+	@include assistive(true);
+}

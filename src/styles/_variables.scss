@@ -1,0 +1,36 @@
+// =============================================================================
+// Variables
+// =============================================================================
+
+// Colors
+
+$white: #fff;
+$black: #000;
+
+$body-background-color: $white;
+$body-color: $black;
+
+// Typography
+
+$base-font-size: 16;
+
+// Spacing
+
+$base-spacing: 8;
+$spacing-map: (
+	s: $base-spacing,
+	m: $base-spacing * 2,
+	l: $base-spacing * 3,
+);
+
+// z-index
+
+$z-index-map: (
+	modal: 100,
+);
+
+// Breakpoints
+
+$breakpoint-map: (
+	s: only screen and (min-width: 20em),
+);

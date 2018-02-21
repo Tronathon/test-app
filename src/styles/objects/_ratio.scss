@@ -1,0 +1,37 @@
+/**
+ * Object to help content content within an intrinsic ratio
+ * http://alistapart.com/article/creating-intrinsic-ratios-for-video
+ *
+ * Default ratio is 1:1 (square).
+ *
+ * Example
+ *
+ * <div class="o-ratio o-ratio--16:9">
+ *   <iframe src="..."></iframe>
+ * </div>
+ */
+
+$ratios: (
+	4:5,
+	16:9,
+) !default;
+
+.o-ratio {
+	@include ratio(1, 1);
+}
+
+@each $width, $height in $ratios {
+	@if (type-of($width) != number) {
+		@error "`#{$width}` needs to be a number.";
+	}
+
+	@if (type-of($width) != number) {
+		@error "`#{$width}` needs to be a number.";
+	}
+
+	.o-ratio--#{$width}\:#{$height} {
+		&::after {
+			padding-bottom: percentage($height / $width);
+		}
+	}
+}

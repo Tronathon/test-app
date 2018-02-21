@@ -1,0 +1,175 @@
+/* stylelint-disable declaration-no-important */
+
+/*
+ * Opinionated reset to be used alongside normalize.css
+ */
+
+/**
+ * Adopt a more natural box-sizing model
+ */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/**
+ * 1. Force vertical scollbars to prevent layout jumps when navigating between
+ *    pages that are longer than the viewport and those that aren't
+ * 2. Set a default background color and corresponding text color
+ */
+
+body {
+	overflow-y: scroll; /* [1] */
+	background-color: $body-background-color; /* [2] */
+	color: $body-color; /* [2] */
+}
+
+/**
+ * Reset typographic elements
+ */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+address {
+	font-style: normal;
+}
+
+cite {
+	font-style: normal;
+}
+
+/**
+ * Reset grouping content
+ */
+
+blockquote {
+	margin: 0;
+}
+
+figure {
+	margin: 0;
+}
+
+/**
+ * Lists
+ */
+
+ol,
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Remove margin from nested lists
+ */
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+	margin-bottom: 0;
+}
+
+dd {
+	margin-left: 0;
+}
+
+/**
+ * 1. Make images responsive by default
+ * 2. Remove whitespace when inline
+ */
+
+img {
+	width: 100%; /* [1] */
+	vertical-align: middle;	/* [2] */
+}
+
+/**
+ * Change SVG fill color to match text color of parent element
+ */
+
+svg {
+	fill: currentColor;
+}
+
+/**
+ * Disallow horizontal resizing in textarea's
+ */
+
+textarea {
+	resize: vertical;
+}
+
+/**
+ * Reset fieldset to provide a clean base
+ */
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Reset button styles
+ */
+
+button {
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+}
+
+/**
+ * Remove table border spacing
+ */
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/**
+ * Remove the tapping delay on clickable elements
+ */
+
+a,
+area,
+button,
+input,
+label,
+select,
+textarea {
+	touch-action: manipulation;
+}
+
+/**
+ * Always hide elements with the 'hidden' attribute regardless of other styles
+ */
+
+[hidden] {
+	display: none !important;
+}
+
+/**
+ * Suppress the focus outline on elements that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ */
+
+[tabindex="-1"]:focus {
+	outline: none !important;
+}

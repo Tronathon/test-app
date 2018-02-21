@@ -1,0 +1,13 @@
+$breakpoint-map: (
+	hidpi: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
+) !default;
+
+@mixin media($query) {
+	@if map-has-key($breakpoint-map, $query) {
+		@media #{map-get($breakpoint-map, $query)} {
+			@content;
+		}
+	} @else {
+		@warn "Breakpoint '#{$query}' does not exist";
+	}
+}

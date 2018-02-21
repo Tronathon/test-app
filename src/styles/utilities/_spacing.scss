@@ -1,0 +1,65 @@
+/**
+ * Utilities - Spacing
+ */
+
+@each $key, $value in $spacing-map {
+	.u-margin-#{$key} {
+		margin: rem($value);
+	}
+
+	.u-margin-vertical-#{$key} {
+		margin-top: rem($value);
+		margin-bottom: rem($value);
+	}
+
+	.u-margin-horizontal-#{$key} {
+		margin-right: rem($value);
+		margin-left: rem($value);
+	}
+
+	.u-margin-top-#{$key} {
+		margin-top: rem($value);
+	}
+
+	.u-margin-bottom-#{$key} {
+		margin-bottom: rem($value);
+	}
+
+	.u-margin-left-#{$key} {
+		margin-left: rem($value);
+	}
+
+	.u-margin-right-#{$key} {
+		margin-right: rem($value);
+	}
+
+	.u-padding-#{$key} {
+		padding: rem($value);
+	}
+
+	.u-padding-vertical-#{$key} {
+		padding-top: rem($value);
+		padding-bottom: rem($value);
+	}
+
+	.u-padding-horizontal-#{$key} {
+		padding-right: rem($value);
+		padding-left: rem($value);
+	}
+
+	.u-padding-top-#{$key} {
+		padding-top: rem($value);
+	}
+
+	.u-padding-bottom-#{$key} {
+		padding-bottom: rem($value);
+	}
+
+	.u-padding-left-#{$key} {
+		padding-left: rem($value);
+	}
+
+	.u-padding-right-#{$key} {
+		padding-right: rem($value);
+	}
+}

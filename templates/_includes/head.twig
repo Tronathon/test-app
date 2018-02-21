@@ -1,0 +1,12 @@
+{% set metaTitle = entry.metaTitle is defined and entry.metaTitle ? entry.metaTitle : metaTitle ?? entry.title ?? siteName ?? null %}
+{% set metaDescription = entry.metaDescription is defined and entry.metaDescription ? entry.metaDescription : metaDescription ?? null %}
+
+<title>{% if craft.app.config.general.devMode %}Dev - {% endif %}{{ metaTitle }}</title>
+
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% if metaDescription %}
+	<meta name="description" content="{{ metaDescription }}">
+{% endif %}
