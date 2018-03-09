@@ -3,6 +3,7 @@
 
 	<head>
 		{% include '_includes/head' %}
+		<link rel="stylesheet" href="{{ rev('/assets/styles/main.css') }}">
 		<script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';</script>
 	</head>
 
@@ -21,7 +22,7 @@
 			isModern ? main() : loadjs('https://cdn.polyfill.io/v2/polyfill.min.js', main);
 
 			function main() {
-				loadjs('/assets/index.js');
+				loadjs('{{ rev("/assets/scripts/main.js") }}');
 			}
  		</script>
 
