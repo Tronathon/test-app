@@ -3,12 +3,11 @@
  # =============================================================================
  #}
 
-{% extends "_layouts/standard" %}
+{% set entry = craft.entries.section("notFound").limit(1).one() %}
 
-{% if entry is not defined %}
-	{% set entry = craft.entries.uri('404').first() %}
-{% endif %}
+{% extends "_layouts/standard" %}
 
 {% block content %}
 	<h1>Page not found</h1>
+	<p>The page your were looking for cannot be found.</p>
 {% endblock %}
