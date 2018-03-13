@@ -1,14 +1,31 @@
-<!doctype html>
-<html lang="{{ craft.app.language|replace('_','-') }}" class="no-js">
+{% set lang = craft.app.language|replace('_','-') %}
+{% set metaTitle = entry.metaTitle is defined and entry.metaTitle ? entry.metaTitle : metaTitle ?? entry.title ?? siteName ?? null %}
+{% set metaDescription = entry.metaDescription is defined and entry.metaDescription ? entry.metaDescription : metaDescription ?? null %}
 
+<!doctype html>
+<!--# if expr="$HTTP_COOKIE=/fonts\-loaded\=1/" -->
+<html lang="{{ lang }}" class="no-js fonts-loaded">
+<!--# else -->
+<html lang="{{ lang }}" class="no-js">
+<!--# endif -->
 	<head>
-		{% include '_includes/head' %}
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>{% if craft.app.config.general.devMode %}Dev - {% endif %}{{ metaTitle }}</title>
+
+		{% if metaDescription %}
+			<meta name="description" content="{{ metaDescription }}">
+		{% endif %}
+
 		<link rel="stylesheet" href="{{ rev('/assets/styles/main.css') }}">
+
+		{# Replace no-js class with js #}
 		<script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';</script>
 	</head>
 
 	<body>
-
 		{% block layout %}
 			<p><code>{% verbatim %}{% block layout %}{% endblock %}{% endverbatim %}</code> not set.</p>
 		{% endblock %}
@@ -26,11 +43,6 @@
 			}
  		</script>
 
-		{% if not craft.app.config.general.devMode and not craft.request.isLivePreview %}
-			{% include "_includes/scripts/ga" %}
-			{% include "_includes/scripts/hotjar" %}
-		{% endif %}
-
+		{% include "_layouts/includes/analytics" %}
 	</body>
-
 </html>

@@ -1,0 +1,23 @@
+{#
+	srcset - Helper for creating srcset attributes, assumes we only use width descriptors.
+
+	@param {AssetModel} - image
+	@param {Array} - transforms An array of transform objects
+
+	Usage:
+
+	{% set image = entry.image.first() %}
+	{% set transforms = [
+		{ width: 275, height: 185 },
+		{ width: 473, height: 318 },
+		{ width: 706, height: 473 },
+	] %}
+
+	<img src="" srcset="{{ helpers.srcset(image, transforms) }} alt="">
+#}
+
+{% macro srcset(image, transforms) %}
+	{% for i in transforms %}
+		{{ image.getUrl(i)|replace(' ', '%20') }} {{ i.width }}w{{ not loop.last ? ', ' }}
+	{% endfor %}
+{% endmacro %}
