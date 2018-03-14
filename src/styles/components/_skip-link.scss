@@ -1,0 +1,12 @@
+.c-skip-link {
+	@include assistive();
+	@include assistive-focusable();
+
+	top: rem(20);
+	left: rem(20);
+}
+
+.c-skip-link:active,
+.c-skip-link:focus {
+	position: absolute;
+}
