@@ -1,1 +1,3 @@
-console.log('Script Loaded');
+import fontLoader from './modules/font-loader';
+
+fontLoader();
