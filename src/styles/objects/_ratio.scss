@@ -20,6 +20,7 @@ $ratios: (
 	@include ratio(1, 1);
 }
 
+// Create ratio variants in format o-ratio--16:9
 @each $width, $height in $ratios {
 	@if (type-of($width) != number) {
 		@error "`#{$width}` needs to be a number.";
@@ -29,9 +30,7 @@ $ratios: (
 		@error "`#{$width}` needs to be a number.";
 	}
 
-	.o-ratio--#{$width}\:#{$height} {
-		&::after {
-			padding-bottom: percentage($height / $width);
-		}
+	.o-ratio--#{$width}\:#{$height}::before {
+		padding-bottom: percentage($height / $width);
 	}
 }
