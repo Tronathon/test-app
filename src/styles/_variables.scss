@@ -3,18 +3,14 @@
 // =============================================================================
 
 // Colors
-
 $white: #fff;
 $black: #000;
 
 $body-background-color: $white;
 $body-color: $black;
 
-// Typography
-
-$base-font-size: 16;
-
 // Spacing
+// -------------------------------------------
 
 $base-spacing: 8;
 $spacing-map: (
@@ -23,14 +19,40 @@ $spacing-map: (
 	l: $base-spacing * 3,
 );
 
+// Layout
+// -------------------------------------------
+
+$global-gutter: 15;
+
 // z-index
+// -------------------------------------------
 
 $z-index-map: (
 	modal: 100,
 );
 
 // Breakpoints
+// -------------------------------------------
 
 $breakpoint-map: (
 	s: only screen and (min-width: 20em),
+);
+
+// Typography
+// -------------------------------------------
+
+$base-font-size: 16;
+
+$typography-map: (
+	body: (
+		1: ("font-size": 16, "line-height": 18),
+		2: ("font-size": 18, "line-hight:": 20),
+	),
+	headings: (
+		1: ("font-size": 16, "line-height": 18),
+		2: ("font-size": 18, "line-hight:": 20),
+	),
+	display: (
+		1: ("font-size": 46, "line-height": 32),
+	),
 );

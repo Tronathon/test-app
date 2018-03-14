@@ -1,0 +1,29 @@
+@function get-font-size($type, $level) {
+	@return map-deep-get($typography-map, $type, $level, "font-size");
+}
+
+@function get-line-height($type, $level) {
+	@return map-deep-get($typography-map, $type, $level, "line-height");
+}
+
+@function get-letter-spacing($type, $level) {
+	@return map-deep-get($typography-map, $type, $level, "letter-spacing");
+}
+
+@mixin typography($type, $level) {
+	$font-size: get-font-size($type, $level);
+	$letter-spacing: get-letter-spacing($type, $level);
+	$line-height: get-line-height($type, $level) / $font-size;
+
+	@if ($font-size) {
+		font-size: rem($font-size);
+	}
+
+	@if ($letter-spacing) {
+		letter-spacing: ($letter-spacing / $font-size);
+	}
+
+	@if ($line-height) {
+		line-height: $line-height;
+	}
+}
