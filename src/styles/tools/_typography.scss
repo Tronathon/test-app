@@ -1,3 +1,15 @@
+
+$typography-map: (
+	body: (
+		1: ("font-size": 16, "line-height": 18),
+		2: ("font-size": 18, "line-hight:": 20),
+	),
+	headings: (
+		1: ("font-size": 16, "line-height": 18),
+		2: ("font-size": 18, "line-hight:": 20),
+	),
+) !default;
+
 @function get-font-size($type, $level) {
 	@return map-deep-get($typography-map, $type, $level, "font-size");
 }

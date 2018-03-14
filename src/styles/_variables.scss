@@ -42,17 +42,3 @@ $breakpoint-map: (
 // -------------------------------------------
 
 $base-font-size: 16;
-
-$typography-map: (
-	body: (
-		1: ("font-size": 16, "line-height": 18),
-		2: ("font-size": 18, "line-hight:": 20),
-	),
-	headings: (
-		1: ("font-size": 16, "line-height": 18),
-		2: ("font-size": 18, "line-hight:": 20),
-	),
-	display: (
-		1: ("font-size": 46, "line-height": 32),
-	),
-);
