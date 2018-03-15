@@ -11,7 +11,7 @@
  Target Server Version : 50638
  File Encoding         : utf-8
 
- Date: 02/21/2018 15:43:51 PM
+ Date: 03/15/2018 09:08:09 AM
 */
 
 SET NAMES utf8mb4;
@@ -38,7 +38,7 @@ CREATE TABLE `craft_assetindexdata` (
   KEY `craft_assetindexdata_sessionId_volumeId_idx` (`sessionId`,`volumeId`),
   KEY `craft_assetindexdata_volumeId_idx` (`volumeId`),
   CONSTRAINT `craft_assetindexdata_volumeId_fk` FOREIGN KEY (`volumeId`) REFERENCES `craft_volumes` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9561 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `craft_assets`
@@ -187,19 +187,23 @@ CREATE TABLE `craft_content` (
   `field_metaDescription` text,
   `field_googleAnalyticsId` text,
   `field_hotjarId` text,
+  `field_twitterUsername` text,
+  `field_instagramUsername` text,
+  `field_facebookProfileUrl` varchar(255) DEFAULT NULL,
+  `field_pinterestUsername` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `craft_content_elementId_siteId_unq_idx` (`elementId`,`siteId`),
   KEY `craft_content_siteId_idx` (`siteId`),
   KEY `craft_content_title_idx` (`title`),
   CONSTRAINT `craft_content_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_content_siteId_fk` FOREIGN KEY (`siteId`) REFERENCES `craft_sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_content`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_content` VALUES ('1', '1', '1', null, '2018-02-20 15:35:51', '2018-02-20 15:35:51', '72eea126-2989-4ebe-a319-dd8ea09772cd', null, null, null, null), ('2', '2', '1', 'Homepage', '2018-02-20 15:38:39', '2018-02-20 15:38:39', '410a043f-a4d5-44be-99b8-289f0e293a1c', null, null, null, null), ('3', '3', '1', 'Not Found', '2018-02-20 15:39:10', '2018-02-20 15:39:10', '37142cd3-6325-4d30-9780-97dfa83bd413', null, null, null, null), ('4', '4', '1', null, '2018-02-21 11:49:40', '2018-02-21 11:50:10', '0724180f-0410-4558-9ebd-8de6ce4937a5', null, null, null, null);
+INSERT INTO `craft_content` VALUES ('1', '1', '1', null, '2018-02-20 15:35:51', '2018-02-20 15:35:51', '72eea126-2989-4ebe-a319-dd8ea09772cd', null, null, null, null, null, null, null, null), ('2', '2', '1', 'Homepage', '2018-02-20 15:38:39', '2018-02-20 15:38:39', '410a043f-a4d5-44be-99b8-289f0e293a1c', null, null, null, null, null, null, null, null), ('3', '3', '1', 'Page Not Found', '2018-02-20 15:39:10', '2018-02-27 14:43:51', '37142cd3-6325-4d30-9780-97dfa83bd413', null, null, null, null, null, null, null, null), ('4', '4', '1', null, '2018-02-21 11:49:40', '2018-02-21 11:50:10', '0724180f-0410-4558-9ebd-8de6ce4937a5', null, null, null, null, null, null, null, null), ('5', '5', '1', null, '2018-03-13 09:47:08', '2018-03-13 15:00:14', 'a09c8a5a-ab67-41e1-9bc8-e5abb8f282dd', null, null, null, null, null, null, null, null);
 COMMIT;
 
 -- ----------------------------
@@ -237,7 +241,7 @@ CREATE TABLE `craft_deprecationerrors` (
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `craft_deprecationerrors_key_fingerprint_unq_idx` (`key`,`fingerprint`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `craft_elementindexsettings`
@@ -280,13 +284,13 @@ CREATE TABLE `craft_elements` (
   KEY `craft_elements_enabled_idx` (`enabled`),
   KEY `craft_elements_archived_dateCreated_idx` (`archived`,`dateCreated`),
   CONSTRAINT `craft_elements_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_elements`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_elements` VALUES ('1', null, 'craft\\elements\\User', '1', '0', '2018-02-20 15:35:51', '2018-02-20 15:35:51', '1c24934b-d6d1-44ae-91ed-92aae62c3bf4'), ('2', '1', 'craft\\elements\\Entry', '1', '0', '2018-02-20 15:38:39', '2018-02-20 15:38:39', '48c343a5-bbe7-4202-828e-f47c927864e3'), ('3', '2', 'craft\\elements\\Entry', '1', '0', '2018-02-20 15:39:10', '2018-02-20 15:39:10', '6d10bcdd-d215-41b4-b0e6-ea517b839d0f'), ('4', '3', 'craft\\elements\\GlobalSet', '1', '0', '2018-02-21 11:49:40', '2018-02-21 11:50:10', '76d8397d-a26a-4dda-8bcb-2f42001733ce');
+INSERT INTO `craft_elements` VALUES ('1', null, 'craft\\elements\\User', '1', '0', '2018-02-20 15:35:51', '2018-02-20 15:35:51', '1c24934b-d6d1-44ae-91ed-92aae62c3bf4'), ('2', '1', 'craft\\elements\\Entry', '1', '0', '2018-02-20 15:38:39', '2018-02-20 15:38:39', '48c343a5-bbe7-4202-828e-f47c927864e3'), ('3', '2', 'craft\\elements\\Entry', '1', '0', '2018-02-20 15:39:10', '2018-02-27 14:43:51', '6d10bcdd-d215-41b4-b0e6-ea517b839d0f'), ('4', '3', 'craft\\elements\\GlobalSet', '1', '0', '2018-02-21 11:49:40', '2018-02-21 11:50:10', '76d8397d-a26a-4dda-8bcb-2f42001733ce'), ('5', '5', 'craft\\elements\\GlobalSet', '1', '0', '2018-03-13 09:47:08', '2018-03-13 15:00:14', '235585ab-00b0-4dd3-8be2-3224ffdce513');
 COMMIT;
 
 -- ----------------------------
@@ -311,13 +315,13 @@ CREATE TABLE `craft_elements_sites` (
   KEY `craft_elements_sites_enabled_idx` (`enabled`),
   CONSTRAINT `craft_elements_sites_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_elements_sites_siteId_fk` FOREIGN KEY (`siteId`) REFERENCES `craft_sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_elements_sites`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_elements_sites` VALUES ('1', '1', '1', null, null, '1', '2018-02-20 15:35:51', '2018-02-20 15:35:51', '538a1a80-2412-4c37-9e2e-d66d2a2d3c4e'), ('2', '2', '1', 'homepage', '__home__', '1', '2018-02-20 15:38:39', '2018-02-20 15:38:39', 'a8ef175f-db0b-4614-9388-cea5b5870df8'), ('3', '3', '1', 'not-found', '404', '1', '2018-02-20 15:39:10', '2018-02-20 15:39:10', '8bfb5754-c10c-439b-afb3-603249491d95'), ('4', '4', '1', null, null, '1', '2018-02-21 11:49:40', '2018-02-21 11:50:10', '80a197c8-b3dd-4824-b549-7a7804348dec');
+INSERT INTO `craft_elements_sites` VALUES ('1', '1', '1', null, null, '1', '2018-02-20 15:35:51', '2018-02-20 15:35:51', '538a1a80-2412-4c37-9e2e-d66d2a2d3c4e'), ('2', '2', '1', 'homepage', '__home__', '1', '2018-02-20 15:38:39', '2018-02-20 15:38:39', 'a8ef175f-db0b-4614-9388-cea5b5870df8'), ('3', '3', '1', 'not-found', '404', '1', '2018-02-20 15:39:10', '2018-02-27 14:43:51', '8bfb5754-c10c-439b-afb3-603249491d95'), ('4', '4', '1', null, null, '1', '2018-02-21 11:49:40', '2018-02-21 11:50:10', '80a197c8-b3dd-4824-b549-7a7804348dec'), ('5', '5', '1', null, null, '1', '2018-03-13 09:47:08', '2018-03-13 15:00:14', 'cd2f7d6a-d264-43bf-8f5c-7afd56b571d5');
 COMMIT;
 
 -- ----------------------------
@@ -350,7 +354,7 @@ CREATE TABLE `craft_entries` (
 --  Records of `craft_entries`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_entries` VALUES ('2', '1', '1', null, '2018-02-20 15:38:39', null, '2018-02-20 15:38:39', '2018-02-20 15:38:39', '9fbef5d9-fe59-4601-a2dc-5a4054cfcec9'), ('3', '2', '2', null, '2018-02-20 15:39:09', null, '2018-02-20 15:39:10', '2018-02-20 15:39:10', '21808d43-0d24-4832-8888-60bbe474421d');
+INSERT INTO `craft_entries` VALUES ('2', '1', '1', null, '2018-02-20 15:38:39', null, '2018-02-20 15:38:39', '2018-02-20 15:38:39', '9fbef5d9-fe59-4601-a2dc-5a4054cfcec9'), ('3', '2', '2', null, '2018-02-20 15:39:09', null, '2018-02-20 15:39:10', '2018-02-27 14:43:51', '21808d43-0d24-4832-8888-60bbe474421d');
 COMMIT;
 
 -- ----------------------------
@@ -410,7 +414,7 @@ CREATE TABLE `craft_entrytypes` (
 --  Records of `craft_entrytypes`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_entrytypes` VALUES ('1', '1', '1', 'Homepage', 'homepage', '0', null, '{section.name|raw}', '1', '2018-02-20 15:38:39', '2018-02-20 15:38:39', '8c47e0a1-3e84-4b17-afe1-8af26c6f725d'), ('2', '2', '2', 'Not Found', 'notFound', '0', null, '{section.name|raw}', '1', '2018-02-20 15:39:09', '2018-02-20 15:39:09', '7f4067df-dfae-44b7-bb74-49ac952562aa');
+INSERT INTO `craft_entrytypes` VALUES ('1', '1', '1', 'Homepage', 'homepage', '0', null, '{section.name|raw}', '1', '2018-02-20 15:38:39', '2018-02-20 15:38:39', '8c47e0a1-3e84-4b17-afe1-8af26c6f725d'), ('2', '2', '2', 'Not Found', 'notFound', '1', 'Title', null, '1', '2018-02-20 15:39:09', '2018-02-27 14:43:42', '7f4067df-dfae-44b7-bb74-49ac952562aa');
 COMMIT;
 
 -- ----------------------------
@@ -483,13 +487,13 @@ CREATE TABLE `craft_fieldlayoutfields` (
   CONSTRAINT `craft_fieldlayoutfields_fieldId_fk` FOREIGN KEY (`fieldId`) REFERENCES `craft_fields` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_fieldlayoutfields_layoutId_fk` FOREIGN KEY (`layoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_fieldlayoutfields_tabId_fk` FOREIGN KEY (`tabId`) REFERENCES `craft_fieldlayouttabs` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_fieldlayoutfields`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_fieldlayoutfields` VALUES ('2', '3', '2', '3', '0', '1', '2018-02-21 11:50:10', '2018-02-21 11:50:10', '66c3cc08-374a-49be-985c-8f406c345548'), ('3', '3', '2', '4', '0', '2', '2018-02-21 11:50:10', '2018-02-21 11:50:10', '7bba8a72-e224-4c33-b5be-9c8e9c78e41c');
+INSERT INTO `craft_fieldlayoutfields` VALUES ('2', '3', '2', '3', '0', '1', '2018-02-21 11:50:10', '2018-02-21 11:50:10', '66c3cc08-374a-49be-985c-8f406c345548'), ('3', '3', '2', '4', '0', '2', '2018-02-21 11:50:10', '2018-02-21 11:50:10', '7bba8a72-e224-4c33-b5be-9c8e9c78e41c'), ('9', '5', '5', '7', '0', '1', '2018-03-13 15:00:14', '2018-03-13 15:00:14', '77b2a7ce-6c27-4511-a90c-3e8dccbde0fc'), ('10', '5', '5', '6', '0', '2', '2018-03-13 15:00:14', '2018-03-13 15:00:14', 'c836d139-c830-43d2-b5d2-be47385e85bd'), ('11', '5', '5', '8', '0', '3', '2018-03-13 15:00:14', '2018-03-13 15:00:14', '3fa3f110-0a4b-4237-953a-e295d83cec2c'), ('12', '5', '5', '5', '0', '4', '2018-03-13 15:00:14', '2018-03-13 15:00:14', 'c1e0573c-f786-4df0-840e-3c7329f02bf9');
 COMMIT;
 
 -- ----------------------------
@@ -504,13 +508,13 @@ CREATE TABLE `craft_fieldlayouts` (
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `craft_fieldlayouts_type_idx` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_fieldlayouts`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_fieldlayouts` VALUES ('1', 'craft\\elements\\Entry', '2018-02-20 15:38:39', '2018-02-20 15:38:39', '51bba78b-3d7a-426d-978b-6a873f411572'), ('2', 'craft\\elements\\Entry', '2018-02-20 15:39:09', '2018-02-20 15:39:09', 'e4270d87-6f59-484c-a0f0-1a004a57cde7'), ('3', 'craft\\elements\\GlobalSet', '2018-02-21 11:49:39', '2018-02-21 11:50:10', 'e900b578-314d-46b3-91f7-7283cfa4a336'), ('4', 'craft\\elements\\Asset', '2018-02-21 14:54:35', '2018-02-21 14:55:17', '26cd505f-870a-4878-a9e9-a767db2dd7ff');
+INSERT INTO `craft_fieldlayouts` VALUES ('1', 'craft\\elements\\Entry', '2018-02-20 15:38:39', '2018-02-20 15:38:39', '51bba78b-3d7a-426d-978b-6a873f411572'), ('2', 'craft\\elements\\Entry', '2018-02-20 15:39:09', '2018-02-27 14:43:42', 'e4270d87-6f59-484c-a0f0-1a004a57cde7'), ('3', 'craft\\elements\\GlobalSet', '2018-02-21 11:49:39', '2018-02-21 11:50:10', 'e900b578-314d-46b3-91f7-7283cfa4a336'), ('4', 'craft\\elements\\Asset', '2018-02-21 14:54:35', '2018-02-21 14:55:17', '26cd505f-870a-4878-a9e9-a767db2dd7ff'), ('5', 'craft\\elements\\GlobalSet', '2018-03-13 09:47:08', '2018-03-13 15:00:14', 'dd27ca55-cca6-415f-b885-46e5721196ea');
 COMMIT;
 
 -- ----------------------------
@@ -529,13 +533,13 @@ CREATE TABLE `craft_fieldlayouttabs` (
   KEY `craft_fieldlayouttabs_sortOrder_idx` (`sortOrder`),
   KEY `craft_fieldlayouttabs_layoutId_idx` (`layoutId`),
   CONSTRAINT `craft_fieldlayouttabs_layoutId_fk` FOREIGN KEY (`layoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_fieldlayouttabs`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_fieldlayouttabs` VALUES ('2', '3', 'Tracking', '1', '2018-02-21 11:50:10', '2018-02-21 11:50:10', '2d8ad957-d4ed-4c04-99c3-7f06be26b798');
+INSERT INTO `craft_fieldlayouttabs` VALUES ('2', '3', 'Tracking', '1', '2018-02-21 11:50:10', '2018-02-21 11:50:10', '2d8ad957-d4ed-4c04-99c3-7f06be26b798'), ('5', '5', 'Networks', '1', '2018-03-13 15:00:14', '2018-03-13 15:00:14', '16c956db-1456-4371-b183-d028743b8dbf');
 COMMIT;
 
 -- ----------------------------
@@ -561,13 +565,13 @@ CREATE TABLE `craft_fields` (
   KEY `craft_fields_groupId_idx` (`groupId`),
   KEY `craft_fields_context_idx` (`context`),
   CONSTRAINT `craft_fields_groupId_fk` FOREIGN KEY (`groupId`) REFERENCES `craft_fieldgroups` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_fields`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_fields` VALUES ('1', '2', 'Meta Title', 'metaTitle', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-02-20 16:05:47', '2018-02-20 16:05:47', '9a67908f-52bb-48ef-8292-1ba0b7d3280b'), ('2', '2', 'Meta Description', 'metaDescription', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-02-20 16:05:58', '2018-02-20 16:05:58', '46b9358e-d223-4da4-bb2a-d08e302e41c6'), ('3', '3', 'Google Analytics ID', 'googleAnalyticsId', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-02-21 11:49:16', '2018-02-21 11:49:16', '7be805d5-9aa7-40a1-9a6c-f80d213ded98'), ('4', '3', 'Hotjar ID', 'hotjarId', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-02-21 11:50:02', '2018-02-21 11:50:02', 'ae0b5929-332e-4044-81d7-aab4e0101bca');
+INSERT INTO `craft_fields` VALUES ('1', '2', 'Meta Title', 'metaTitle', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-02-20 16:05:47', '2018-02-20 16:05:47', '9a67908f-52bb-48ef-8292-1ba0b7d3280b'), ('2', '2', 'Meta Description', 'metaDescription', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-02-20 16:05:58', '2018-02-20 16:05:58', '46b9358e-d223-4da4-bb2a-d08e302e41c6'), ('3', '3', 'Google Analytics ID', 'googleAnalyticsId', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-02-21 11:49:16', '2018-02-21 11:49:16', '7be805d5-9aa7-40a1-9a6c-f80d213ded98'), ('4', '3', 'Hotjar ID', 'hotjarId', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-02-21 11:50:02', '2018-03-13 14:57:59', 'ae0b5929-332e-4044-81d7-aab4e0101bca'), ('5', '4', 'Twitter Username', 'twitterUsername', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-03-09 10:21:58', '2018-03-13 15:02:42', 'e30d6b56-1877-4d52-bfb5-74160b12ed7c'), ('6', '4', 'Instagram Username', 'instagramUsername', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-03-09 10:22:09', '2018-03-13 15:02:27', '065abce5-dde0-4ba2-82bb-be4605a63d35'), ('7', '4', 'Facebook Profile URL', 'facebookProfileUrl', 'global', '', 'none', null, 'craft\\fields\\Url', '[]', '2018-03-13 14:53:10', '2018-03-13 15:02:21', 'c713840b-3a39-4e8d-a142-0a2ff5503a6c'), ('8', '4', 'Pinterest Username', 'pinterestUsername', 'global', '', 'none', null, 'craft\\fields\\PlainText', '{\"placeholder\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}', '2018-03-13 14:59:59', '2018-03-13 15:02:35', '936bd1d7-764e-447b-9d30-f2b8ef0d97b4');
 COMMIT;
 
 -- ----------------------------
@@ -588,13 +592,13 @@ CREATE TABLE `craft_globalsets` (
   KEY `craft_globalsets_fieldLayoutId_idx` (`fieldLayoutId`),
   CONSTRAINT `craft_globalsets_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE SET NULL,
   CONSTRAINT `craft_globalsets_id_fk` FOREIGN KEY (`id`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_globalsets`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_globalsets` VALUES ('4', 'Config', 'config', '3', '2018-02-21 11:49:40', '2018-02-21 11:50:10', 'fe65c17b-9e8c-43fa-9e65-a2e1d5377a47');
+INSERT INTO `craft_globalsets` VALUES ('4', 'Config', 'config', '3', '2018-02-21 11:49:40', '2018-02-21 11:50:10', 'fe65c17b-9e8c-43fa-9e65-a2e1d5377a47'), ('5', 'Social Media', 'socialMedia', '5', '2018-03-13 09:47:10', '2018-03-13 15:00:15', '9bfe38f2-5fc3-48ff-b850-f89257ce94ab');
 COMMIT;
 
 -- ----------------------------
@@ -621,7 +625,7 @@ CREATE TABLE `craft_info` (
 --  Records of `craft_info`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_info` VALUES ('1', '3.0.0-RC11', '3.0.83', '0', 'America/Los_Angeles', 'Craft', '1', '0', '9R7Q6Dh5da7G', '2018-02-20 15:35:51', '2018-02-21 15:05:54', '507c0ac7-b336-41ba-9ae3-8a8cc44df9db');
+INSERT INTO `craft_info` VALUES ('1', '3.0.0-RC14', '3.0.83', '0', 'Europe/London', 'Craft', '1', '0', 'rgnege5Kfpi2', '2018-02-20 15:35:51', '2018-03-13 15:02:42', '507c0ac7-b336-41ba-9ae3-8a8cc44df9db');
 COMMIT;
 
 -- ----------------------------
@@ -691,7 +695,7 @@ CREATE TABLE `craft_migrations` (
   KEY `craft_migrations_pluginId_idx` (`pluginId`),
   KEY `craft_migrations_type_pluginId_idx` (`type`,`pluginId`),
   CONSTRAINT `craft_migrations_pluginId_fk` FOREIGN KEY (`pluginId`) REFERENCES `craft_plugins` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_migrations`
@@ -720,7 +724,14 @@ CREATE TABLE `craft_plugins` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `craft_plugins_handle_unq_idx` (`handle`),
   KEY `craft_plugins_enabled_idx` (`enabled`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `craft_plugins`
+-- ----------------------------
+BEGIN;
+INSERT INTO `craft_plugins` VALUES ('1', 'assetrev', '6.0.0', '1.0.0', null, 'unknown', '1', null, '2018-03-09 10:08:42', '2018-03-09 10:08:42', '2018-03-15 09:05:44', 'c7b1f9cc-66d5-46b9-a9cb-ff0b7606619d');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `craft_queue`
@@ -744,7 +755,7 @@ CREATE TABLE `craft_queue` (
   PRIMARY KEY (`id`),
   KEY `craft_queue_fail_timeUpdated_timePushed_idx` (`fail`,`timeUpdated`,`timePushed`),
   KEY `craft_queue_fail_timeUpdated_delay_idx` (`fail`,`timeUpdated`,`delay`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `craft_relations`
@@ -809,7 +820,7 @@ CREATE TABLE `craft_searchindex` (
 --  Records of `craft_searchindex`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_searchindex` VALUES ('1', 'username', '0', '1', ' admin '), ('1', 'firstname', '0', '1', ''), ('1', 'lastname', '0', '1', ''), ('1', 'fullname', '0', '1', ''), ('1', 'email', '0', '1', ' webdev nixondesign com '), ('1', 'slug', '0', '1', ''), ('2', 'slug', '0', '1', ' homepage '), ('2', 'title', '0', '1', ' homepage '), ('3', 'slug', '0', '1', ' not found '), ('3', 'title', '0', '1', ' not found '), ('4', 'field', '3', '1', ''), ('4', 'slug', '0', '1', ''), ('4', 'field', '4', '1', '');
+INSERT INTO `craft_searchindex` VALUES ('1', 'username', '0', '1', ' admin '), ('1', 'firstname', '0', '1', ''), ('1', 'lastname', '0', '1', ''), ('1', 'fullname', '0', '1', ''), ('1', 'email', '0', '1', ' webdev nixondesign com '), ('1', 'slug', '0', '1', ''), ('2', 'slug', '0', '1', ' homepage '), ('2', 'title', '0', '1', ' homepage '), ('3', 'slug', '0', '1', ' not found '), ('3', 'title', '0', '1', ' page not found '), ('4', 'field', '3', '1', ''), ('4', 'slug', '0', '1', ''), ('4', 'field', '4', '1', ''), ('5', 'field', '6', '1', ''), ('5', 'field', '5', '1', ''), ('5', 'slug', '0', '1', ''), ('5', 'field', '7', '1', ''), ('5', 'field', '8', '1', '');
 COMMIT;
 
 -- ----------------------------
@@ -887,13 +898,13 @@ CREATE TABLE `craft_sessions` (
   KEY `craft_sessions_dateUpdated_idx` (`dateUpdated`),
   KEY `craft_sessions_userId_idx` (`userId`),
   CONSTRAINT `craft_sessions_userId_fk` FOREIGN KEY (`userId`) REFERENCES `craft_users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_sessions`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_sessions` VALUES ('1', '1', 'M2R1ibHUYhGx5SDvWB8Pdt3e3DJvSgxdBLD1ogIEEH3fC_TBDhz7lqXUCkzsYAbuOtBXtBmdea9LXnMXARdWFOCX2ACrBXswfLCQ', '2018-02-21 11:30:10', '2018-02-21 12:17:41', 'a6d319af-c8fa-4ddd-81c7-e5be05580577'), ('2', '1', 'cjmjNYXgvxPzld-zfIDEme1SRvkjkK74oa8h04XuelqJfuJ6b9bLjMDZ322ITpDo4udQuWCiTBhMSa84urxSQeDjD0UlVeBG4Lv1', '2018-02-21 14:22:21', '2018-02-21 15:42:09', '0cc37693-cbd6-49be-99d7-6826d4878c69');
+INSERT INTO `craft_sessions` VALUES ('1', '1', 'M2R1ibHUYhGx5SDvWB8Pdt3e3DJvSgxdBLD1ogIEEH3fC_TBDhz7lqXUCkzsYAbuOtBXtBmdea9LXnMXARdWFOCX2ACrBXswfLCQ', '2018-02-21 11:30:10', '2018-02-21 12:17:41', 'a6d319af-c8fa-4ddd-81c7-e5be05580577'), ('2', '1', 'cjmjNYXgvxPzld-zfIDEme1SRvkjkK74oa8h04XuelqJfuJ6b9bLjMDZ322ITpDo4udQuWCiTBhMSa84urxSQeDjD0UlVeBG4Lv1', '2018-02-21 14:22:21', '2018-02-21 15:42:09', '0cc37693-cbd6-49be-99d7-6826d4878c69'), ('3', '1', 'bBjaInt1XycWK7qDNjzOeMNtipdj_NaO-4UTIQhWrrmHb9dXyTDVR-NfYia4rWRcnvat0TFYrpH-4ZskWKDb0TVwOar25YBerfuu', '2018-02-27 14:41:19', '2018-02-27 15:13:51', '22cf1e0a-6958-43d6-9362-8c2bc7c49f5a'), ('4', '1', 'NT2UMq9uXaIPTsoDt7lIMTw7HcvyWy48vSAnQ9R-ruGH7mUb24BSxMoZYVWKsUOLYCyg_0v3CRJki0hl7K-tvsbLbj1GfuhvXWcX', '2018-03-09 10:01:44', '2018-03-09 10:27:15', '09ff10d0-6d0a-4238-b95e-33707d512ebd'), ('5', '1', '-anPWDqxw4mrvjBYSydha797KM9jpPoUfHSDwkm405aHT7cyApF-HOweI1u3p1G4ZiPf7-4NG04O2uVOGVFJe9o6d16A90h-mFCW', '2018-03-14 09:02:07', '2018-03-14 10:03:25', 'd4526426-658e-4492-8fe8-8a0df38c6842'), ('6', '1', 'ZWsOTeFT0IQFBC3Ol8zJ7wD1rk0KMfHOV1hP_kMdsrmULSijcVOmgLw5Z3Xnfpvn8J4pKhAapYyiu_qTSQ4KKZjEc7BRaEmpEbwD', '2018-03-15 09:04:27', '2018-03-15 09:07:21', '44393b19-4c5a-4f2f-84ab-652a72cd74d6');
 COMMIT;
 
 -- ----------------------------
@@ -962,7 +973,7 @@ CREATE TABLE `craft_sites` (
 --  Records of `craft_sites`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_sites` VALUES ('1', '1', '1', 'Craft', 'default', 'en-GB', '1', '', '1', '2018-02-20 15:35:51', '2018-02-20 15:52:45', '5bc7a9ea-513e-46dd-8b35-385dedb656fd');
+INSERT INTO `craft_sites` VALUES ('1', '1', '1', 'Craft', 'default', 'en-GB', '1', '@web', '1', '2018-02-20 15:35:51', '2018-03-09 10:20:29', '5bc7a9ea-513e-46dd-8b35-385dedb656fd');
 COMMIT;
 
 -- ----------------------------
@@ -1093,6 +1104,13 @@ CREATE TABLE `craft_templatecacheelements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+--  Records of `craft_templatecacheelements`
+-- ----------------------------
+BEGIN;
+INSERT INTO `craft_templatecacheelements` VALUES ('1', '2');
+COMMIT;
+
+-- ----------------------------
 --  Table structure for `craft_templatecachequeries`
 -- ----------------------------
 DROP TABLE IF EXISTS `craft_templatecachequeries`;
@@ -1123,7 +1141,14 @@ CREATE TABLE `craft_templatecaches` (
   KEY `craft_templatecaches_cacheKey_siteId_expiryDate_idx` (`cacheKey`,`siteId`,`expiryDate`),
   KEY `craft_templatecaches_siteId_idx` (`siteId`),
   CONSTRAINT `craft_templatecaches_siteId_fk` FOREIGN KEY (`siteId`) REFERENCES `craft_sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `craft_templatecaches`
+-- ----------------------------
+BEGIN;
+INSERT INTO `craft_templatecaches` VALUES ('1', '1', 'Bed2DzCBOBu3PmO1jMx0Bm9hd1WuZn4Tba2i', 'site:', '2018-03-15 13:37:40', '		<main id=\"content\">\n			<h1>Homepage</h1>\n		</main>\n');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `craft_tokens`
@@ -1284,7 +1309,7 @@ CREATE TABLE `craft_users` (
 --  Records of `craft_users`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_users` VALUES ('1', 'admin', null, null, null, 'webdev@nixondesign.com', '$2y$13$LShhBb.t1NZg3BucRbMSkewXr7a6THqSrTqxyu/1MsBYMwxQN/iG2', '1', '0', '0', '0', '0', '2018-02-21 14:22:21', '::1', null, null, null, null, null, null, null, '0', '2018-02-20 15:35:53', '2018-02-20 15:35:53', '2018-02-21 14:22:21', '09fb99dd-419c-403d-a790-05adc580ce75');
+INSERT INTO `craft_users` VALUES ('1', 'admin', null, null, null, 'webdev@nixondesign.com', '$2y$13$LShhBb.t1NZg3BucRbMSkewXr7a6THqSrTqxyu/1MsBYMwxQN/iG2', '1', '0', '0', '0', '0', '2018-03-15 09:04:27', '::1', null, null, null, null, null, null, null, '0', '2018-02-20 15:35:53', '2018-02-20 15:35:53', '2018-03-15 09:04:27', '09fb99dd-419c-403d-a790-05adc580ce75');
 COMMIT;
 
 -- ----------------------------
@@ -1306,7 +1331,7 @@ CREATE TABLE `craft_volumefolders` (
   KEY `craft_volumefolders_volumeId_idx` (`volumeId`),
   CONSTRAINT `craft_volumefolders_parentId_fk` FOREIGN KEY (`parentId`) REFERENCES `craft_volumefolders` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_volumefolders_volumeId_fk` FOREIGN KEY (`volumeId`) REFERENCES `craft_volumes` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1691 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_volumefolders`
@@ -1337,7 +1362,7 @@ CREATE TABLE `craft_volumes` (
   UNIQUE KEY `craft_volumes_handle_unq_idx` (`handle`),
   KEY `craft_volumes_fieldLayoutId_idx` (`fieldLayoutId`),
   CONSTRAINT `craft_volumes_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `craft_widgets`
@@ -1357,13 +1382,13 @@ CREATE TABLE `craft_widgets` (
   PRIMARY KEY (`id`),
   KEY `craft_widgets_userId_idx` (`userId`),
   CONSTRAINT `craft_widgets_userId_fk` FOREIGN KEY (`userId`) REFERENCES `craft_users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `craft_widgets`
 -- ----------------------------
 BEGIN;
-INSERT INTO `craft_widgets` VALUES ('1', '1', 'craft\\widgets\\RecentEntries', '1', '0', '{\"section\":\"*\",\"siteId\":\"1\",\"limit\":10}', '1', '2018-02-20 15:35:54', '2018-02-20 15:35:54', '5afb4bdd-10dd-490e-9efd-2f939c4ffa2e'), ('2', '1', 'craft\\widgets\\CraftSupport', '2', '0', '[]', '1', '2018-02-20 15:35:54', '2018-02-20 15:35:54', 'c5dbe48f-96b7-42ad-8570-4cbb2a2e0a3b'), ('3', '1', 'craft\\widgets\\Updates', '3', '0', '[]', '1', '2018-02-20 15:35:54', '2018-02-20 15:35:54', '5b4bf904-c2f4-419b-b5fb-5a1b94ab73cf'), ('4', '1', 'craft\\widgets\\Feed', '4', '0', '{\"url\":\"https://craftcms.com/news.rss\",\"title\":\"Craft News\",\"limit\":5}', '1', '2018-02-20 15:35:54', '2018-02-20 15:35:54', 'dcacbf99-fa80-48dc-a90f-a7f74b0e8bd6');
+INSERT INTO `craft_widgets` VALUES ('1', '1', 'craft\\widgets\\RecentEntries', '1', '0', '{\"section\":\"*\",\"siteId\":\"1\",\"limit\":10}', '0', '2018-02-20 15:35:54', '2018-03-09 10:18:25', '5afb4bdd-10dd-490e-9efd-2f939c4ffa2e'), ('2', '1', 'craft\\widgets\\CraftSupport', '2', '0', '[]', '0', '2018-02-20 15:35:54', '2018-03-09 10:18:26', 'c5dbe48f-96b7-42ad-8570-4cbb2a2e0a3b'), ('3', '1', 'craft\\widgets\\Updates', '3', '0', '[]', '0', '2018-02-20 15:35:54', '2018-03-09 10:18:26', '5b4bf904-c2f4-419b-b5fb-5a1b94ab73cf'), ('4', '1', 'craft\\widgets\\Feed', '4', '0', '{\"url\":\"https://craftcms.com/news.rss\",\"title\":\"Craft News\",\"limit\":5}', '0', '2018-02-20 15:35:54', '2018-03-09 10:18:28', 'dcacbf99-fa80-48dc-a90f-a7f74b0e8bd6'), ('5', '1', 'craft\\widgets\\RecentEntries', '5', '0', '{\"section\":\"*\",\"siteId\":\"1\",\"limit\":10}', '0', '2018-03-13 09:44:49', '2018-03-13 10:34:16', '4f910941-bb9e-45cf-8333-5a9fb39e6e90'), ('6', '1', 'craft\\widgets\\CraftSupport', '6', '0', '[]', '0', '2018-03-13 09:44:49', '2018-03-13 10:34:17', 'ec8dba10-0ad1-4f20-99f2-41054df1b87f'), ('7', '1', 'craft\\widgets\\Updates', '7', '0', '[]', '0', '2018-03-13 09:44:49', '2018-03-13 10:34:18', 'bb2a643f-4b4d-4a2e-b153-cbd4aa50d54e'), ('8', '1', 'craft\\widgets\\Feed', '8', '0', '{\"url\":\"https://craftcms.com/news.rss\",\"title\":\"Craft News\",\"limit\":5}', '0', '2018-03-13 09:44:49', '2018-03-13 10:34:18', '805c3d89-564a-4e9f-9373-e9e0cfc5eab2'), ('9', '1', 'craft\\widgets\\RecentEntries', '9', '0', '{\"section\":\"*\",\"siteId\":\"1\",\"limit\":10}', '0', '2018-03-13 10:34:21', '2018-03-13 10:34:27', '261eba99-ff1e-4f28-b1aa-7dacb8b377a8'), ('10', '1', 'craft\\widgets\\CraftSupport', '10', '0', '[]', '0', '2018-03-13 10:34:21', '2018-03-13 10:34:28', '2b1e989e-9d27-41e3-8ece-f93bbb3b4110'), ('11', '1', 'craft\\widgets\\Updates', '11', '0', '[]', '0', '2018-03-13 10:34:21', '2018-03-13 10:34:29', '345f450c-400b-47f3-ae3f-d4f3b437d2eb'), ('12', '1', 'craft\\widgets\\Feed', '12', '0', '{\"url\":\"https://craftcms.com/news.rss\",\"title\":\"Craft News\",\"limit\":5}', '0', '2018-03-13 10:34:21', '2018-03-13 10:34:30', 'cf222eb3-4e60-49a8-b17f-b64a15e36e4a'), ('13', '1', 'craft\\widgets\\RecentEntries', '13', '0', '{\"section\":\"*\",\"siteId\":\"1\",\"limit\":10}', '0', '2018-03-13 10:34:33', '2018-03-13 10:34:41', 'f1a61d1c-a49f-4874-be1c-9db94efccc4f'), ('14', '1', 'craft\\widgets\\CraftSupport', '14', '0', '[]', '0', '2018-03-13 10:34:33', '2018-03-13 10:34:50', '761c7fb6-9db7-4449-9509-d2aad9f97cda'), ('15', '1', 'craft\\widgets\\Updates', '15', '0', '[]', '0', '2018-03-13 10:34:33', '2018-03-13 10:34:57', '17d311b4-5e54-4853-852a-ce45ce674ae7'), ('16', '1', 'craft\\widgets\\Feed', '16', '0', '{\"url\":\"https://craftcms.com/news.rss\",\"title\":\"Craft News\",\"limit\":5}', '0', '2018-03-13 10:34:33', '2018-03-13 10:34:59', '01b50ced-24b9-40ca-ae11-8eba4eda3da7'), ('17', '1', 'craft\\widgets\\RecentEntries', '17', '0', '{\"section\":\"*\",\"siteId\":\"1\",\"limit\":10}', '0', '2018-03-13 10:35:01', '2018-03-13 11:18:06', '4c4c3cb0-e68f-484c-83c3-60e7a161508e'), ('18', '1', 'craft\\widgets\\CraftSupport', '18', '0', '[]', '0', '2018-03-13 10:35:01', '2018-03-13 11:18:12', '2fd106dc-3211-471a-a5f8-60d6f761a98f'), ('19', '1', 'craft\\widgets\\Updates', '19', '0', '[]', '0', '2018-03-13 10:35:01', '2018-03-13 11:18:16', '8c7f9534-f2f3-4f71-a50a-fbbc5cfc4465'), ('20', '1', 'craft\\widgets\\Feed', '20', '0', '{\"url\":\"https://craftcms.com/news.rss\",\"title\":\"Craft News\",\"limit\":5}', '0', '2018-03-13 10:35:01', '2018-03-13 11:18:20', '423b8be0-df8f-42e4-92b1-496a0a0d48cc'), ('21', '1', 'craft\\widgets\\RecentEntries', '21', '0', '{\"section\":\"*\",\"siteId\":\"1\",\"limit\":10}', '1', '2018-03-13 11:18:21', '2018-03-13 11:18:21', '4c1fe91e-47c2-41a0-ac01-51f717889839'), ('22', '1', 'craft\\widgets\\CraftSupport', '22', '0', '[]', '1', '2018-03-13 11:18:21', '2018-03-13 11:18:21', 'dfe77097-c538-413e-a45b-770e31086e0a'), ('23', '1', 'craft\\widgets\\Updates', '23', '0', '[]', '1', '2018-03-13 11:18:21', '2018-03-13 11:18:21', 'd242d08e-2c40-434e-9884-807489b223ca'), ('24', '1', 'craft\\widgets\\Feed', '24', '0', '{\"url\":\"https://craftcms.com/news.rss\",\"title\":\"Craft News\",\"limit\":5}', '1', '2018-03-13 11:18:21', '2018-03-13 11:18:21', 'e71fe5f1-1ead-4045-8ee9-0adb9c48d583');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
