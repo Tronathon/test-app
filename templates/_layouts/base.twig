@@ -2,6 +2,9 @@
 {% set metaTitle = entry.metaTitle is defined and entry.metaTitle ? entry.metaTitle : metaTitle ?? entry.title ?? siteName ?? null %}
 {% set metaDescription = entry.metaDescription is defined and entry.metaDescription ? entry.metaDescription : metaDescription ?? null %}
 
+{% set value = getCookie('cookie_consent') %}
+{% set cookieConsent= not value is empty and value == 'true' ? true : false %}
+
 <!doctype html>
 <!--# if expr="$HTTP_COOKIE=/fonts\-loaded\=1/" -->
 <html lang="{{ lang }}" class="no-js fonts-loaded">
@@ -41,7 +44,7 @@
 			isModern ? main() : loadjs('https://cdn.polyfill.io/v2/polyfill.min.js', main);
 
 			function main() {
-				loadjs('{{ rev("/assets/scripts/main.js") }}');
+				loadjs(['{{ rev("/assets/scripts/vendor.js") }}', '{{ rev("/assets/scripts/main.js") }}']);
 			}
  		</script>
 
