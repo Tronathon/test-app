@@ -37,6 +37,6 @@
 	"dependencies": {
 		"normalize.css": "^7.0.0"
 		"fontfaceobserver": "^2.0.13",
-		"js-cookie": "^2.2.0",
+		"tiny-cookie": "^2.1.1"
 	}
 }
