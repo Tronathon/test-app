@@ -6,27 +6,29 @@
  * list of the available settings in vendor/craftcms/cms/src/config/GeneralConfig.php.
  */
 
+$httpHost = $_SERVER['HTTP_HOST'] ?? '';
+$protocol = isset($_SERVER['HTTPS']) ? "https://" : "http://";
+
 return [
     '*' => [
+		'securityKey' => getenv('SECURITY_KEY'),
+		'sendPoweredByHeader' => false,
+		'siteUrl' => $protocol . $httpHost . '/',
+		'useEmailAsUsername' => true,
         'cpTrigger' => 'admin',
         'enableCsrfProtection' => true,
         'omitScriptNameInUrls' => true,
-        'securityKey' => getenv('SECURITY_KEY'),
-		'useEmailAsUsername' => true,
     ],
 
     'dev' => [
         'devMode' => true,
-        'siteUrl' => null,
     ],
 
     'staging' => [
 		'allowUpdates' => false,
-		'siteUrl' => null,
     ],
 
     'production' => [
 		'allowUpdates' => false,
-        'siteUrl' => null,
     ],
 ];
