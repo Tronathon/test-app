@@ -9,6 +9,14 @@
 		"IE >= 10",
 		"last 2 versions"
 	],
+	"babel": {
+		"presets": [
+			["env", { "useBuiltIns": true }]
+		]
+	},
+	"stylelint": {
+		"extends": "stylelint-config-nixon"
+	},
 	"devDependencies": {
 		"autoprefixer": "^8.2.0",
 		"babel-preset-env": "^1.6.0",
