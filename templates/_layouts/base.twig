@@ -6,11 +6,8 @@
 {% set cookieConsent= not value is empty and value == 'true' ? true : false %}
 
 <!doctype html>
-<!--# if expr="$HTTP_COOKIE=/fonts\-loaded\=1/" -->
-<html lang="{{ lang }}" class="no-js fonts-loaded">
-<!--# else -->
-<html lang="{{ lang }}" class="no-js">
-<!--# endif -->
+<html lang="{{ lang }}" class="no-js {{ craft.cookies.get('fonts-loaded') ? 'fonts-loaded' }}">
+
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
