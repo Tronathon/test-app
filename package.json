@@ -11,7 +11,12 @@
 	],
 	"babel": {
 		"presets": [
-			["env", { "useBuiltIns": true }]
+			[
+				"env",
+				{
+					"useBuiltIns": true
+				}
+			]
 		]
 	},
 	"stylelint": {
