@@ -19,7 +19,7 @@
   },
   "require": {
     "clubstudioltd/craft-asset-rev": "v6.0.0",
-    "craftcms/cms": "3.0.0-RC14",
+    "craftcms/cms": "^3.0.0",
     "nystudio107/craft-cookies": "^1.1.0",
     "vlucas/phpdotenv": "^2.4.0"
   },
