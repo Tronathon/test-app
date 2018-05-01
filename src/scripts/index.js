@@ -1,3 +1,1 @@
-import fontLoader from './modules/font-loader';
-
-fontLoader();
+import Lazy from './modules/lazy-load';

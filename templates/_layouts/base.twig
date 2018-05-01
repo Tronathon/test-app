@@ -6,7 +6,6 @@
 
 <!doctype html>
 <html lang="{{ lang }}" class="no-js {{ craft.cookies.get('fonts-loaded') ? 'fonts-loaded' }}">
-
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -25,9 +24,9 @@
 	</head>
 
 	<body>
-		<a href="#content" class="c-skip-link">Skip to main content</a>
-
 		<div id="site">
+			<a href="#content" class="c-skip-link">Skip to main content</a>
+
 			{% block layout %}
 				<p><code>{% verbatim %}{% block layout %}{% endblock %}{% endverbatim %}</code> not set.</p>
 			{% endblock %}
@@ -35,12 +34,12 @@
 
 		{# Scripts #}
 		{% set polyfills = [
-			'Element.prototype.classList'
+			'Promise',
+			'IntersectionObserver',
+			'Element.prototype.classList',
 		] %}
 
-		{% set minified = craft.app.config.general.devMode ? '.min' %}
-
-		<script defer src="https://cdn.polyfill.io/v2/polyfill{{ minified }}.js?features={{ polyfills|join(',') }}"></script>
+		<script defer src="https://cdn.polyfill.io/v2/polyfill.js?features={{ polyfills|join(',') }}"></script>
 		<script defer src="{{ rev('/assets/scripts/main.js') }}"></script>
 
 		{% if not craft.app.config.general.devMode and not craft.request.isLivePreview %}

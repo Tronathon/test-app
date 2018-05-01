@@ -1,0 +1,28 @@
+{% set width = width ?? null %}
+{% set height = height ?? null %}
+{% set lazy = lazy is defined and lazy %}
+{% set padding = width and height ? (height / width * 100 )|round(2) %}
+
+{% set class = [
+	(padding ? 'o-image'),
+	(lazy and padding ? 'o-image--lazy')
+] %}
+
+{% if (src is defined and src) or (srcset is defined and srcset) %}
+	<div class="{{ class|join(' ')|trim }}" {{ padding ? "style=\"padding-bottom: #{ padding }%\""|raw }}>
+		{% if not lazy %}
+			<img
+				alt="{{ alt ?? null }}"
+				{% if src is defined and src %}src="{{ src }}"{% endif %}
+				{% if srcset is defined and srcset %}srcset="{{ srcset }}"{% endif %}
+			>
+		{% else %}
+			<img
+				alt="{{ alt ?? null }}"
+				src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+				{% if src is defined and src %}data-src="{{ src }}"{% endif %}
+				{% if srcset is defined and srcset %}data-srcset="{{ srcset }}"{% endif %}
+			>
+		{% endif %}
+	</div>
+{% endif %}

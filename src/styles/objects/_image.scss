@@ -1,0 +1,28 @@
+/* stylelint-disable selector-no-qualifying-type  */
+
+.o-image {
+	position: relative;
+	height: 0;
+	padding-bottom: 100%;
+	overflow: hidden;
+	background-color: #ececec;
+}
+
+.o-image img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.o-image--lazy img {
+	opacity: 0;
+	transition: opacity 300ms ease-in;
+	will-change: opacity;
+}
+
+.o-image img.has-loaded {
+	opacity: 1;
+}

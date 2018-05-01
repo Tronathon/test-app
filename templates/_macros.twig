@@ -6,7 +6,7 @@
 
 	Usage:
 
-	{% set image = entry.image.first() %}
+	{% set image = entry.image.one() %}
 	{% set transforms = [
 		{ width: 275, height: 185 },
 		{ width: 473, height: 318 },
@@ -20,4 +20,8 @@
 	{% for i in transforms %}
 		{{ image.getUrl(i)|replace(' ', '%20') }} {{ i.width }}w{{ not loop.last ? ', ' }}
 	{% endfor %}
+{% endmacro %}
+
+{% macro img(config) %}
+	{% include "_includes/img" with config only %}
 {% endmacro %}
