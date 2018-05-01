@@ -1,5 +1,8 @@
 # Craft Starter
 
+- [Craft ID](https://id.craftcms.com/account/licenses/cms)
+- [Craft Documentation](https://docs.craftcms.com/v3/)
+
 ## Requirements
 
 As per [Craft CMS Server Requirements](https://github.com/craftcms/docs/blob/v3/en/requirements.md). PHP 7 will need to available via the CLI in order to use the included `Craft` script.
