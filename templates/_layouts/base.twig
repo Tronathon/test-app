@@ -2,8 +2,7 @@
 {% set metaTitle = entry.metaTitle is defined and entry.metaTitle ? entry.metaTitle : metaTitle ?? entry.title ?? siteName ?? null %}
 {% set metaDescription = entry.metaDescription is defined and entry.metaDescription ? entry.metaDescription : metaDescription ?? null %}
 
-{% set value = getCookie('cookie_consent') %}
-{% set cookieConsent= not value is empty and value == 'true' ? true : false %}
+{% set cookieConsent = craft.cookies.get('cookie_consent') == 'true' ? true : false %}
 
 <!doctype html>
 <html lang="{{ lang }}" class="no-js {{ craft.cookies.get('fonts-loaded') ? 'fonts-loaded' }}">
