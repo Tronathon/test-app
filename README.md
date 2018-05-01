@@ -10,7 +10,7 @@ As per [Craft CMS Server Requirements](https://github.com/craftcms/docs/blob/v3/
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
-- [Gulp](https://github.com/gulpjs/gulp)
+- [Gulp CLI](https://github.com/gulpjs/gulp-cli)
 - [Composer](https://getcomposer.org/)
 
 ## Getting Started
