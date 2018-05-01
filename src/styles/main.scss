@@ -6,17 +6,8 @@
 @import "variables";
 
 // Tools
-@import "tools/functions/em";
-@import "tools/functions/map-deep-get";
-@import "tools/functions/rem";
-@import "tools/functions/spacing";
-@import "tools/functions/z-index";
-@import "tools/mixins/assistive";
-@import "tools/mixins/clearfix";
-@import "tools/mixins/container";
-@import "tools/mixins/media";
-@import "tools/mixins/ratio";
-@import "tools/mixins/size";
+@import "tools/functions";
+@import "tools/mixins";
 @import "tools/typography";
 
 // Base
@@ -30,7 +21,7 @@
 @import "objects/image";
 
 // Layouts
-// @import "layouts/example";
+@import "layouts/form";
 
 // Components
 @import "components/skip-link";
