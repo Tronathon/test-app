@@ -42,7 +42,7 @@
 		<script defer src="https://cdn.polyfill.io/v2/polyfill.js?features={{ polyfills|join(',') }}"></script>
 		<script defer src="{{ rev('/assets/scripts/main.js') }}"></script>
 
-		{% if not craft.app.config.general.devMode and not craft.request.isLivePreview %}
+		{% if (not craft.app.config.general.devMode) and (not craft.request.isLivePreview) and (doNotTrack == false) %}
 			{# Google Analytics - https://analytics.google.com #}
 			{% if config.googleAnalyticsId %}
 				<script>

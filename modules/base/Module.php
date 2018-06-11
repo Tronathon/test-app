@@ -20,6 +20,15 @@ use Craft;
  * Learn more about Yii module development in Yii's documentation:
  * http://www.yiiframework.com/doc-2.0/guide-structure-modules.html
  */
+
+namespace modules\base;
+
+use modules\base\twigextensions\TwigExtension;
+
+use Craft;
+use yii\base\Event;
+use craft\web\twig\variables\CraftVariable;
+
 class Module extends \yii\base\Module
 {
     /**
@@ -30,6 +39,9 @@ class Module extends \yii\base\Module
         Craft::setAlias('@modules', __DIR__);
         parent::init();
 
-        // Custom initialization code goes here...
+        if (Craft::$app->getRequest()->getIsSiteRequest()) {
+            // Add in our Twig extension
+            Craft::$app->getView()->registerTwigExtension(new TwigExtension());
+        }
     }
 }

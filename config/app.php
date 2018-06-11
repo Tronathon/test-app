@@ -14,8 +14,10 @@
  */
 
 return [
-    'modules' => [
-        'my-module' => \modules\Module::class,
+	'modules' => [
+		'base' => [
+            'class' => \modules\base\Module::class,
+        ],
     ],
-    //'bootstrap' => ['my-module'],
+    'bootstrap' => ['base'],
 ];
