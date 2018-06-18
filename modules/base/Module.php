@@ -14,12 +14,13 @@ class Module extends \yii\base\Module
      */
     public function init()
     {
-        parent::init();
         Craft::setAlias('@modules/base', $this->getBasePath());
 
         if (Craft::$app->getRequest()->getIsSiteRequest()) {
             // Add in our Twig extension
             Craft::$app->getView()->registerTwigExtension(new TwigExtension());
         }
+
+        parent::init();
     }
 }

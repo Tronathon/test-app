@@ -22,7 +22,6 @@ class Module extends \yii\base\Module
      */
     public function init()
     {
-        parent::init();
         Craft::setAlias('@modules/iubenda', $this->getBasePath());
 
         Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function(Event $e) {
@@ -32,5 +31,7 @@ class Module extends \yii\base\Module
             // Attach a service:
             $variable->set('iubenda', Iubenda::class);
         });
+
+        parent::init();
     }
 }
