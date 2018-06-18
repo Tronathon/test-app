@@ -25,7 +25,8 @@
   },
   "autoload": {
     "psr-4": {
-			"modules\\base\\": "modules/base"
+			"modules\\base\\": "modules/base",
+			"modules\\iubenda\\": "modules/iubenda"
     }
   },
   "config": {

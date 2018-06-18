@@ -18,6 +18,9 @@ return [
 		'base' => [
             'class' => \modules\base\Module::class,
         ],
+        'iubenda' => [
+            'class' => \modules\iubenda\Module::class,
+        ],
     ],
-    'bootstrap' => ['base'],
+    'bootstrap' => [ 'base', 'iubenda' ],
 ];
