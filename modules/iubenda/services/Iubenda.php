@@ -36,7 +36,7 @@ class Iubenda extends Component
      * @return \Twig_Markup|null
      * @throws \RequestException
      */
-    public function getCookiePolicy(string $key)
+    public function getCookiePolicy(string $key = null)
     {
         $client = $this->createClient();
         $uri = 'privacy-policy/'.$key.'/cookie-policy/no-markup';
@@ -61,7 +61,7 @@ class Iubenda extends Component
      * @return \Twig_Markup|null
      * @throws \RequestException
      */
-    public function getPrivacyPolicy(string $key)
+    public function getPrivacyPolicy(string $key = null)
     {
         $client = $this->createClient();
         $uri = 'privacy-policy/'.$key.'/no-markup';
