@@ -1,6 +1,6 @@
 <?php
 return [
 	'*' => [
-		'assetsBasePath' => '../public/',
+		'assetsBasePath' => '@webroot',
 	]
 ];
