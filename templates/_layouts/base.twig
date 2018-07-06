@@ -1,11 +1,10 @@
-{% set lang = craft.app.language|replace('_','-') %}
 {% set metaTitle = entry.metaTitle is defined and entry.metaTitle ? entry.metaTitle : metaTitle ?? entry.title ?? siteName ?? null %}
 {% set metaDescription = entry.metaDescription is defined and entry.metaDescription ? entry.metaDescription : metaDescription ?? null %}
 
 {% set cookieConsent = craft.cookies.get('cookie_consent') == 'true' ? true : false %}
 
 <!doctype html>
-<html lang="{{ lang }}" class="no-js {{ craft.cookies.get('fonts-loaded') ? 'fonts-loaded' }}">
+<html lang="{{ craft.app.language }}" class="no-js {{ craft.cookies.get('fonts-loaded') ? 'fonts-loaded' }}">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
