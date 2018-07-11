@@ -11,7 +11,7 @@ const defaults = {
 	onError: elem => elem.classList.add('has-errored'),
 };
 
-function Lazy(options) {
+export default function Lazy(options) {
 	const config = Object.assign({}, defaults, options);
 
 	const io = new IntersectionObserver(onIntersection, {
@@ -64,5 +64,3 @@ function Lazy(options) {
 
 	return { elements: elems, update, load };
 }
-
-export default Lazy();
