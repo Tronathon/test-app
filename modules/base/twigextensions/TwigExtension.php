@@ -39,7 +39,9 @@ class TwigExtension extends \Twig_Extension implements \Twig_Extension_GlobalsIn
     }
 
     /**
+     * Detect if the DNT header is set.
      *
+     * @return bool
      */
     public function doNotTrackGlobal()
     {
