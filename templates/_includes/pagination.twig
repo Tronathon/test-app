@@ -1,0 +1,35 @@
+{#
+ # Pagination
+ # =============================================================================
+ #
+ # {% include '_includes/pagination' with { pageInfo: pageInfo } only %}
+ #}
+
+{% set padding = 2 %}
+
+{% if pageInfo is defined and pageInfo.totalPages > 1 %}
+
+	{% set prevLength = pageInfo.getPrevUrls()|length %}
+	{% set nextLength = pageInfo.getNextUrls()|length %}
+
+	{# If we don't have enough pages to pad in one direction add extra padding in the other direction #}
+	{% set next = prevLength <= padding ? (padding + padding - prevLength) : padding %}
+	{% set prev = nextLength <= padding ? (padding + padding - nextLength) : padding %}
+
+	<a href="{{ pageInfo.prevUrl }}">Prev</a>
+
+	<ol>
+		{% for page, url in pageInfo.getPrevUrls(prev) %}
+			<li><a href="{{ url }}" aria-label="Page {{ page }}">{{ page }}</a></li>
+		{% endfor %}
+
+		<li>{{ pageInfo.currentPage }}</li>
+
+		{% for page, url in pageInfo.getNextUrls(next) %}
+			<li><a href="{{ url }}" aria-label="Page {{ page }}">{{ page }}</a></li>
+		{% endfor %}
+	</ol>
+
+	<a href="{{ pageInfo.nextUrl }}">Next</a>
+
+{% endif %}
