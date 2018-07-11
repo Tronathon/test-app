@@ -6,20 +6,22 @@
 <!doctype html>
 <html lang="{{ craft.app.language }}" class="no-js {{ craft.cookies.get('fonts-loaded') ? 'fonts-loaded' }}">
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% block head %}
+			<meta charset="utf-8">
+			<meta http-equiv="x-ua-compatible" content="ie=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>{% if craft.app.config.general.devMode %}Dev - {% endif %}{{ metaTitle }}</title>
+			<title>{% if craft.app.config.general.devMode %}Dev - {% endif %}{{ metaTitle }}</title>
 
-		{% if metaDescription %}
-			<meta name="description" content="{{ metaDescription }}">
-		{% endif %}
+			{% if metaDescription %}
+				<meta name="description" content="{{ metaDescription }}">
+			{% endif %}
 
-		<link rel="stylesheet" href="{{ rev('/assets/styles/main.css') }}">
+			<link rel="stylesheet" href="{{ rev('/assets/styles/main.css') }}">
 
-		{# Replace no-js class with js #}
-		<script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';</script>
+			{# Replace no-js class with js #}
+			<script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';</script>
+		{% endblock %}
 	</head>
 
 	<body>
