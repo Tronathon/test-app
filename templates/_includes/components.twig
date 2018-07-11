@@ -1,0 +1,3 @@
+{% macro image(image = null, options = []) %}
+	{% include '_includes/components/image' with { image: image, options: options } only %}
+{% endmacro %}

@@ -5,7 +5,11 @@
 	height: 0;
 	padding-bottom: 100%;
 	overflow: hidden;
-	background-color: #ececec;
+}
+
+.o-image--placeholder {
+	background: $placholder-image-color url("/assets/images/image-placeholder.svg") no-repeat center;
+	background-size: 48px;
 }
 
 .o-image img {
@@ -19,10 +23,10 @@
 
 .o-image--lazy img {
 	opacity: 0;
-	transition: opacity 300ms ease-in;
+	transition: opacity 150ms ease-in;
 	will-change: opacity;
 }
 
-.o-image img.has-loaded {
+.o-image--lazy img.has-loaded {
 	opacity: 1;
 }

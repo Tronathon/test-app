@@ -1,0 +1,47 @@
+{% set defaults = {
+	lazy: true,
+	alt: image.alt ?? null,
+	widths: [],
+	width: image.width ?? null,
+	mode: 'crop',
+	quality: 80,
+	position: 'center-center',
+	showPlaceholder: true,
+	ratio: null,
+} %}
+
+{% set options = defaults|merge(options) %}
+
+{% set transform = {
+	mode: options.mode,
+	quality: options.quality,
+	position: options.position,
+} %}
+
+{% if (image and image.kind == 'image') %}
+
+	{% set ratio = options.ratio ?? (image.height / image.width) %}
+
+	{# Set the src transform, merging width with transform #}
+	{% set src = image.getUrl({ width: options.width, height: (options.width * ratio) }|merge(transform)) %}
+
+	{# Generate the srcset string from widths and transform options #}
+	{% set srcset = craft.image.srcset(image, options.widths, ratio, transform) %}
+
+	{# Calculate the padding required to mantain placeholder aspect ratio #}
+	{% set padding = (ratio * 100)|round(2) ~ '%' %}
+
+	<div class="o-image o-image--placeholder {{ options.lazy ? 'o-image--lazy' }}" style="padding-bottom: {{ padding }}">
+		{% if not options.lazy %}
+			<img src="{{ src }}" srcset="{{ srcset }}" alt="{{ options.alt }}">
+		{% else %}
+			<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ src }}" data-srcset="{{ srcset }}" alt="{{ options.alt }}">
+			<noscript><img src="{{ src }}" srcset="{{ srcset }}" alt="{{ options.alt }}"></noscript>
+		{% endif %}
+	</div>
+
+{% elseif options.showPlaceholder and options.ratio %}
+
+	<div class="o-image o-image--placeholder " style="padding-bottom: {{ (options.ratio * 100)|round(2) ~ '%' }}"></div>
+
+{% endif %}
