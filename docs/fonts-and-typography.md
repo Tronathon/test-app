@@ -78,7 +78,7 @@ To make managing fonts easier we can break each font set into it's own mixin.
 
 .heading-one {
 	@include heading(1);
-	
+
 	@include media(m) {
 		@include heading(2);
 	}
