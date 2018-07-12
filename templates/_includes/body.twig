@@ -1,0 +1,29 @@
+{% import '_includes/components' as components %}
+
+{% for block in entry.body.all() %}
+
+	{% switch block.type %}
+
+		{% case "heading" %}
+
+			<h{{ block.hx }} id="{{ block.heading|kebab }}">{{ block.heading }}</h{{ block.hx }}>
+
+		{% case "text" %}
+
+			<div class="typeset">
+				{{ block.text }}
+			</div>
+
+		{% case "blockquote" %}
+
+			<blockquote>
+				<p>{{ block.quote }}</p>
+			<blockquote>
+
+		{% case "image" %}
+
+			{{ components.image(block.image.first()) }}
+
+	{% endswitch %}
+
+{% endfor %}
