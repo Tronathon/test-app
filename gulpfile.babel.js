@@ -9,6 +9,7 @@ import del from 'del';
 import gulp from 'gulp';
 import path from 'path';
 import postcss from 'gulp-postcss';
+import size from 'gulp-size';
 import sass from 'gulp-sass';
 import source from 'vinyl-source-stream';
 import sourcemaps from 'gulp-sourcemaps';
@@ -16,9 +17,12 @@ import sprite from 'gulp-svg-sprite';
 import stylelint from 'gulp-stylelint';
 import uglify from 'gulp-uglify';
 import yargs from 'yargs';
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 const publicDir = 'public';
-const proxyDomain = undefined;
+const proxyDomain = process.env.SITE_URL;
 
 const root = {
 	src: './src',
@@ -132,6 +136,7 @@ function scripts() {
 		.pipe(buffer())
 		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(uglify())
+		.pipe(size({ gzip: true }))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(paths.scripts.dest));
 }
