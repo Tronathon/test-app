@@ -31,6 +31,5 @@ class Module extends \yii\base\Module
             // Attach a service:
             $variable->set('image', ImageService::class);
         });
-
     }
 }
