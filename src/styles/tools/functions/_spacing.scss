@@ -7,5 +7,7 @@
 $spacing-map: () !default;
 
 @function spacing($spacer) {
-	@return rem(#{map-get($spacing-map, $spacer)});
+	$value: map-get($spacing-map, $spacer);
+
+	@return rem($value);
 }
