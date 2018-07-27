@@ -18,6 +18,7 @@ import stylelint from 'gulp-stylelint';
 import uglify from 'gulp-uglify';
 import yargs from 'yargs';
 import dotenv from 'dotenv';
+import watchify from 'watchify';
 
 dotenv.config()
 
@@ -124,21 +125,33 @@ function styles() {
 		.pipe(server.stream({ match: '**/*.css' }));
 }
 
-function scripts() {
-	const b = browserify({
-		debug: true,
+function scripts(watch = false) {
+	const opts = {
+		cache: {},
+		debug: process.env.NODE_ENV === 'production',
 		entries: paths.scripts.entry,
+		packageCache: {},
 		transform: [babelify],
-	});
+	};
 
-	return b.bundle()
-		.pipe(source('main.js'))
-		.pipe(buffer())
-		.pipe(sourcemaps.init({ loadMaps: true }))
-		.pipe(uglify())
-		.pipe(size({ gzip: true }))
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(paths.scripts.dest));
+	const b = watch ? watchify(browserify(opts)) : browserify(opts);
+
+	function bundle() {
+		return b.bundle()
+			.pipe(source('main.js'))
+			.pipe(buffer())
+			.pipe(sourcemaps.init({ loadMaps: true }))
+			.pipe(uglify())
+			.pipe(size({ gzip: true }))
+			.pipe(sourcemaps.write('./'))
+			.pipe(gulp.dest(paths.scripts.dest));
+	}
+
+	if (watch) {
+		return b.on('update', bundle);
+	}
+
+	return bundle;
 }
 
 function startServer() {
@@ -161,7 +174,7 @@ function startServer() {
 export function watch() {
 	gulp.watch(paths.styles.src, gulp.series(lintstyles, styles));
 	gulp.watch(paths.icons.src, gulp.series(sprite, reload));
-	gulp.watch(paths.scripts.src, gulp.series(scripts, reload));
+	gulp.watch(paths.scripts.src, gulp.series(scripts(true)));
 	gulp.watch(paths.fonts.src, gulp.series(fonts, reload)).on('unlink', syncOnDelete);
 	gulp.watch(paths.images.src, gulp.series(images, reload)).on('unlink', syncOnDelete);
 }
@@ -169,6 +182,6 @@ export function watch() {
 export const serve = gulp.parallel(startServer, watch);
 
 export const build = gulp.series(clean,
-	gulp.series(lintstyles, fonts, icons, images, scripts, styles));
+	gulp.series(lintstyles, fonts, icons, images, scripts(false), styles));
 
 export default serve;
