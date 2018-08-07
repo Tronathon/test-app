@@ -20,7 +20,7 @@ import yargs from 'yargs';
 import dotenv from 'dotenv';
 import watchify from 'watchify';
 
-dotenv.config()
+dotenv.config();
 
 const publicDir = 'public';
 const proxyDomain = process.env.SITE_URL;
