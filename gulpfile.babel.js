@@ -148,7 +148,7 @@ function scripts(watch = false) {
 	}
 
 	if (watch) {
-		return b.on('update', bundle);
+		b.on('update', bundle);
 	}
 
 	return bundle;
