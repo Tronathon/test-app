@@ -16,20 +16,24 @@
 	{% set next = prevLength <= padding ? (padding + padding - prevLength) : padding %}
 	{% set prev = nextLength <= padding ? (padding + padding - nextLength) : padding %}
 
-	<a href="{{ pageInfo.prevUrl }}">Prev</a>
+	<nav aria-label="Pagination">
 
-	<ol>
-		{% for page, url in pageInfo.getPrevUrls(prev) %}
-			<li><a href="{{ url }}" aria-label="Page {{ page }}">{{ page }}</a></li>
-		{% endfor %}
+		<a href="{{ pageInfo.prevUrl }}" aria-label="Previous page">Prev</a>
 
-		<li>{{ pageInfo.currentPage }}</li>
+		<ol>
+			{% for page, url in pageInfo.getPrevUrls(prev) %}
+				<li><a href="{{ url }}" aria-label="{{ page|ordinalize }} Page">{{ page }}</a></li>
+			{% endfor %}
 
-		{% for page, url in pageInfo.getNextUrls(next) %}
-			<li><a href="{{ url }}" aria-label="Page {{ page }}">{{ page }}</a></li>
-		{% endfor %}
-	</ol>
+			<li><a href="#content" aria-current="page">{{ pageInfo.currentPage }}</a></li>
 
-	<a href="{{ pageInfo.nextUrl }}">Next</a>
+			{% for page, url in pageInfo.getNextUrls(next) %}
+				<li><a href="{{ url }}" aria-label="{{ page|ordinalize }} Page">{{ page }}</a></li>
+			{% endfor %}
+		</ol>
+
+		<a href="{{ pageInfo.nextUrl }}" aria-label="Next page">Next</a>
+
+	</nav>
 
 {% endif %}
