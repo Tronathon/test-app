@@ -29,7 +29,7 @@ Elements such external scripts and iframes require that the value of the `src` a
 
 ## Twig
 
-A `cookieConsent` variable is available accross all templates.
+A `cookieConsent` variable is available across all templates.
 
 ```twig
 {% if not cookieConsent %}
