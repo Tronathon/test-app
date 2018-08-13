@@ -2,11 +2,11 @@
 
 	<div class="c-tracking-consent__inner">
 
-		<p class="c-tracking-consent__message">This site uses cookies and other tracking methods for analytic and tracking purposes. Details can be found in our <a href="">cookie policy</a>.</p>
+		<p class="c-tracking-consent__message">We use tracking cookies to analyse and track website traffic so we can improve your experience and tailor your content. You can find more information in our <a href="{{ craft.entries.id(6).one().url ?? null }}">cookie policy</a>.</p>
 
 		<div class="c-tracking-consent__controls">
-			<button class="button" id="ckntc-n">Disallow</button>
-			<button class="button" id="ckntc-y">Allow</button>
+			<button class="c-button c-button--small js-cookie-consent" data-cookie-consent="false">Decline</button>
+			<button class="c-button c-button--small js-cookie-consent" data-cookie-consent="true">I Accept</button>
 		</div>
 
 	</div>
