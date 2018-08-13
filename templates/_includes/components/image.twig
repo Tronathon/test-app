@@ -35,7 +35,7 @@
 		{% if not options.lazy %}
 			<img src="{{ src }}" srcset="{{ srcset }}" alt="{{ options.alt }}">
 		{% else %}
-			<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ src }}" data-srcset="{{ srcset }}" alt="{{ options.alt }}">
+			<img src="{{ src }}" srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-srcset="{{ srcset }}" alt="{{ options.alt }}">
 			<noscript><img src="{{ src }}" srcset="{{ srcset }}" alt="{{ options.alt }}"></noscript>
 		{% endif %}
 	</div>
