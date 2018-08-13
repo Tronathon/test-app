@@ -87,7 +87,6 @@ class Iubenda extends Component
      */
     private function handleGuzzleException(RequestException $e)
     {
-        // Sometimes the API likes to return HTML error messages ¯\_(ツ)_/¯
         $message = Json::decodeIfJson($e
             ->getResponse()
             ->getBody()
