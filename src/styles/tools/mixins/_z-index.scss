@@ -1,0 +1,5 @@
+$z-index-map: () !default;
+
+@mixin z-index($z-index) {
+	z-index: map-get($z-index-map, $z-index);
+}
