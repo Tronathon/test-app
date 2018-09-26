@@ -1,8 +1,8 @@
 {
   "require": {
     "clubstudioltd/craft-asset-rev": "6.0.1",
-    "craftcms/redactor": "2.1.5",
     "craftcms/cms": "3.0.25",
+    "craftcms/redactor": "2.1.6",
     "nystudio107/craft-cookies": "^1.1.0",
     "vlucas/phpdotenv": "^2.4.0"
   },
