@@ -1,6 +1,9 @@
 {#
  # 404
  # =============================================================================
+ #
+ # Note: Only loaded when devMode is disabled, if enabled the Yii
+ # NotFoundHttpException messaage is displayed instead.
  #}
 
 {% set entry = craft.entries.section('notFound').one() %}
