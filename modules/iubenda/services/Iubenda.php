@@ -101,7 +101,7 @@ class Iubenda extends Component
     }
 
     /**
-     * Creates a Guzzle client configured for API endpoint
+     * Creates a Guzzle client configured for the API endpoint
      *
      * @return GuzzleClient
      */
