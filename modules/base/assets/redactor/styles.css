@@ -1,0 +1,31 @@
+/**
+ * Tweaks to core Redactor styling to better match Craft.
+ */
+
+/* stylelint-disable declaration-no-important, selector-no-qualifying-type */
+
+.input .redactor-styles {
+	font-size: 14px !important;
+	line-height: 20px !important;
+}
+
+.input .redactor-toolbar {
+	padding: 0 !important;
+	border-bottom: 1px solid #e3e5e8 !important;
+}
+
+.redactor-toolbar a {
+	box-shadow: none !important;
+	padding: 10px 12px !important;
+	margin: 0 !important;
+	border-radius: 0 !important;
+	background: #fff !important;
+	color: #000 !important;
+}
+
+.redactor-dropdown a:hover,
+.redactor-toolbar a.re-button-icon:hover,
+.redactor-toolbar a.redactor-button-active {
+	background-color: #d4d8dc !important;
+	color: #000 !important;
+}
