@@ -5,25 +5,27 @@
  */
 
 /**
- * Adopt a more natural box-sizing model
+ * 1. Remove repeating backgrounds.
+ * 2. Adopt a more natural box-sizing model.
  */
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+	background-repeat: no-repeat; /* 1 */
+	box-sizing: border-box; /* 2 */
 }
 
 /**
- * 1. Force vertical scollbars to prevent layout jumps when navigating between
- *    pages that are longer than the viewport and those that aren't
- * 2. Set a default background color and corresponding text color
+ * 1. Set a default background color and corresponding text color.
+ * 2. Force vertical scollbars to prevent layout jumps when navigating between
+ *    pages that are longer than the viewport and those that aren't.
  */
 
 body {
-	overflow-y: scroll; /* [1] */
-	background-color: $body-background-color; /* [2] */
-	color: $body-color; /* [2] */
+	background-color: $body-background-color; /* 1 */
+	color: $body-color; /* 1 */
+	overflow-y: scroll; /* 2 */
 }
 
 /**
@@ -92,8 +94,8 @@ dd {
  */
 
 img {
-	width: 100%; /* [1] */
-	vertical-align: middle;	/* [2] */
+	width: 100%; /* 1 */
+	vertical-align: middle;	/* 2 */
 }
 
 /**
