@@ -1,0 +1,28 @@
+{% extends '_layouts/standard' %}
+
+{% paginate craft.entries({ section: 'news', limit: 8 }) as pageInfo, entries %}
+
+{% block head %}
+	{{ parent() }}
+
+	{# Set <link="rel|prev" tags for SEO #}
+
+	{% if pageInfo.prevUrl %}<link rel="prev" href="{{ pageInfo.prevUrl }}">{% endif %}
+	{% if pageInfo.nextUrl %}<link rel="next" href="{{ pageInfo.nextUrl }}">{% endif %}
+{% endblock %}
+
+{% block content %}
+
+	<main id="content">
+
+		{% for entry in entries %}
+			<h1>{{ entry.title }}</h1>
+		{% else %}
+			<p>No entries found.</p>
+		{% endfor %}
+
+		{% include '_components/pagination' with { pageInfo: pageInfo } %}
+
+	</main>
+
+{% endblock %}
