@@ -1,4 +1,4 @@
-{% import '_includes/components' as components %}
+{% import '_includes/macros' as macros %}
 
 {% for block in entry.body.all() %}
 
@@ -22,7 +22,7 @@
 
 		{% case "image" %}
 
-			{{ components.image(block.image.first()) }}
+			{{ macros.image(block.image.first()) }}
 
 	{% endswitch %}
 
