@@ -17,8 +17,8 @@ As per [Craft CMS Server Requirements](https://github.com/craftcms/docs/blob/v3/
 
 1. Clone repo
 2. Run `npm install && composer install`
-3. Run `./craft install`
-4. Create database and import `db_dumps/craft.sql`
+3. Create database and import `db_dumps/craft.sql`
+4. Create a `.env` file from `.env.example`
 
 ## Build
 
@@ -40,5 +40,4 @@ npm run serve
 
 - [Cookies](/docs/cookie-notice.md)
 - [Deployment](/docs/deployment.md)
-- [Twig Extensions](/docs/twig.md)
 - [Fonts and Typography](/docs/fonts-and-typography)
