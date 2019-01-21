@@ -12,22 +12,21 @@ return [
 		'sendPoweredByHeader' => false,
 		'useEmailAsUsername' => true,
         'cpTrigger' => 'admin',
-        'enableCsrfProtection' => true,
+        'defaultCpLanguage' => 'en-GB',
         'omitScriptNameInUrls' => true,
+        'siteUrl' => getenv('SITE_URL'),
+        'useProjectConfigFile' => true,
     ],
 
     'dev' => [
         'devMode' => true,
-		'siteUrl' => null,
     ],
 
     'staging' => [
-		'allowUpdates' => false,
-		'siteUrl' => null,
+		'allowAdminChanges' => false,
     ],
 
     'production' => [
-		'allowUpdates' => false,
-		'siteUrl' => null,
+		'allowAdminChanges' => false,
     ],
 ];

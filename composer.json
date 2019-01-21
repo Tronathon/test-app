@@ -1,7 +1,7 @@
 {
   "require": {
-    "clubstudioltd/craft-asset-rev": "6.0.1",
-    "craftcms/cms": "^3.0.0",
+    "clubstudioltd/craft-asset-rev": "^6.0.0",
+    "craftcms/cms": "^3.1.0",
     "craftcms/redactor": "^2.1.0",
     "nystudio107/craft-cookies": "^1.1.0",
     "vlucas/phpdotenv": "^2.4.0"
@@ -20,17 +20,15 @@
     }
   },
   "scripts": {
-		"post-install-cmd": [
-			"./craft migrate/all"
-		],
-		"post-update-cmd": [
-			"./craft migrate/all"
-		],
     "post-root-package-install": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+			"@php -r \"copy('.env.example', '.env');\"",
+			"@php craft setup/welcome"
     ],
     "post-create-project-cmd": [
-      "@composer dump-autoload -o",
+			"@php -r \"copy('.env.example', '.env');\"",
+			"@php -r \"unlink('README.md');\"",
+			"@php -r \"rename('_README,md', 'README.md');\"",
+			"@composer dump-autoload -o",
       "@php craft setup/welcome"
     ]
   }
