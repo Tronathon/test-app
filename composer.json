@@ -20,14 +20,10 @@
     }
   },
   "scripts": {
-    "post-root-package-install": [
-			"@php -r \"copy('.env.example', '.env');\"",
-			"@php craft setup/welcome"
-    ],
     "post-create-project-cmd": [
 			"@php -r \"copy('.env.example', '.env');\"",
 			"@php -r \"unlink('README.md');\"",
-			"@php -r \"rename('_README,md', 'README.md');\"",
+			"@php -r \"rename('_README.md', 'README.md');\"",
 			"@composer dump-autoload -o",
       "@php craft setup/welcome"
     ]
