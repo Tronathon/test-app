@@ -12,5 +12,8 @@ As per [Craft CMS Server Requirements](https://github.com/craftcms/docs/blob/v3/
 
 ## Getting Started
 
+Craft will use the `config/project-config.yml` to set up some basic sections, fields etc.
+
 1. Clone repo
 2. Run `composer create-project`
+3. Setup Craft by either the CLI (`./craft setup`) or by going to the sites control panel.

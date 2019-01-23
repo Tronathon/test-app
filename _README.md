@@ -8,12 +8,10 @@
 - [Gulp CLI](https://github.com/gulpjs/gulp-cli)
 - [Composer](https://getcomposer.org/)
 
-### Server Requirements
-
-As per [Craft CMS Server Requirements](https://github.com/craftcms/docs/blob/v3/en/requirements.md). PHP 7 will need to available via the CLI in order to use the included `craft` script.
-
 ### Setup
 
 1. Clone repository.
-2. Create new database.
+2. Import database from live site.
 3. Run `composer install` from the command line.
+4. Setup `.env`.
+5. Run `npm install` from the command line.
