@@ -21,6 +21,7 @@
   },
   "scripts": {
 		"post-root-package-install": [
+			"npm install",
       "@php -r \"copy('.env.example', '.env');\""
     ],
     "post-create-project-cmd": [
