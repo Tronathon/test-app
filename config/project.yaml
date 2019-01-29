@@ -1,4 +1,4 @@
-dateModified: 1548177725
+dateModified: 1548667906
 email:
   fromEmail: webdev@nixondesign.com
   fromName: Craft
@@ -6,6 +6,128 @@ email:
 fieldGroups:
   4d36d3af-6240-4e7e-bfec-c42790ad3bc8:
     name: Common
+fields:
+  336fbd7f-ac48-4eef-9ce3-4b23260a2740:
+    contentColumnType: string
+    fieldGroup: 4d36d3af-6240-4e7e-bfec-c42790ad3bc8
+    handle: body
+    instructions: ''
+    name: Body
+    searchable: true
+    settings:
+      contentTable: '{{%matrixcontent_body}}'
+      localizeBlocks: false
+      maxBlocks: ''
+      minBlocks: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+matrixBlockTypes:
+  69289a29-b556-4011-b99c-2697c36edab0:
+    field: 336fbd7f-ac48-4eef-9ce3-4b23260a2740
+    fieldLayouts:
+      6d44c426-dcd4-4c05-9ce9-3713d8ecc548:
+        tabs:
+          -
+            fields:
+              21a171cd-dbcc-4089-8197-666a2fbd0c62:
+                required: true
+                sortOrder: 1
+              da4a9f99-a834-40cd-a9e3-561a588ddbda:
+                required: true
+                sortOrder: 2
+            name: Content
+            sortOrder: 1
+    fields:
+      21a171cd-dbcc-4089-8197-666a2fbd0c62:
+        contentColumnType: string
+        fieldGroup: null
+        handle: hx
+        instructions: ''
+        name: Level
+        searchable: true
+        settings:
+          options:
+            -
+              default: ''
+              label: One
+              value: '1'
+            -
+              default: ''
+              label: Two
+              value: '2'
+            -
+              default: ''
+              label: Three
+              value: '3'
+            -
+              default: ''
+              label: Four
+              value: '4'
+            -
+              default: ''
+              label: Five
+              value: '5'
+            -
+              default: ''
+              label: Six
+              value: '6'
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Dropdown
+      da4a9f99-a834-40cd-a9e3-561a588ddbda:
+        contentColumnType: text
+        fieldGroup: null
+        handle: heading
+        instructions: ''
+        name: heading
+        searchable: true
+        settings:
+          charLimit: ''
+          code: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+    handle: heading
+    name: Heading
+    sortOrder: 1
+  d8932ba3-1a36-4384-9f21-3b8314c972e2:
+    field: 336fbd7f-ac48-4eef-9ce3-4b23260a2740
+    fieldLayouts:
+      a03acea3-2688-4718-b18a-897adadd8d5a:
+        tabs:
+          -
+            fields:
+              a3517885-12fe-4526-99b6-40439357dad8:
+                required: true
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      a3517885-12fe-4526-99b6-40439357dad8:
+        contentColumnType: text
+        fieldGroup: null
+        handle: text
+        instructions: ''
+        name: Text
+        searchable: true
+        settings:
+          charLimit: ''
+          code: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+    handle: text
+    name: Text
+    sortOrder: 2
 sections:
   11bd7f79-c930-447a-954d-702a9823aee2:
     enableVersioning: false
@@ -52,19 +174,19 @@ siteGroups:
     name: Craft
 sites:
   9d4bdc21-071a-4dad-bf41-26f17efa883a:
-    baseUrl: null
+    baseUrl: $DEFAULT_SITE_URL
     handle: default
     hasUrls: true
     language: en-GB
     name: Craft
-    primary: true
+    primary: '1'
     siteGroup: 78d8784a-4143-40b8-b978-df7547fe08ef
-    sortOrder: 1
+    sortOrder: '1'
 system:
   edition: solo
   live: true
   name: Craft
-  schemaVersion: 3.1.22
+  schemaVersion: 3.1.23
   timeZone: Europe/London
 users:
   allowPublicRegistration: false
