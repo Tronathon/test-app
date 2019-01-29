@@ -1,4 +1,4 @@
-dateModified: 1548667906
+dateModified: 1548757278
 email:
   fromEmail: webdev@nixondesign.com
   fromName: Craft
@@ -174,7 +174,7 @@ siteGroups:
     name: Craft
 sites:
   9d4bdc21-071a-4dad-bf41-26f17efa883a:
-    baseUrl: $DEFAULT_SITE_URL
+    baseUrl: null
     handle: default
     hasUrls: true
     language: en-GB
