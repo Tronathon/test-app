@@ -2,7 +2,8 @@
 	"scripts": {
 		"build": "gulp build",
 		"serve": "gulp serve",
-		"watch": "gulp watch"
+		"watch": "gulp watch",
+		"postinstall": "gulp build"
 	},
 	"browserslist": [
 		"> 1%",
@@ -26,7 +27,7 @@
 		"autoprefixer": "^9.1.0",
 		"babel-preset-env": "^1.7.0",
 		"babel-register": "^6.26.0",
-		"babelify": "^8.0.0",
+		"babelify": "^10.0.0",
 		"browser-sync": "^2.24.5",
 		"browserify": "^16.2.2",
 		"cssnano": "^4.0.1",
@@ -39,11 +40,11 @@
 		"gulp-sass": "^4.0.1",
 		"gulp-size": "^3.0.0",
 		"gulp-sourcemaps": "^2.6.3",
-		"gulp-stylelint": "^7.0.0",
+		"gulp-stylelint": "^8.0.0",
 		"gulp-svg-sprite": "^1.4.0",
 		"gulp-uglify": "^3.0.0",
 		"stylelint": "^9.3.0",
-		"stylelint-config-nixon": "^1.0.0",
+		"stylelint-config-nixon": "^2.0.0",
 		"vinyl-buffer": "^1.0.1",
 		"vinyl-source-stream": "^2.0.0",
 		"watchify": "^3.11.0",
