@@ -11,6 +11,7 @@ return [
 		'securityKey' => getenv('SECURITY_KEY'),
 		'sendPoweredByHeader' => false,
 		'useEmailAsUsername' => true,
+        'autoLoginAfterAccountActivation' => true,
         'cpTrigger' => 'admin',
         'defaultCpLanguage' => 'en-GB',
         'omitScriptNameInUrls' => true,
