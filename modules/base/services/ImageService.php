@@ -21,6 +21,8 @@ class ImageService extends Component
             return null;
         }
 
+        asort($widths);
+
         foreach ($widths as &$width) {
             $url = $asset->getUrl(array_merge([
                 'width' => $width,
