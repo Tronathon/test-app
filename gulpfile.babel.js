@@ -23,7 +23,7 @@ import watchify from 'watchify';
 dotenv.config();
 
 const publicDir = 'public';
-const proxyDomain = process.env.SITE_URL;
+const proxyDomain = process.env.DEFAULT_SITE_URL;
 
 const root = {
 	src: './src',
