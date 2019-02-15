@@ -128,7 +128,7 @@ function styles() {
 function scripts(watch = false) {
 	const opts = {
 		cache: {},
-		debug: process.env.NODE_ENV === 'production',
+		debug: true,
 		entries: paths.scripts.entry,
 		packageCache: {},
 		transform: [babelify],
