@@ -1,0 +1,6 @@
+{
+	"extends": "stylelint-config-nixon",
+	"rules": {
+		"selector-no-qualifying-type": null
+	}
+}
