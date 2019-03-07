@@ -1,4 +1,4 @@
-dateModified: 1551438590
+dateModified: 1551977168
 email:
   fromEmail: webdev@nixondesign.com
   fromName: Craft
@@ -116,18 +116,32 @@ matrixBlockTypes:
         name: Text
         searchable: true
         settings:
-          charLimit: ''
-          code: ''
+          availableTransforms: '*'
+          availableVolumes: '*'
+          cleanupHtml: '1'
           columnType: text
-          initialRows: '4'
-          multiline: ''
-          placeholder: ''
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: Standard.json
         translationKeyFormat: null
         translationMethod: none
-        type: craft\fields\PlainText
+        type: craft\redactor\Field
     handle: text
     name: Text
     sortOrder: 2
+plugins:
+  assetrev:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cookies:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
 sections:
   11bd7f79-c930-447a-954d-702a9823aee2:
     enableVersioning: false
