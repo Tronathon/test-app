@@ -1,4 +1,4 @@
-dateModified: 1551977168
+dateModified: 1552056540
 email:
   fromEmail: webdev@nixondesign.com
   fromName: Craft
@@ -6,7 +6,26 @@ email:
 fieldGroups:
   4d36d3af-6240-4e7e-bfec-c42790ad3bc8:
     name: Common
+  a17cafb2-ab57-4c70-b0e0-5fc3af4abe35:
+    name: SEO
 fields:
+  087cba3c-2b8b-4747-b807-0c7c512e2382:
+    contentColumnType: text
+    fieldGroup: a17cafb2-ab57-4c70-b0e0-5fc3af4abe35
+    handle: metaDescription
+    instructions: ''
+    name: 'Meta Description'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
   336fbd7f-ac48-4eef-9ce3-4b23260a2740:
     contentColumnType: string
     fieldGroup: 4d36d3af-6240-4e7e-bfec-c42790ad3bc8
@@ -22,6 +41,23 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Matrix
+  70862b99-f09b-4e33-bf36-9fb14b2f9dc5:
+    contentColumnType: text
+    fieldGroup: a17cafb2-ab57-4c70-b0e0-5fc3af4abe35
+    handle: metaTitle
+    instructions: ''
+    name: 'Meta Title'
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
 matrixBlockTypes:
   69289a29-b556-4011-b99c-2697c36edab0:
     field: 336fbd7f-ac48-4eef-9ce3-4b23260a2740
@@ -147,12 +183,25 @@ sections:
     enableVersioning: false
     entryTypes:
       28c1997b-22c4-474b-84e2-c7e842bb2c26:
+        fieldLayouts:
+          95270032-8d7a-450e-b21a-7814093e6776:
+            tabs:
+              -
+                fields:
+                  087cba3c-2b8b-4747-b807-0c7c512e2382:
+                    required: false
+                    sortOrder: 2
+                  70862b99-f09b-4e33-bf36-9fb14b2f9dc5:
+                    required: false
+                    sortOrder: 1
+                name: SEO
+                sortOrder: 1
         handle: homepage
         hasTitleField: false
         name: Homepage
         sortOrder: 1
         titleFormat: '{section.name|raw}'
-        titleLabel: null
+        titleLabel: ''
     handle: homepage
     name: Homepage
     propagateEntries: true
@@ -167,12 +216,25 @@ sections:
     enableVersioning: false
     entryTypes:
       27143608-99f8-48ff-934b-2d79721d58eb:
+        fieldLayouts:
+          8b73ffa0-436b-484c-8d80-302040f66044:
+            tabs:
+              -
+                fields:
+                  087cba3c-2b8b-4747-b807-0c7c512e2382:
+                    required: false
+                    sortOrder: 2
+                  70862b99-f09b-4e33-bf36-9fb14b2f9dc5:
+                    required: false
+                    sortOrder: 1
+                name: SEO
+                sortOrder: 1
         handle: pageNotFound
         hasTitleField: false
         name: '404'
         sortOrder: 1
         titleFormat: '{section.name|raw}'
-        titleLabel: null
+        titleLabel: ''
     handle: pageNotFound
     name: '404'
     propagateEntries: true
