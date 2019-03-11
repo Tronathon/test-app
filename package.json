@@ -11,7 +11,7 @@
 		"last 2 versions"
 	],
 	"lint-staged": {
-		"*": [ "stylelint 'src/styles/**.scss' --fix", "git add" ]
+		"*.scss": [ "stylelint 'src/styles/**.scss' --fix", "git add" ]
 	},
 	"husky": {
 		"hooks": {
