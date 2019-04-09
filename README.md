@@ -18,5 +18,5 @@ Craft will use the `config/project-config.yml` to set up some basic sections, fi
 2. Create a new host and database.
 3. Create a new composer project via `$ composer create-project`.
 4. Setup Craft via `$ ./craft setup`.
-5. Update composer dependencies via `$ composer update`.
+5. Update Craft via `$ composer craft-update`.
 6. Install npm dependencies via `$ npm install`.

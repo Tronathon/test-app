@@ -20,9 +20,13 @@
     }
   },
   "scripts": {
+		"craft-update": [
+			"composer require craftcms/cms '^3.1' craftcms/redactor '^2.1' nystudio107/craft-cookies '^1.1'",
+			"./craft migrate/all"
+		],
 		"post-root-package-install": [
       "@php -r \"copy('.env.example', '.env');\""
-    ],
+		],
     "post-create-project-cmd": [
 			"@php -r \"copy('.env.example', '.env');\"",
 			"@php -r \"unlink('README.md');\"",
