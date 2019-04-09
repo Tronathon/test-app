@@ -1,18 +1,20 @@
 # [Project Name]
 
-## Installing
+## Requirements
 
-### Prerequisites
+As per [Craft CMS Server Requirements](https://github.com/craftcms/docs/blob/v3/en/requirements.md). PHP 7 will need to available via the CLI in order to use the included `craft` script.
 
-- [Node.js](https://nodejs.org/en/)
+## Prerequisites
+
+- [Node](https://nodejs.org/en/)
 - [Gulp CLI](https://github.com/gulpjs/gulp-cli)
 - [Composer](https://getcomposer.org/)
 
-### Setup
+## Getting Started
 
 1. Clone repository.
 2. Create new host.
 2. Create new database and import database from live site.
-3. Run `composer install` from the command line.
-4. Setup `.env`.
-5. Run `npm install` from the command line.
+3. Install composer dependencies via `$ composer install`.
+4. Create a new `.env` file from `.env.example`.
+5. Install npm dependencies via `$ npm install`.
