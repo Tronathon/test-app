@@ -1,4 +1,4 @@
-dateModified: 1554890333
+dateModified: 1554890541
 email:
   fromEmail: webdev@nixondesign.com
   fromName: Craft
@@ -251,10 +251,13 @@ matrixBlockTypes:
 plugins:
   assetrev:
     schemaVersion: 1.0.0
+    enabled: true
   cookies:
     schemaVersion: 1.0.0
+    enabled: true
   redactor:
     schemaVersion: 2.2.2
+    enabled: true
 sections:
   de7026b1-fc54-49fa-93ab-9759b3c72110:
     name: Homepage
