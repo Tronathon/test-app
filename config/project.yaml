@@ -1,4 +1,4 @@
-dateModified: 1554889566
+dateModified: 1554890333
 email:
   fromEmail: webdev@nixondesign.com
   fromName: Craft
@@ -306,9 +306,9 @@ sites:
     handle: default
     language: en-GB
     hasUrls: true
-    baseUrl: $DEFAULT_SITE_URL
-    sortOrder: 1
-    primary: true
+    baseUrl: ''
+    sortOrder: '1'
+    primary: '1'
 system:
   edition: solo
   name: Craft
