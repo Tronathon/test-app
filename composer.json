@@ -21,7 +21,7 @@
   },
   "scripts": {
 		"craft-update": [
-			"composer require craftcms/cms '^3.1' craftcms/redactor '^2.1' nystudio107/craft-cookies '^1.1'",
+			"composer require craftcms/cms '^3.1' craftcms/redactor '^2.1' nystudio107/craft-cookies '^1.1' clubstudioltd/craft-asset-rev '^6.0'",
 			"./craft migrate/all"
 		],
 		"post-root-package-install": [

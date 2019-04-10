@@ -1,53 +1,21 @@
-dateModified: 1554821798
+dateModified: 1554889566
 email:
   fromEmail: webdev@nixondesign.com
-  fromName: Test
+  fromName: Craft
+  template: null
   transportType: craft\mail\transportadapters\Sendmail
+  transportSettings: null
 fieldGroups:
   059578ee-ad91-4430-b467-c870d8cf1579:
     name: Common
   fb69239b-76a5-43f2-b59f-0adffcac83e7:
     name: SEO
 fields:
-  8cfd9379-c00e-49e6-88c5-e5394a3eaf7c:
-    name: 'Meta Title'
-    handle: metaTitle
-    instructions: ''
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\PlainText
-    settings:
-      placeholder: ''
-      code: ''
-      multiline: ''
-      initialRows: '4'
-      charLimit: ''
-      columnType: text
-    contentColumnType: text
-    fieldGroup: fb69239b-76a5-43f2-b59f-0adffcac83e7
-  eabfed67-715e-4222-9e32-9bd51ac22471:
-    name: 'Meta Description'
-    handle: metaDescription
-    instructions: ''
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\PlainText
-    settings:
-      placeholder: ''
-      code: ''
-      multiline: ''
-      initialRows: '4'
-      charLimit: ''
-      columnType: text
-    contentColumnType: text
-    fieldGroup: fb69239b-76a5-43f2-b59f-0adffcac83e7
   9435729b-0cbb-4d4c-bc3d-1abd51e3892e:
     name: 'Alt text'
     handle: alt
     instructions: ''
-    searchable: false
+    searchable: '0'
     translationMethod: none
     translationKeyFormat: null
     type: craft\fields\PlainText
@@ -58,13 +26,13 @@ fields:
       initialRows: '4'
       charLimit: ''
       columnType: text
-    contentColumnType: text
     fieldGroup: 059578ee-ad91-4430-b467-c870d8cf1579
+    contentColumnType: text
   7867a02a-c8b9-4136-8ffe-fcece191ca3c:
     name: Body
     handle: body
     instructions: ''
-    searchable: true
+    searchable: '1'
     translationMethod: site
     translationKeyFormat: null
     type: craft\fields\Matrix
@@ -73,20 +41,101 @@ fields:
       maxBlocks: ''
       contentTable: '{{%matrixcontent_body}}'
       localizeBlocks: false
-    contentColumnType: string
     fieldGroup: 059578ee-ad91-4430-b467-c870d8cf1579
+    contentColumnType: string
+  8cfd9379-c00e-49e6-88c5-e5394a3eaf7c:
+    name: 'Meta Title'
+    handle: metaTitle
+    instructions: ''
+    searchable: '1'
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    fieldGroup: fb69239b-76a5-43f2-b59f-0adffcac83e7
+    contentColumnType: text
+  eabfed67-715e-4222-9e32-9bd51ac22471:
+    name: 'Meta Description'
+    handle: metaDescription
+    instructions: ''
+    searchable: '1'
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    fieldGroup: fb69239b-76a5-43f2-b59f-0adffcac83e7
+    contentColumnType: text
 matrixBlockTypes:
-  aa2eaa16-dc8a-46f9-a82f-fc5d7a460eb8:
+  b8cc71a5-3887-4789-a31a-c9b7b7960631:
+    name: Text
+    handle: text
+    sortOrder: '2'
     field: 7867a02a-c8b9-4136-8ffe-fcece191ca3c
+    fieldLayouts:
+      cb92abef-facf-4b86-8521-8ef1ffd73466:
+        tabs:
+          -
+            name: Content
+            sortOrder: '1'
+            fields:
+              e6a60e1a-23f0-4d30-b809-561e56330f27:
+                required: '1'
+                sortOrder: '1'
+    fields:
+      e6a60e1a-23f0-4d30-b809-561e56330f27:
+        name: Text
+        handle: text
+        instructions: ''
+        searchable: '1'
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Standard.json
+          purifierConfig: ''
+          cleanupHtml: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        fieldGroup: null
+        contentColumnType: text
+  aa2eaa16-dc8a-46f9-a82f-fc5d7a460eb8:
     name: Heading
     handle: heading
-    sortOrder: 1
+    sortOrder: '1'
+    field: 7867a02a-c8b9-4136-8ffe-fcece191ca3c
+    fieldLayouts:
+      1b052929-8c4b-4400-b778-4ee14a43782f:
+        tabs:
+          -
+            name: Content
+            sortOrder: '1'
+            fields:
+              761cac28-e032-467b-96ed-b3a0d1b17c2f:
+                required: '1'
+                sortOrder: '1'
+              171d8286-303a-4222-8f11-664c1dd49891:
+                required: '1'
+                sortOrder: '2'
     fields:
       761cac28-e032-467b-96ed-b3a0d1b17c2f:
         name: Level
         handle: hx
         instructions: ''
-        searchable: true
+        searchable: '1'
         translationMethod: none
         translationKeyFormat: null
         type: craft\fields\Dropdown
@@ -104,13 +153,13 @@ matrixBlockTypes:
               label: Three
               value: '3'
               default: ''
-        contentColumnType: string
         fieldGroup: null
+        contentColumnType: string
       171d8286-303a-4222-8f11-664c1dd49891:
         name: Heading
         handle: heading
         instructions: ''
-        searchable: true
+        searchable: '1'
         translationMethod: none
         translationKeyFormat: null
         type: craft\fields\PlainText
@@ -121,66 +170,29 @@ matrixBlockTypes:
           initialRows: '4'
           charLimit: ''
           columnType: text
-        contentColumnType: text
         fieldGroup: null
-    fieldLayouts:
-      1b052929-8c4b-4400-b778-4ee14a43782f:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              761cac28-e032-467b-96ed-b3a0d1b17c2f:
-                required: true
-                sortOrder: 1
-              171d8286-303a-4222-8f11-664c1dd49891:
-                required: true
-                sortOrder: 2
-  b8cc71a5-3887-4789-a31a-c9b7b7960631:
-    field: 7867a02a-c8b9-4136-8ffe-fcece191ca3c
-    name: Text
-    handle: text
-    sortOrder: 2
-    fields:
-      e6a60e1a-23f0-4d30-b809-561e56330f27:
-        name: Text
-        handle: text
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\redactor\Field
-        settings:
-          redactorConfig: Standard.json
-          purifierConfig: ''
-          cleanupHtml: '1'
-          purifyHtml: '1'
-          columnType: text
-          availableVolumes: '*'
-          availableTransforms: '*'
         contentColumnType: text
-        fieldGroup: null
-    fieldLayouts:
-      cb92abef-facf-4b86-8521-8ef1ffd73466:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              e6a60e1a-23f0-4d30-b809-561e56330f27:
-                required: true
-                sortOrder: 1
   bf649cdd-30ce-490d-aef0-493c9bb4651b:
-    field: 7867a02a-c8b9-4136-8ffe-fcece191ca3c
     name: Blockquote
     handle: blockquote
-    sortOrder: 3
+    sortOrder: '3'
+    field: 7867a02a-c8b9-4136-8ffe-fcece191ca3c
+    fieldLayouts:
+      b00bc0a1-a48e-42d0-9638-f08dc9c9727a:
+        tabs:
+          -
+            name: Content
+            sortOrder: '1'
+            fields:
+              0e5225da-6c68-42ca-bde8-3a2247219969:
+                required: '1'
+                sortOrder: '1'
     fields:
       0e5225da-6c68-42ca-bde8-3a2247219969:
         name: Quote
         handle: quote
         instructions: ''
-        searchable: true
+        searchable: '1'
         translationMethod: none
         translationKeyFormat: null
         type: craft\fields\PlainText
@@ -191,29 +203,29 @@ matrixBlockTypes:
           initialRows: '2'
           charLimit: ''
           columnType: text
-        contentColumnType: text
         fieldGroup: null
+        contentColumnType: text
+  8b71776a-54bd-43e6-a5f1-9f6e2c5c516b:
+    name: Image
+    handle: image
+    sortOrder: '4'
+    field: 7867a02a-c8b9-4136-8ffe-fcece191ca3c
     fieldLayouts:
-      b00bc0a1-a48e-42d0-9638-f08dc9c9727a:
+      d04d55c2-baff-4088-b0e7-a2f6f64e3c93:
         tabs:
           -
             name: Content
-            sortOrder: 1
+            sortOrder: '1'
             fields:
-              0e5225da-6c68-42ca-bde8-3a2247219969:
-                required: true
-                sortOrder: 1
-  8b71776a-54bd-43e6-a5f1-9f6e2c5c516b:
-    field: 7867a02a-c8b9-4136-8ffe-fcece191ca3c
-    name: Image
-    handle: image
-    sortOrder: 4
+              7587301a-42cc-4897-a382-de451d6a474c:
+                required: '1'
+                sortOrder: '1'
     fields:
       7587301a-42cc-4897-a382-de451d6a474c:
         name: Image
         handle: image
         instructions: ''
-        searchable: true
+        searchable: '1'
         translationMethod: site
         translationKeyFormat: null
         type: craft\fields\Assets
@@ -234,33 +246,17 @@ matrixBlockTypes:
           limit: '1'
           selectionLabel: 'Add an image'
           localizeRelations: false
-        contentColumnType: string
         fieldGroup: null
-    fieldLayouts:
-      d04d55c2-baff-4088-b0e7-a2f6f64e3c93:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              7587301a-42cc-4897-a382-de451d6a474c:
-                required: true
-                sortOrder: 1
+        contentColumnType: string
 plugins:
   assetrev:
-    edition: standard
-    enabled: true
     schemaVersion: 1.0.0
   cookies:
-    edition: standard
-    enabled: true
     schemaVersion: 1.0.0
   redactor:
-    edition: standard
-    enabled: true
     schemaVersion: 2.2.2
 sections:
-  c16200f5-fab8-48f7-98cf-7e54859ad6aa:
+  de7026b1-fc54-49fa-93ab-9759b3c72110:
     name: Homepage
     handle: homepage
     type: single
@@ -273,14 +269,14 @@ sections:
         uriFormat: __home__
         template: index
     entryTypes:
-      e30df910-1eb5-4038-b6a8-47572e18d75b:
+      e11afaf6-11f4-4cb1-944a-ee397b8d8270:
         name: Homepage
         handle: homepage
-        hasTitleField: '0'
+        hasTitleField: false
         titleLabel: null
         titleFormat: '{section.name|raw}'
         sortOrder: 1
-  79c48387-15a9-4af9-9366-aa890b618850:
+  9dc3c5ac-0e8f-4d8e-a51c-a7ac78891c7f:
     name: 'Page Not Found'
     handle: pageNotFound
     type: single
@@ -293,7 +289,7 @@ sections:
         uriFormat: '404'
         template: '404'
     entryTypes:
-      8108bc28-eb47-4d68-9d9b-46b12081a895:
+      4a8d5656-d418-4987-99e9-5219c2d65824:
         name: 'Page Not Found'
         handle: pageNotFound
         hasTitleField: false
@@ -301,13 +297,11 @@ sections:
         titleFormat: '{section.name|raw}'
         sortOrder: 1
 siteGroups:
-  e78fe72d-beb0-4673-b595-3ca3f4efc180:
-    name: Test
   e70939fb-8b55-4880-b361-6437b2756120:
     name: Craft
 sites:
   29077885-d696-4ee7-9a99-ea42e8f64311:
-    siteGroup: e78fe72d-beb0-4673-b595-3ca3f4efc180
+    siteGroup: e70939fb-8b55-4880-b361-6437b2756120
     name: Craft
     handle: default
     language: en-GB
@@ -321,27 +315,12 @@ system:
   live: true
   schemaVersion: 3.1.26
   timeZone: Europe/London
-users:
-  requireEmailVerification: true
-  allowPublicRegistration: false
-  defaultGroup: null
-  photoVolumeUid: null
-  photoSubpath: ''
 volumes:
-  795e072f-98ce-4a14-ae63-4e3a4e5142ca:
-    name: Documents
-    handle: documents
-    type: craft\volumes\Local
-    hasUrls: true
-    url: '@web/uploads/documents'
-    settings:
-      path: '@webroot/uploads/documents'
-    sortOrder: 1
   9e21bfc8-59c7-4a1e-9695-b710f984ea53:
     name: Images
     handle: images
     type: craft\volumes\Local
-    hasUrls: true
+    hasUrls: '1'
     url: '@web/uploads/images'
     settings:
       path: '@webroot/uploads/images'
@@ -351,8 +330,17 @@ volumes:
         tabs:
           -
             name: Content
-            sortOrder: 1
+            sortOrder: '1'
             fields:
               9435729b-0cbb-4d4c-bc3d-1abd51e3892e:
-                required: false
-                sortOrder: 1
+                required: '0'
+                sortOrder: '1'
+  795e072f-98ce-4a14-ae63-4e3a4e5142ca:
+    name: Documents
+    handle: documents
+    type: craft\volumes\Local
+    hasUrls: '1'
+    url: '@web/uploads/documents'
+    settings:
+      path: '@webroot/uploads/documents'
+    sortOrder: '1'
