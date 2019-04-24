@@ -1,0 +1,11 @@
+.c-product {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.c-product__item {
+	width: 22.5%;
+	margin: 3%;
+}

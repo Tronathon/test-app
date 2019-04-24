@@ -17,13 +17,15 @@
 				<meta name="description" content="{{ metaDescription }}">
 			{% endif %}
 
-			<link rel="stylesheet" href="{{ rev('/assets/styles/main.css') }}">
+			<link rel="stylesheet" href="{{ rev('/assets/entry.css') }}">
 
 			{# Google Search Console #}
 			<meta name="google-site-verification" content="qCWLebb8ScyHPplx24yMzHG9ijHTWQQ-d-Fh8pnzLz8">
 
 			{# Replace no-js class with js #}
 			<script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';</script>
+
+
 		{% endblock %}
 	</head>
 
@@ -45,7 +47,11 @@
 		] %}
 
 		<script defer src="https://cdn.polyfill.io/v2/polyfill.js?features={{ polyfills|join(',') }}"></script>
-		<script defer src="{{ rev('/assets/scripts/main.js') }}"></script>
+		<script defer src="{{ rev('/assets/entry.js') }}"></script>
+		{# <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> #}
+		{# <script src="https://unpkg.com/vue-router"></script> #}
+
+
 
 		{% if (not craft.app.config.general.devMode) and (not craft.app.request.isLivePreview) and (doNotTrack == false) %}
 			{# Google Analytics - https://analytics.google.com #}

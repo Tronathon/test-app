@@ -5,6 +5,8 @@
 // Colors
 $white: #fff;
 $black: #000;
+$yellow: #ffe4b1;
+$grape: #e0b9c0;
 
 $body-background-color: $white;
 $body-color: $black;
@@ -43,3 +45,14 @@ $breakpoint-map: (
 // -------------------------------------------
 
 $base-font-size: 16;
+
+$typography-map: (
+	fjalla: (
+		1: ( "font-size": 22, "line-height": 24 ),
+		2: ( "font-size": 18, "line-height": 20 ),
+		3: ( "font-size": 26, "line-height": 28 ),
+		4: ( "font-size": 32, "line-height": 34 ),
+		5: ( "font-size": 60, "line-height": 66 ),
+		6: ( "font-size": 28, "line-height": 30 ),
+	)
+);
