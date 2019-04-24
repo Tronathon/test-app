@@ -8,25 +8,5 @@
 {% block content %}
 	<main id="content">
 		<h1>{{ entry.title }}</h1>
-		<div id="app">
-			{# <!-- <router-view></router-view> -->
-			<ol class="c-product">
-				<!-- <router-link v-bind:to="{path: 'home'}">Item</router-link> -->
-				<a class="c-product__item" v-for="photo in info.slice(0, 27)">
-					<li>
-						<img v-bind:src="photo.img_src"></img>
-						<div>${ photo.camera.full_name }</div>
-						<div>${ photo.earth_date }</div>
-					</li>
-				</a>
-			</ol> #}
-			${ message }
-			<Home></Home>
-			<Entry></Entry>
-		</div>
 	</main>
-
 {% endblock %}
-
-
-
