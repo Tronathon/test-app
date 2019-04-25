@@ -1,4 +1,4 @@
-# Craft Starter
+# [Project Name]
 
 ## Requirements
 
@@ -12,11 +12,9 @@ As per [Craft CMS Server Requirements](https://github.com/craftcms/docs/blob/v3/
 
 ## Getting Started
 
-Craft will use the `config/project-config.yml` to set up some basic sections, fields etc.
-
 1. Clone repository.
-2. Create a new host and database.
-3. Create a new composer project via `$ composer create-project`.
-4. Setup Craft via `$ ./craft setup`.
-5. Update Craft via `$ ./craft update`.
-6. Install npm dependencies via `$ npm install`.
+2. Create new host.
+2. Create new database and import database from live site.
+3. Install composer dependencies via `$ composer install`.
+4. Create a new `.env` file from `.env.example`.
+5. Install npm dependencies via `$ npm install`.

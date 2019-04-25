@@ -19,6 +19,7 @@ import uglify from 'gulp-uglify';
 import yargs from 'yargs';
 import dotenv from 'dotenv';
 import watchify from 'watchify';
+import vueComponent from 'gulp-vue-single-file-component';
 
 dotenv.config();
 
@@ -55,6 +56,12 @@ const paths = {
 	styles: {
 		src: `${root.src}/styles/**/*.{scss, css}`,
 		dest: `${root.dest}/styles`,
+	},
+
+	components: {
+		entry: `${root.src}/scripts/app.js`,
+		src: `${root.src}/scripts/**/*.vue`,
+		dest: `${root.dest}/scripts/`,
 	},
 };
 
@@ -154,6 +161,36 @@ function scripts(watch = false) {
 	return bundle;
 }
 
+function components(watch = false) {
+	const opts = {
+		cache: {},
+		debug: true,
+		entries: paths.components.entry,
+		packageCache: {},
+		transform: [babelify],
+	};
+
+	const b = watch ? watchify(browserify(opts)) : browserify(opts);
+
+	function bundle() {
+		return b.bundle()
+			.pipe(vueComponent({ debug: true }))
+			.pipe(source('main.js'))
+			.pipe(buffer())
+			.pipe(sourcemaps.init({ loadMaps: true }))
+			.pipe(uglify())
+			.pipe(size({ gzip: true }))
+			.pipe(sourcemaps.write('./'))
+			.pipe(gulp.dest(paths.components.dest));
+	}
+
+	if (watch) {
+		b.on('update', bundle);
+	}
+
+	return bundle;
+}
+
 function startServer() {
 	const config = {
 		open: false,
@@ -175,6 +212,7 @@ export function watch() {
 	gulp.watch(paths.styles.src, gulp.series(lintstyles, styles));
 	gulp.watch(paths.icons.src, gulp.series(sprite, reload));
 	gulp.watch(paths.scripts.src, gulp.series(scripts(true)));
+	gulp.watch(paths.components.src, gulp.series(components(true)));
 	gulp.watch(paths.fonts.src, gulp.series(fonts, reload)).on('unlink', syncOnDelete);
 	gulp.watch(paths.images.src, gulp.series(images, reload)).on('unlink', syncOnDelete);
 }
@@ -182,6 +220,6 @@ export function watch() {
 export const serve = gulp.parallel(startServer, watch);
 
 export const build = gulp.series(clean,
-	gulp.series(lintstyles, fonts, icons, images, scripts(false), styles));
+	gulp.series(lintstyles, fonts, icons, images, scripts(false), styles, components(false)));
 
 export default serve;

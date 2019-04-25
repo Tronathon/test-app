@@ -1,6 +1,19 @@
 /**
  * Typography
  */
+@mixin fjalla($level) {
+	@include typography("fjalla", $level);
+	font-family: sans-serif;
+
+	.fonts-loaded & {
+		font-family: "Fjalla One", sans-serif;
+	}
+}
+
+body {
+	@include fjalla(2);
+	color: $grape;
+}
 
 a {
 	color: inherit;
