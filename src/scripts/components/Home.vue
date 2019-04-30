@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <nav class="navbar">
+	<div>
+	<nav class="navbar">
       <form class="searchbar">
         <label>
           <span class='screen-reader-only'>Search:</span>
@@ -18,18 +18,19 @@
         </button>
       </form>
     </nav>
+
    <div class="wrapper">
       <p v-if="loading" class="text-centered">
         Loading...
       </p>
       <ul v-else class="image-card-grid">
         <entry
-          v-for="image in cleanImages"
+		  		v-for="image in cleanImages"
           :key="image.id"
-          :image="image" />
+          :image="image">
+		</entry>
       </ul>
    </div>
-  </div>
 </template>
 
 <script>
@@ -38,9 +39,9 @@ import axios from 'axios';
 import Entry from './Entry';
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
-    Entry
+		Entry
   },
   data() {
     return {
@@ -51,7 +52,7 @@ export default {
   },
   computed: {
 	cleanImages() {
-		return this.images.filter(image => image.url_n)
+		return this.images.filter(image => image.url_n);
 	}
   },
   methods: {
@@ -81,9 +82,13 @@ export default {
           nojsoncallback: 1,
           per_page: 30,
         }
-      })
-    }
-  }
+			})
+	},
+	submit: function() {
+		this.$emit("inputData", this.tag);
+		this.tag = '';
+	}
+	}
 }
 </script>
 
@@ -160,4 +165,3 @@ export default {
   margin-left: 1rem;
 }
 </style>
-
