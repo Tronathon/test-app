@@ -28,7 +28,7 @@
 		  		v-for="image in cleanImages"
           :key="image.id"
           :image="image">
-		</entry>
+				</entry>
       </ul>
    </div>
 </template>
@@ -38,33 +38,33 @@
 import axios from 'axios';
 import Entry from './Entry';
 
+
 export default {
   name: 'Home',
   components: {
 		Entry
-  },
+	},
   data() {
     return {
       loading: false,
       tag: '',
       images: []
     }
-  },
-  computed: {
-	cleanImages() {
-		return this.images.filter(image => image.url_n);
-	}
-  },
+	},
+	computed: {
+		cleanImages() {
+			return this.images.filter(image => image.url_n)
+		}
+	},
   methods: {
     search() {
       this.loading = true;
       this.fetchImages()
         .then((response) => {
-		  this.images = response.data.photos.photo;
-		  this.loading = false;
-		  this.tag = "";
-		})
-		 .catch((error) => {
+          this.images = response.data.photos.photo;
+          this.loading = false;
+        })
+        .catch((error) => {
           console.log("An error ocurred: ", error);
         })
     },
@@ -82,14 +82,10 @@ export default {
           nojsoncallback: 1,
           per_page: 30,
         }
-			})
-	},
-	submit: function() {
-		this.$emit("inputData", this.tag);
-		this.tag = '';
-	}
-	}
-}
+      })
+    },
+  }
+};
 </script>
 
 <style lang="scss">

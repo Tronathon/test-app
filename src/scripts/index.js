@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Overview from './components/Overview';
 import {router} from './routes.js';
 
+
 Vue.config.productionTip = true;
 
 new Vue({
@@ -9,7 +10,5 @@ new Vue({
 	router
 
 }).$mount('#app');
-
-
 
 

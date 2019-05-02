@@ -10,16 +10,17 @@
 				<p class="image-views">Views: {{image.views}}</p>
 			</section>
 		</div>
-  	</div>
+	</div>
 </template>
 
 <script>
-
+import Home from './Home';
 export default {
 	name: 'Detail',
-	data: {
-			image: []
-		}
+	component: {
+		Home
+	},
+	props: ['image']
 }
 
 </script>
