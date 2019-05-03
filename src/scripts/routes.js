@@ -1,13 +1,24 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Router from 'vue-router';
 import Home from './components/Home';
-import Detail from './components/Detail';
+import SearchResults from './components/SearchResults';
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
-export const router = new VueRouter({
-		routes: [
-			{ path: '/', component: Home, name: 'home' },
-			{ path: '/photo/:id', component: Detail, name: 'photo' }
-		]
-	});
+export default new Router({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+    },
+    {
+      path: '/search/:tag',
+      name: 'searchResults',
+      component: SearchResults,
+      props: true,
+    },
+  ],
+});
