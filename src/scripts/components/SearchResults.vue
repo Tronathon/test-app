@@ -13,7 +13,7 @@
       </ul> -->
 			<h1>Results for: "{{tag}}"</h1>
 
-			<ul v-if="!loading" class="image-card-grid">
+			<ul v-if="loading" class="image-card-grid">
 				<entry v-for="image in cleanImages" :key="image.id" :image="image" />
 			</ul>
 
@@ -33,9 +33,6 @@ export default {
   components: {
 		Entry,
 	},
-	props: {
-    tag: String
-	},
 	created() {
 		this.search();
 	},
@@ -50,6 +47,9 @@ export default {
       tag: '',
       images: []
     }
+	},
+	props: {
+    tag: String
 	},
 	computed: {
     isTagEmpty() {

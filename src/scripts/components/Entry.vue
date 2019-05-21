@@ -1,6 +1,6 @@
 <template>
 
-	<router-link v-bind:to="{name: 'searchResults'}" class="image-card">
+	<router-link :to="{name: 'image', params: {id: image.id}}" class="image-card">
 
 		<li>
 			<img
